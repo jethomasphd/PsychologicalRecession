@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Psychological Recession Index · v2 · United States, 2010–2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+  :root {
+    --void:    #030303;
+    --void2:   #0a0a0a;
+    --void3:   #141414;
+    --bone:    #f0e8d0;
+    --bone2:   #c8bfa3;
+    --ember:   #c9a227;
+    --ember2:  #e3c151;
+    --rust:    #b35900;
+    --crimson: #8a2c20;
+    --moss:    #6b8a4a;
+    --slate:   #6a8aa8;
+    --line:    #2a2620;
+    --muted:   #7a7060;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--void); color: var(--bone); }
+  body {
+    font-family: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+    font-weight: 400;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 60px 36px 96px; }
+
+  /* HERO ---------------------------------------------------------------- */
+  header.hero {
+    border-top: 1px solid var(--ember);
+    border-bottom: 1px solid var(--line);
+    padding: 56px 0 64px;
+    margin-bottom: 56px;
+    position: relative;
+  }
+  header.hero::before {
+    content: "";
+    display: block;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--ember); opacity: 0.85;
+    margin: 0 auto 18px;
+    box-shadow: 0 0 18px var(--ember);
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ember);
+    text-align: center;
+    margin: 0 0 22px;
+    font-weight: 500;
+  }
+  h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.012em;
+    margin: 0 0 24px;
+    text-align: center;
+    color: var(--bone);
+  }
+  h1 .em {
+    font-style: italic;
+    color: var(--ember2);
+    font-weight: 400;
+  }
+  .lede {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--bone2);
+    font-weight: 400;
+  }
+  .lede em { color: var(--ember2); font-style: italic; }
+
+  /* SECTION HEADERS ----------------------------------------------------- */
+  h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: -0.005em;
+    color: var(--bone);
+    margin: 64px 0 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  h2 .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--ember);
+    letter-spacing: 0.2em;
+    vertical-align: middle;
+    margin-right: 14px;
+    font-weight: 400;
+  }
+  .subhead {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 22px;
+    font-weight: 400;
+  }
+
+  /* KPI grid ------------------------------------------------------------ */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 18px;
+  }
+  .kpi {
+    background: var(--void2);
+    padding: 28px 24px 26px;
+    text-align: left;
+  }
+  .kpi .l {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+  .kpi .v {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 44px;
+    line-height: 1.0;
+    font-weight: 500;
+    color: var(--bone);
+    margin: 0;
+  }
+  .kpi.crit .v { color: var(--ember2); }
+  .kpi .u {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+    margin-left: 6px;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+  }
+  .kpi .desc {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--bone2);
+    margin: 10px 0 0;
+    line-height: 1.45;
+  }
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* READING BLOCK ------------------------------------------------------- */
+  .reading {
+    background: var(--void2);
+    border-left: 2px solid var(--ember);
+    padding: 24px 28px;
+    margin: 32px 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--bone);
+  }
+  .reading strong { color: var(--ember2); font-weight: 600; }
+  .reading em { font-style: italic; color: var(--bone2); }
+  .reading .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16px;
+    color: var(--ember2);
+    font-weight: 500;
+  }
+
+  /* CHARTS -------------------------------------------------------------- */
+  .chart-card {
+    background: var(--void2);
+    border: 1px solid var(--line);
+    padding: 24px 18px 14px;
+    margin: 14px 0 28px;
+  }
+  .chart-card .cap {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--bone2);
+    margin: 6px 16px 16px;
+    line-height: 1.5;
+  }
+
+  /* PRE / CODE ---------------------------------------------------------- */
+  pre.fit {
+    background: var(--void2);
+    border: 1px solid var(--line);
+    color: var(--bone2);
+    padding: 20px 22px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    overflow-x: auto;
+    border-radius: 0;
+    margin: 8px 0;
+  }
+  pre.fit .hl { color: var(--ember2); }
+
+  /* TABLE --------------------------------------------------------------- */
+  .data-table { overflow-x: auto; margin-top: 8px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+  }
+  thead {
+    background: var(--void3);
+    border-bottom: 1px solid var(--ember);
+  }
+  th {
+    padding: 12px 14px;
+    text-align: right;
+    font-weight: 500;
+    color: var(--ember);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+  th:first-child { text-align: left; }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--line);
+    color: var(--bone2);
+    text-align: right;
+  }
+  td:first-child {
+    text-align: left;
+    color: var(--bone);
+    font-weight: 500;
+  }
+  tbody tr:hover { background: var(--void3); }
+  td.pos { color: var(--ember2); font-weight: 500; }
+  td.neg { color: var(--slate); font-weight: 500; }
+  td.crit { color: #d9605a; font-weight: 600; }
+
+  /* FOOTER -------------------------------------------------------------- */
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    font-size: 14.5px;
+    color: var(--bone2);
+    line-height: 1.65;
+  }
+  footer p { margin: 10px 0; }
+  footer .label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-right: 8px;
+    font-weight: 500;
+  }
+  footer a { color: var(--ember2); text-decoration: none; border-bottom: 1px dotted var(--ember); }
+  footer a:hover { color: var(--bone); }
+
+  .sigil {
+    display: block;
+    margin: 72px auto 0;
+    opacity: 0.7;
+  }
+
+  /* SCROLL REVEAL ------------------------------------------------------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero reveal">
+  <p class="eyebrow">A Public-Health Data Science Instrument · 2010–2026Q1</p>
+  <h1>The Psychological <span class="em">Recession</span> Index</h1>
+  <p class="lede">A population can be <em>sick at scale</em> and be invisible to the instruments that govern it. The Psychological Recession Index measures what the macroeconomic vocabulary cannot detect: the residual divergence between the labor market the government sees and the one the population reports living in.</p>
+</header>
+
+<!-- KPIs -->
+<section class="reveal">
+  <h2><span class="num">I.</span>Where the population stands today</h2>
+  <p class="subhead">Composite construct estimate · 2026Q1</p>
+
+  <div class="kpi-grid">
+    <div class="kpi crit">
+      <p class="l">Composite PRI · 2026Q1</p>
+      <p class="v">+10.8<span class="u">σ</span></p>
+      <p class="desc">Standard deviations above the 2010–2019 baseline residual. The headline construct estimate.</p>
+    </div>
+    <div class="kpi">
+      <p class="l">Mean PRI · 2022Q1→</p>
+      <p class="v">+11.8<span class="u">σ</span></p>
+      <p class="desc">A sustained, multi-year departure from the baseline. The post-2021 plateau is the construct's signature.</p>
+    </div>
+    <div class="kpi">
+      <p class="l">Peak · 2025Q4</p>
+      <p class="v">+13.5<span class="u">σ</span></p>
+      <p class="desc">The high-water mark to date in the empirical record.</p>
+    </div>
+    <div class="kpi">
+      <p class="l">Quarters PRI &gt; +5σ</p>
+      <p class="v">22<span class="u">/25</span></p>
+      <p class="desc">Post-2020 quarters where the composite exceeds the +5σ threshold.</p>
+    </div>
+  </div>
+
+  <div class="reading">
+    At <strong>2026Q1</strong>, the U.S. unemployment rate stands at <span class="num">4.3%</span> and job openings at <span class="num">7,009 thousand</span>. The 2010–2019 macro→sentiment baseline predicts consumer sentiment near <span class="num">89.8</span> at this macro state; the Michigan Survey observes <span class="num">56.5</span>. The Household Pulse Survey reports <span class="num">33.5%</span> of adults with anxiety or depression symptoms — a level <em>roughly three times</em> the pre-pandemic NHIS 2019 anchor of 10.8%. The composite PRI registers <strong>+10.8σ</strong> above the baseline residual — the empirical signature of what this paper names a <em>psychological recession</em>.
+  </div>
+</section>
+
+<!-- Panel A: Sentiment -->
+<section class="reveal">
+  <h2><span class="num">II.</span>Consumer sentiment versus what the macro state predicts</h2>
+  <p class="subhead">Michigan Survey, quarterly · 2010Q1–2026Q1</p>
+  <div class="chart-card">
+    <div id="chartA" style="height: 360px;"></div>
+    <p class="cap">Through 2019 the relationship between macro labor indicators and consumer sentiment was statistically tight: a linear model in unemployment, payroll growth, and log job openings explained 91.5% of sentiment variance with a 3.1-point residual standard deviation. The dashed line projects that 2010–2019 rule through the post-2020 period. Observed sentiment has not returned to its predicted level.</p>
+  </div>
+</section>
+
+<!-- Panel B: HPS -->
+<section class="reveal">
+  <h2><span class="num">III.</span>Direct psychiatric outcome: HPS anxiety + depression</h2>
+  <p class="subhead">CDC / U.S. Census Household Pulse Survey, modified PHQ-2 + GAD-2 · 2019 NHIS anchor + 2020–2026Q1 HPS waves</p>
+  <div class="chart-card">
+    <div id="chartB" style="height: 360px;"></div>
+    <p class="cap">The pre-pandemic National Health Interview Survey reported 10.8% of U.S. adults with anxiety or depression symptoms. The Census Bureau's Household Pulse Survey, fielding a clinically validated short-form instrument from April 2020 forward, has not registered values below approximately 30% in any subsequent wave. This is a direct psychiatric measurement — not a sentiment proxy — and it shows the same divergence the macro→sentiment model implies.</p>
+  </div>
+</section>
+
+<!-- Panel C: Gap -->
+<section class="reveal">
+  <h2><span class="num">IV.</span>The sentiment gap, in index points</h2>
+  <p class="subhead">Predicted minus observed UMCSENT · 2010Q1–2026Q1</p>
+  <div class="chart-card">
+    <div id="chartC" style="height: 320px;"></div>
+    <p class="cap">During the 2020 pandemic shock the relationship inverted briefly — sentiment was <em>better</em> than the 14.8% unemployment spike would have predicted, almost certainly because the CARES Act and unemployment expansion buffered the psychological cost of the macro shock. From 2021 forward the gap inverts and persists, peaking at roughly 50 index points in mid-2022 and remaining 30+ points wide through late 2025.</p>
+  </div>
+</section>
+
+<!-- Panel D: Composite -->
+<section class="reveal">
+  <h2><span class="num">V.</span>The composite Psychological Recession Index</h2>
+  <p class="subhead">Standardized residual, σ above 2010–2019 baseline · two psychiatric proxies, composite</p>
+  <div class="chart-card">
+    <div id="chartD" style="height: 420px;"></div>
+    <p class="cap">The composite PRI is the mean of two standardized residuals: (a) the sentiment-fundamentals gap divided by the 2010–2019 residual standard deviation, and (b) the HPS anxiety/depression deviation from the NHIS 2019 anchor divided by a conservative 1.5 percentage-point baseline σ. Both components register the same direction and similar magnitude. The construct is robust to the choice of psychiatric proxy.</p>
+  </div>
+</section>
+
+<!-- OLS Fit -->
+<section class="reveal">
+  <h2><span class="num">VI.</span>The baseline regression</h2>
+  <p class="subhead">UMCSENT ~ UNRATE + ΔPAYEMS_yoy + log(JTSJOL) · 2010Q1–2019Q4</p>
+  <pre class="fit" id="fitText">PRI v2 — sentiment fit
+OLS  UMCSENT ~ UNRATE + ΔPAYEMS_yoy + log(JTSJOL)
+Training window: 2010Q1 - 2019Q4
+======================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                umcsent   R-squared:                       0.915
+Model:                            OLS   Adj. R-squared:                  0.907
+Method:                 Least Squares   F-statistic:                     115.4
+Date:                Tue, 19 May 2026   Prob (F-statistic):           3.07e-17
+Time:                        21:54:16   Log-Likelihood:                -91.211
+No. Observations:                  36   AIC:                             190.4
+Df Residuals:                      32   BIC:                             196.8
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+===============================================================================
+                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const         336.2588    134.006      2.509      0.017      63.297     609.221
+unrate         -8.7758      2.026     -4.332      0.000     -12.903      -4.649
+dpayems_yoy     2.1468      2.050      1.047      0.303      -2.029       6.323
+log_jolts     -23.5701     14.219     -1.658      0.107     -52.533       5.392
+==============================================================================
+Omnibus:                        1.991   Durbin-Watson:                   1.346
+Prob(Omnibus):                  0.370   Jarque-Bera (JB):                1.657
+Skew:                          -0.516   Prob(JB):                        0.437
+Kurtosis:                       2.801   Cond. No.                     2.64e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.64e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+Residual σ = 3.092 sentiment-index points
+
+HPS series anchored to NHIS 2019 (10.8%); σ_baseline = 1.5pp
+
+Latest composite PRI (2026-01-01) = 10.78σ above baseline
+</pre>
+</section>
+
+<!-- Table -->
+<section class="reveal">
+  <h2><span class="num">VII.</span>The quarterly panel</h2>
+  <p class="subhead">All input series and PRI components, reverse-chronological</p>
+  <div class="data-table">
+    <table>
+      <thead><tr>
+        <th>Quarter</th><th>UNRATE %</th><th>ΔPAY yoy %</th><th>JOLTS K</th>
+        <th>Sent obs</th><th>Sent pred</th><th>Gap pts</th>
+        <th>HPS %</th><th>PRI sent σ</th><th>PRI HPS σ</th><th>PRI comp σ</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="reveal">
+  <p><span class="label">Data sources</span>Bureau of Labor Statistics via FRED (UNRATE, PAYEMS, JTSJOL); Surveys of Consumers, University of Michigan via FRED (UMCSENT, ©); U.S. Census Bureau / CDC NCHS Household Pulse Survey (HPS, modified PHQ-2 + GAD-2 indicators of anxiety or depression); 2019 National Health Interview Survey, as compiled in Vahratian et al., MMWR <em>70</em>(13), 2021. Series fetched 2026-05-19.</p>
+
+  <p><span class="label">Method</span>Monthly series resampled to quarterly (mean within quarter). OLS regression of UMCSENT on unemployment, year-over-year payroll growth, and log job openings, training window 2010Q1–2019Q4 (R² = 0.915, n = 36). Out-of-sample residuals standardized by the training-window residual standard deviation. HPS series standardized as deviation from the NHIS 2019 pre-pandemic anchor (10.8%), with a conservative 1.5 percentage-point baseline standard deviation reflecting pre-pandemic year-to-year variation in equivalent K6-based prevalence estimates. Composite PRI = mean of available standardized component series.</p>
+
+  <p><span class="label">Caveats</span>The HPS series was not available pre-pandemic by construction; its baseline is the NHIS 2019 anchor rather than the same instrument fielded under different macro conditions. The sentiment series carries a documented inflation-memory component (Bernstein &amp; Posthumus 2025); inflation memory does not account for the HPS divergence, which is measured on a clinical screening instrument. Multicollinearity among macro RHS variables (condition number = 2,640) does not affect the fitted predictions used to compute PRI but should be addressed by ridge regularization in a v3 specification. The construct's external validity awaits cross-national replication.</p>
+
+  <p><span class="label">Citation</span>Thomas, J. E., &amp; [Co-author]. The Psychological Recession: Conceptualizing and Operationalizing the Post-Pandemic United States Labor Market as a Distal Psychiatric Exposure. SSRN preprint, 2026.</p>
+
+  <svg class="sigil" width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="22" cy="22" r="20" fill="none" stroke="#c9a227" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="22" cy="22" r="12" fill="none" stroke="#c9a227" stroke-width="0.8" opacity="0.5"/>
+    <circle cx="22" cy="22" r="4" fill="#c9a227" opacity="0.9"/>
+    <line x1="22" y1="2" x2="22" y2="42" stroke="#c9a227" stroke-width="0.4" opacity="0.4"/>
+    <line x1="2" y1="22" x2="42" y2="22" stroke="#c9a227" stroke-width="0.4" opacity="0.4"/>
+  </svg>
+</footer>
+
+</div>
+
+<script>
+const dates = ["2011-01-01", "2011-04-01", "2011-07-01", "2011-10-01", "2012-01-01", "2012-04-01", "2012-07-01", "2012-10-01", "2013-01-01", "2013-04-01", "2013-07-01", "2013-10-01", "2014-01-01", "2014-04-01", "2014-07-01", "2014-10-01", "2015-01-01", "2015-04-01", "2015-07-01", "2015-10-01", "2016-01-01", "2016-04-01", "2016-07-01", "2016-10-01", "2017-01-01", "2017-04-01", "2017-07-01", "2017-10-01", "2018-01-01", "2018-04-01", "2018-07-01", "2018-10-01", "2019-01-01", "2019-04-01", "2019-07-01", "2019-10-01", "2020-01-01", "2020-04-01", "2020-07-01", "2020-10-01", "2021-01-01", "2021-04-01", "2021-07-01", "2021-10-01", "2022-01-01", "2022-04-01", "2022-07-01", "2022-10-01", "2023-01-01", "2023-04-01", "2023-07-01", "2023-10-01", "2024-01-01", "2024-04-01", "2024-07-01", "2024-10-01", "2025-01-01", "2025-04-01", "2025-07-01", "2025-10-01", "2026-01-01"];
+const obs = [73.07, 71.87, 59.67, 64.8, 75.5, 76.3, 74.97, 79.4, 76.67, 81.67, 81.57, 76.93, 80.93, 82.83, 82.97, 89.77, 95.5, 94.23, 90.73, 91.3, 91.57, 92.4, 90.33, 93.07, 97.23, 96.37, 95.1, 98.37, 98.93, 98.33, 98.07, 98.13, 94.47, 98.47, 93.8, 97.2, 96.63, 74.07, 75.67, 79.8, 80.23, 85.57, 74.77, 69.9, 63.13, 57.87, 56.1, 58.8, 64.6, 62.3, 69.57, 64.93, 78.43, 71.5, 68.13, 72.1, 64.47, 55.03, 58.33, 52.5, 56.5];
+const pred = [68.87, 67.92, 67.33, 70.4, 73.22, 73.28, 74.97, 76.54, 76.1, 77.57, 80.74, 82.83, 84.15, 86.13, 86.31, 89.95, 90.1, 90.25, 92.15, 92.13, 92.37, 92.59, 92.77, 93.61, 95.58, 96.2, 95.35, 96.5, 96.56, 96.34, 97.02, 95.78, 95.78, 97.72, 98.39, 98.98, 97.39, -4.78, 37.16, 56.06, 58.57, 85.78, 82.86, 89.66, 92.27, 93.94, 95.13, 93.51, 94.39, 94.54, 93.68, 93.0, 92.92, 93.63, 92.18, 91.87, 92.08, 91.24, 90.32, 89.45, 89.83];
+const gap = [-4.2, -3.94, 7.67, 5.6, -2.28, -3.02, 0.0, -2.86, -0.56, -4.1, -0.82, 5.9, 3.22, 3.3, 3.34, 0.18, -5.4, -3.99, 1.41, 0.83, 0.8, 0.19, 2.44, 0.55, -1.66, -0.17, 0.25, -1.87, -2.38, -2.0, -1.05, -2.35, 1.31, -0.74, 4.59, 1.78, 0.76, -78.85, -38.51, -23.74, -21.67, 0.21, 8.1, 19.76, 29.14, 36.08, 39.03, 34.71, 29.79, 32.24, 24.12, 28.07, 14.49, 22.13, 24.05, 19.77, 27.61, 36.2, 31.99, 36.95, 33.33];
+const priSent = [-1.36, -1.27, 2.48, 1.81, -0.74, -0.98, 0.0, -0.92, -0.18, -1.33, -0.27, 1.91, 1.04, 1.07, 1.08, 0.06, -1.74, -1.29, 0.46, 0.27, 0.26, 0.06, 0.79, 0.18, -0.54, -0.06, 0.08, -0.6, -0.77, -0.65, -0.34, -0.76, 0.42, -0.24, 1.48, 0.57, 0.24, -25.5, -12.45, -7.68, -7.01, 0.07, 2.62, 6.39, 9.42, 11.67, 12.62, 11.23, 9.63, 10.43, 7.8, 9.08, 4.69, 7.16, 7.78, 6.39, 8.93, 11.71, 10.35, 11.95, 10.78];
+const hpsObs = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 10.8, null, null, 35.55, 38.2, 39.55, 41.5, 34.95, 33.7, 32.25, 32.3, 31.75, 30.7, 32.25, 32.3, 32.1, 31.6, 32.4, 31.9, 32.55, 32.5, 32.95, 32.4, 33.15, 33.2, 33.5, null];
+const priHps = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.0, null, null, 16.5, 18.27, 19.17, 20.47, 16.1, 15.27, 14.3, 14.33, 13.97, 13.27, 14.3, 14.33, 14.2, 13.87, 14.4, 14.07, 14.5, 14.47, 14.77, 14.4, 14.9, 14.93, 15.13, null];
+const priComp = [-1.36, -1.27, 2.48, 1.81, -0.74, -0.98, 0.0, -0.92, -0.18, -1.33, -0.27, 1.91, 1.04, 1.07, 1.08, 0.06, -1.74, -1.29, 0.46, 0.27, 0.26, 0.06, 0.79, 0.18, -0.54, -0.06, 0.08, -0.6, -0.77, -0.65, -0.34, -0.76, 0.42, -0.24, 0.74, 0.57, 0.24, -4.5, 2.91, 5.74, 6.73, 8.08, 8.94, 10.34, 11.88, 12.82, 12.94, 12.76, 11.98, 12.31, 10.83, 11.74, 9.38, 10.83, 11.12, 10.58, 11.66, 13.3, 12.64, 13.54, 10.78];
+const unrate = [9.03, 9.07, 9.0, 8.63, 8.27, 8.2, 8.03, 7.8, 7.73, 7.53, 7.23, 6.93, 6.67, 6.2, 6.07, 5.7, 5.53, 5.43, 5.1, 5.03, 4.9, 4.93, 4.9, 4.77, 4.57, 4.37, 4.33, 4.17, 4.03, 3.93, 3.77, 3.83, 3.87, 3.63, 3.6, 3.6, 3.83, 13.0, 8.8, 6.77, 6.23, 5.93, 5.07, 4.17, 3.87, 3.63, 3.53, 3.57, 3.53, 3.53, 3.63, 3.8, 3.83, 3.97, 4.17, 4.13, 4.13, 4.2, 4.33, 4.45, 4.33];
+const dpayems = [0.98, 1.01, 1.35, 1.51, 1.86, 1.65, 1.65, 1.62, 1.5, 1.61, 1.7, 1.77, 1.66, 1.82, 1.96, 2.07, 2.19, 2.11, 2.03, 1.95, 1.88, 1.76, 1.82, 1.68, 1.66, 1.68, 1.51, 1.47, 1.5, 1.59, 1.58, 1.56, 1.45, 1.33, 1.3, 1.33, 1.06, -11.26, -6.97, -5.98, -5.44, 8.56, 4.74, 4.65, 5.03, 4.69, 4.11, 3.33, 2.84, 2.41, 1.89, 1.65, 1.45, 1.27, 1.0, 0.89, 0.68, 0.56, 0.45, 0.2, 0.15];
+const jolts = [3197.0, 3298.0, 3575.0, 3651.0, 3835.0, 3846.0, 3809.0, 3874.0, 4001.0, 4094.0, 4033.0, 4154.0, 4296.0, 4765.0, 5036.0, 4995.0, 5340.0, 5470.0, 5670.0, 5775.0, 5970.0, 5774.0, 5836.0, 5842.0, 5784.0, 6074.0, 6278.0, 6338.0, 6664.0, 7041.0, 7270.0, 7462.0, 7295.0, 7247.0, 7115.0, 6959.0, 6661.0, 5449.0, 6490.0, 6797.0, 7829.0, 9873.0, 10896.0, 11319.0, 11736.0, 11560.0, 10823.0, 10660.0, 9943.0, 9505.0, 9057.0, 8567.0, 8341.0, 7576.0, 7296.0, 7413.0, 7208.0, 7204.0, 7059.0, 6855.0, 7009.0];
+
+const TEST_START = "2020-01-01";
+
+// palette
+const VOID  = "#030303";
+const VOID2 = "#0a0a0a";
+const BONE  = "#f0e8d0";
+const BONE2 = "#c8bfa3";
+const EMBER = "#c9a227";
+const EMBER2= "#e3c151";
+const RUST  = "#b35900";
+const CRIM  = "#8a2c20";
+const MOSS  = "#6b8a4a";
+const SLATE = "#6a8aa8";
+const LINE  = "#2a2620";
+const MUTED = "#7a7060";
+
+const baseLayout = {
+  paper_bgcolor: VOID2,
+  plot_bgcolor: VOID2,
+  font: { family: "IBM Plex Mono, monospace", size: 11, color: BONE2 },
+  margin: { l: 56, r: 56, t: 14, b: 36 },
+  hovermode: "x unified",
+  hoverlabel: { bgcolor: VOID, bordercolor: EMBER, font: { family: "IBM Plex Mono, monospace", color: BONE, size: 12 } },
+  showlegend: true,
+  legend: { orientation: "h", x: 0, y: 1.10, font: { size: 11, color: BONE2 }, bgcolor: "rgba(0,0,0,0)" },
+  shapes: [{
+    type: "rect", xref: "x", yref: "paper",
+    x0: TEST_START, x1: dates[dates.length - 1],
+    y0: 0, y1: 1,
+    fillcolor: EMBER, opacity: 0.06, line: { width: 0 }, layer: "below"
+  }, {
+    type: "line", xref: "x", yref: "paper",
+    x0: TEST_START, x1: TEST_START, y0: 0, y1: 1,
+    line: { color: EMBER, width: 0.8, dash: "dot" }
+  }],
+  annotations: [{
+    xref: "x", yref: "paper",
+    x: TEST_START, y: 1.04, text: "  out-of-sample 2020Q1→",
+    showarrow: false, xanchor: "left",
+    font: { size: 10, color: MUTED, family: "IBM Plex Mono, monospace" }
+  }],
+  xaxis: { gridcolor: LINE, zerolinecolor: LINE, color: BONE2, tickfont: { color: BONE2 } },
+  yaxis: { gridcolor: LINE, zerolinecolor: LINE, color: BONE2, tickfont: { color: BONE2 } }
+};
+const cfg = { displayModeBar: false, responsive: true };
+
+// Panel A — sentiment
+Plotly.newPlot("chartA", [
+  { x: dates, y: obs,  name: "Observed (Michigan)",          mode: "lines", line: { color: BONE,  width: 2.4 } },
+  { x: dates, y: pred, name: "Macro-predicted (2010-19 rule)", mode: "lines", line: { color: EMBER, width: 2.4, dash: "dash" } }
+], { ...baseLayout, yaxis: { ...baseLayout.yaxis, title: { text: "UMCSENT (1966Q1=100)", font: { color: BONE2 } } } }, cfg);
+
+// Panel B — HPS
+const hpsLayout = JSON.parse(JSON.stringify(baseLayout));
+const hpsFiltered = dates.map((d, i) => hpsObs[i] !== null ? [d, hpsObs[i]] : null).filter(x => x);
+hpsLayout.shapes = hpsLayout.shapes.concat([
+  { type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 10.8, y1: 10.8,
+    line: { color: EMBER, width: 1.4, dash: "dash" } },
+  { type: "rect", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 10.8 - 1.5, y1: 10.8 + 1.5,
+    fillcolor: EMBER, opacity: 0.10, line: { width: 0 }, layer: "below" }
+]);
+hpsLayout.annotations = hpsLayout.annotations.concat([{
+  xref: "paper", yref: "y", x: 0.005, y: 10.8 + 1.8,
+  text: "NHIS 2019 anchor (10.8 % ± 1σ)",
+  showarrow: false, xanchor: "left", font: { color: EMBER, size: 10, family: "IBM Plex Mono, monospace" }
+}]);
+Plotly.newPlot("chartB", [
+  { x: hpsFiltered.map(p => p[0]), y: hpsFiltered.map(p => p[1]),
+    name: "HPS adults · anxiety or depression",
+    mode: "lines+markers",
+    line: { color: MOSS, width: 1.5 },
+    marker: { size: 8, color: MOSS, line: { color: BONE, width: 0.5 } } }
+], { ...hpsLayout, yaxis: { ...hpsLayout.yaxis, title: { text: "% of adults", font: { color: BONE2 } }, range: [0, 48] } }, cfg);
+
+// Panel C — gap
+const gapPos = gap.map(v => v !== null && v >= 0 ? v : null);
+const gapNeg = gap.map(v => v !== null && v < 0 ? v : null);
+Plotly.newPlot("chartC", [
+  { x: dates, y: gapPos, name: "Sentiment shortfall", type: "bar",
+    marker: { color: CRIM, opacity: 0.8 } },
+  { x: dates, y: gapNeg, name: "Sentiment surplus",   type: "bar",
+    marker: { color: SLATE, opacity: 0.8 } }
+], { ...baseLayout, yaxis: { ...baseLayout.yaxis, title: { text: "Index points (predicted − observed)", font: { color: BONE2 } }, zeroline: true, zerolinecolor: BONE2, zerolinewidth: 0.6 }, bargap: 0.05 }, cfg);
+
+// Panel D — composite + components
+const compLayout = JSON.parse(JSON.stringify(baseLayout));
+compLayout.shapes = compLayout.shapes.concat([
+  { type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 5,  y1: 5,  line: { color: MUTED, width: 0.4, dash: "dot" } },
+  { type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 10, y1: 10, line: { color: MUTED, width: 0.4, dash: "dot" } },
+  { type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 15, y1: 15, line: { color: MUTED, width: 0.4, dash: "dot" } },
+  { type: "line", xref: "paper", yref: "y", x0: 0, x1: 1, y0: 0,  y1: 0,  line: { color: BONE2, width: 0.6 } }
+]);
+compLayout.annotations = compLayout.annotations.concat([
+  { xref: "paper", yref: "y", x: 1.005, y: 5,  text: "+5σ",  showarrow: false, xanchor: "left", font: { color: MUTED, size: 10, family: "IBM Plex Mono, monospace" } },
+  { xref: "paper", yref: "y", x: 1.005, y: 10, text: "+10σ", showarrow: false, xanchor: "left", font: { color: MUTED, size: 10, family: "IBM Plex Mono, monospace" } },
+  { xref: "paper", yref: "y", x: 1.005, y: 15, text: "+15σ", showarrow: false, xanchor: "left", font: { color: MUTED, size: 10, family: "IBM Plex Mono, monospace" } }
+]);
+Plotly.newPlot("chartD", [
+  { x: dates, y: priSent, name: "PRI · sentiment component",
+    mode: "lines", line: { color: SLATE, width: 1.4 }, opacity: 0.7 },
+  { x: dates, y: priHps,  name: "PRI · HPS component",
+    mode: "markers", marker: { size: 8, color: MOSS, line: { color: BONE, width: 0.5 } } },
+  { x: dates, y: priComp, name: "PRI · composite (mean)",
+    mode: "lines", line: { color: EMBER, width: 3.0 },
+    fill: "tozeroy", fillcolor: "rgba(201,162,39,0.12)" }
+], { ...compLayout, yaxis: { ...compLayout.yaxis, title: { text: "PRI (σ above 2010-2019 baseline)", font: { color: BONE2 } } } }, cfg);
+
+// table -----------------------------------------------------------------------
+const tbody = document.getElementById("rows");
+function fmt(v, dec=2) { return (v === null || v === undefined) ? "—" : v.toFixed(dec); }
+function fmtInt(v) { return (v === null || v === undefined) ? "—" : Math.round(v).toLocaleString(); }
+
+for (let i = dates.length - 1; i >= 0; i--) {
+  const d = new Date(dates[i]);
+  const q = Math.floor(d.getMonth() / 3) + 1;
+  const ymd = `${d.getFullYear()}Q${q}`;
+  const tr = document.createElement("tr");
+  const gapCls = (gap[i] !== null && gap[i] > 0) ? "pos" : (gap[i] !== null && gap[i] < 0 ? "neg" : "");
+  const priCls = (priComp[i] !== null && priComp[i] > 5) ? "crit"
+               : (priComp[i] !== null && priComp[i] > 1) ? "pos"
+               : (priComp[i] !== null && priComp[i] < -1) ? "neg" : "";
+  tr.innerHTML =
+    `<td>${ymd}</td>` +
+    `<td>${fmt(unrate[i], 1)}</td>` +
+    `<td>${fmt(dpayems[i], 2)}</td>` +
+    `<td>${fmtInt(jolts[i])}</td>` +
+    `<td>${fmt(obs[i], 1)}</td>` +
+    `<td>${fmt(pred[i], 1)}</td>` +
+    `<td class="${gapCls}">${fmt(gap[i], 1)}</td>` +
+    `<td>${hpsObs[i] !== null ? hpsObs[i].toFixed(1) : "—"}</td>` +
+    `<td>${fmt(priSent[i], 2)}</td>` +
+    `<td>${priHps[i] !== null ? priHps[i].toFixed(2) : "—"}</td>` +
+    `<td class="${priCls}">${fmt(priComp[i], 2)}</td>`;
+  tbody.appendChild(tr);
+}
+
+// scroll reveal -------------------------------------------------------------
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add("in");
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

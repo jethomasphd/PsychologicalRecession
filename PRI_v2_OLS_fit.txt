@@ -1,0 +1,39 @@
+PRI v2 — sentiment fit
+OLS  UMCSENT ~ UNRATE + ΔPAYEMS_yoy + log(JTSJOL)
+Training window: 2010Q1 - 2019Q4
+======================================================================
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                umcsent   R-squared:                       0.915
+Model:                            OLS   Adj. R-squared:                  0.907
+Method:                 Least Squares   F-statistic:                     115.4
+Date:                Tue, 19 May 2026   Prob (F-statistic):           3.07e-17
+Time:                        21:54:16   Log-Likelihood:                -91.211
+No. Observations:                  36   AIC:                             190.4
+Df Residuals:                      32   BIC:                             196.8
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+===============================================================================
+                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const         336.2588    134.006      2.509      0.017      63.297     609.221
+unrate         -8.7758      2.026     -4.332      0.000     -12.903      -4.649
+dpayems_yoy     2.1468      2.050      1.047      0.303      -2.029       6.323
+log_jolts     -23.5701     14.219     -1.658      0.107     -52.533       5.392
+==============================================================================
+Omnibus:                        1.991   Durbin-Watson:                   1.346
+Prob(Omnibus):                  0.370   Jarque-Bera (JB):                1.657
+Skew:                          -0.516   Prob(JB):                        0.437
+Kurtosis:                       2.801   Cond. No.                     2.64e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.64e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+Residual σ = 3.092 sentiment-index points
+
+HPS series anchored to NHIS 2019 (10.8%); σ_baseline = 1.5pp
+
+Latest composite PRI (2026-01-01) = 10.78σ above baseline
