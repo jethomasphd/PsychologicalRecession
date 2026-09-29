@@ -1,0 +1,3 @@
+year,sample_adults,aged_18_64,eligible_employment,both_symptom_recodes,complete_case,exposed_complete,comparator_complete,missing_outcomes,missing_covariates_after_outcomes
+2022,27651,18816,14192,14152,14080,407,13673,40,72
+2025,24215,15687,12295,12250,12201,389,11812,45,49

@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "checks": [
+    "hand-calculated stratified cluster variance",
+    "crude log prevalence ratio equals direct survey mean ratio",
+    "crude regression variance equals independent delta method",
+    "invariance to constant weight rescaling",
+    "exact reconstruction of complete-item PHQ-8 and GAD-7 recodes",
+    "all model convergence and estimating-equation residuals",
+    "all fitted means inside unit interval",
+    "sample accounting"
+  ],
+  "comparison_tolerance": 1e-08,
+  "pooled_design_df": 1133,
+  "crude_ratio": 2.108004805221278,
+  "crude_log_ratio_variance": 0.010098514096375459
+}

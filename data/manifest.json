@@ -1,0 +1,44 @@
+[
+  {
+    "file": "adult22csv.zip",
+    "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHIS/2022/adult22csv.zip",
+    "sha256": "25083298173acfff35c6635be0fbcaa3ff26b985e0a48fc5e7d9788761864dba",
+    "bytes": 3654579,
+    "retrieved_on": "2026-09-29"
+  },
+  {
+    "file": "2022_codebook.pdf",
+    "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2022/adult-codebook.pdf",
+    "sha256": "e8dca19a0df8bf9fe30c7c0d44d7570c385f49b088921a2a5676e50037aaef0e",
+    "bytes": 20953050,
+    "retrieved_on": "2026-09-29"
+  },
+  {
+    "file": "2022_survey_description.pdf",
+    "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2022/srvydesc-508.pdf",
+    "sha256": "d97a00b69c974fcccd446f309d1968b0c5bcba1706497d3a3f56882b69bb8e03",
+    "bytes": 1979636,
+    "retrieved_on": "2026-09-29"
+  },
+  {
+    "file": "adult25csv.zip",
+    "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Datasets/NHIS/2025/adult25csv.zip",
+    "sha256": "94d5477ffc3a03e292a3000da8eb5ad71626ae8032bbaa98c9711b7a3b572570",
+    "bytes": 3579199,
+    "retrieved_on": "2026-09-29"
+  },
+  {
+    "file": "2025_codebook.pdf",
+    "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/adult-codebook.pdf",
+    "sha256": "e112f79ff5575e2900068471529bf884d43423c465c5275c4abf3becc4a818c5",
+    "bytes": 16573265,
+    "retrieved_on": "2026-09-29"
+  },
+  {
+    "file": "2025_survey_description.pdf",
+    "url": "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_Documentation/NHIS/2025/srvydesc-508.pdf",
+    "sha256": "d8a8cc998bcdef46d4408eaaf275373702131042f49efad9b28e1c87dcf2106c",
+    "bytes": 2060384,
+    "retrieved_on": "2026-09-29"
+  }
+]

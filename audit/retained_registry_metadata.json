@@ -1,0 +1,843 @@
+[
+  {
+    "DOI": "10.1016/j.jvb.2009.01.001",
+    "title": [
+      "Unemployment impairs mental health: Meta-analyses"
+    ],
+    "author": [
+      {
+        "given": "Karsten I.",
+        "family": "Paul",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Klaus",
+        "family": "Moser",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of Vocational Behavior"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2009,
+          6
+        ]
+      ]
+    },
+    "volume": "74",
+    "issue": "3",
+    "page": "264-282",
+    "article-number": null,
+    "URL": "https://doi.org/10.1016/j.jvb.2009.01.001",
+    "key": "paul",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1177/0018726709334883",
+    "title": [
+      "Daily job search and psychological distress: Evidence from China"
+    ],
+    "author": [
+      {
+        "family": "Zhaoli Song",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "NUS Business School,"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Marilyn A.",
+        "family": "Uy",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Victorias Faculty of Business,"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "family": "Shuhua Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Sheng Yang Normal University,"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "family": "Kan Shi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Management School, Graduate University of Chinese Academy of Sciences,"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Human Relations"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2009,
+          7,
+          28
+        ]
+      ]
+    },
+    "volume": "62",
+    "issue": "8",
+    "page": "1171-1197",
+    "article-number": null,
+    "URL": "https://doi.org/10.1177/0018726709334883",
+    "key": "song",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1177/0022146510383498",
+    "title": [
+      "Social Conditions as Fundamental Causes of Health Inequalities: Theory, Evidence, and Policy Implications"
+    ],
+    "author": [
+      {
+        "given": "Jo C.",
+        "family": "Phelan",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Columbia University, jcp13@columbia.edu"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Bruce G.",
+        "family": "Link",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Columbia University, New York State Psychiatric Institute"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Parisa",
+        "family": "Tehranifar",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Columbia University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of Health and Social Behavior"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2010,
+          3
+        ]
+      ]
+    },
+    "volume": "51",
+    "issue": "1_suppl",
+    "page": "S28-S40",
+    "article-number": null,
+    "URL": "https://doi.org/10.1177/0022146510383498",
+    "key": "phelan",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1037/1076-8998.7.4.302",
+    "title": [
+      "Links in the chain of adversity following job loss: How financial strain and loss of personal control lead to depression, impaired functioning, and poor health."
+    ],
+    "author": [
+      {
+        "given": "Richard H.",
+        "family": "Price",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jin Nam",
+        "family": "Choi",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Amiram D.",
+        "family": "Vinokur",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of Occupational Health Psychology"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2002,
+          10
+        ]
+      ]
+    },
+    "volume": "7",
+    "issue": "4",
+    "page": "302-312",
+    "article-number": null,
+    "URL": "https://doi.org/10.1037/1076-8998.7.4.302",
+    "key": "price",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1016/j.socscimed.2021.114181",
+    "title": [
+      "The mark of mental health problems. A field experiment on hiring discrimination before and during COVID-19"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-9471-4853",
+        "authenticated-orcid": false,
+        "given": "Vegar",
+        "family": "Bjørnshagen",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Social Science &amp; Medicine"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2021,
+          8
+        ]
+      ]
+    },
+    "volume": "283",
+    "issue": null,
+    "page": "114181",
+    "article-number": "114181",
+    "URL": "https://doi.org/10.1016/j.socscimed.2021.114181",
+    "key": "bjorn",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1027/1866-5888/a000047",
+    "title": [
+      "Applicant Reactions to Rejection"
+    ],
+    "author": [
+      {
+        "given": "Sonja",
+        "family": "Schinkel",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Industrial and Organizational Psychology, University of Amsterdam, The Netherlands"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Dirk",
+        "family": "van Dierendonck",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Organization and Personnel Management, Rotterdam School of Management, Erasmus University Rotterdam, The Netherlands"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Annelies",
+        "family": "van Vianen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Industrial and Organizational Psychology, University of Amsterdam, The Netherlands"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Ann Marie",
+        "family": "Ryan",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Psychology, Michigan State University, East Lansing, MI, USA"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of Personnel Psychology"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2011,
+          1
+        ]
+      ]
+    },
+    "volume": "10",
+    "issue": "4",
+    "page": "146-156",
+    "article-number": null,
+    "URL": "https://doi.org/10.1027/1866-5888/a000047",
+    "key": "schinkel",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1037/1076-8998.5.1.32",
+    "title": [
+      "Two years after a job loss: Long-term impact of the JOBS program on reemployment and mental health."
+    ],
+    "author": [
+      {
+        "given": "Amiram D.",
+        "family": "Vinokur",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yaacov",
+        "family": "Schul",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jukka",
+        "family": "Vuori",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Richard H.",
+        "family": "Price",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of Occupational Health Psychology"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2000
+        ]
+      ]
+    },
+    "volume": "5",
+    "issue": "1",
+    "page": "32-47",
+    "article-number": null,
+    "URL": "https://doi.org/10.1037/1076-8998.5.1.32",
+    "key": "vinokur",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1016/j.jad.2008.06.026",
+    "title": [
+      "The PHQ-8 as a measure of current depression in the general population"
+    ],
+    "author": [
+      {
+        "given": "Kurt",
+        "family": "Kroenke",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tara W.",
+        "family": "Strine",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Robert L.",
+        "family": "Spitzer",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Janet B.W.",
+        "family": "Williams",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Joyce T.",
+        "family": "Berry",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ali H.",
+        "family": "Mokdad",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of Affective Disorders"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2009,
+          4
+        ]
+      ]
+    },
+    "volume": "114",
+    "issue": "1-3",
+    "page": "163-173",
+    "article-number": null,
+    "URL": "https://doi.org/10.1016/j.jad.2008.06.026",
+    "key": "kroenke",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1001/archinte.166.10.1092",
+    "title": [
+      "A Brief Measure for Assessing Generalized Anxiety Disorder"
+    ],
+    "author": [
+      {
+        "given": "Robert L.",
+        "family": "Spitzer",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Kurt",
+        "family": "Kroenke",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Janet B. W.",
+        "family": "Williams",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Bernd",
+        "family": "Löwe",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Archives of Internal Medicine"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2006,
+          5,
+          22
+        ]
+      ]
+    },
+    "volume": "166",
+    "issue": "10",
+    "page": "1092",
+    "article-number": null,
+    "URL": "https://doi.org/10.1001/archinte.166.10.1092",
+    "key": "spitzer",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1093/aje/kwh090",
+    "title": [
+      "A Modified Poisson Regression Approach to Prospective Studies with Binary Data"
+    ],
+    "author": [
+      {
+        "given": "G.",
+        "family": "Zou",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "American Journal of Epidemiology"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2004,
+          4,
+          1
+        ]
+      ]
+    },
+    "volume": "159",
+    "issue": "7",
+    "page": "702-706",
+    "article-number": null,
+    "URL": "https://doi.org/10.1093/aje/kwh090",
+    "key": "zou",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1037/apl0000435",
+    "title": [
+      "How strong is my safety net? Perceived unemployment insurance generosity and implications for job search, mental health, and reemployment."
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0003-3536-9740",
+        "authenticated-orcid": false,
+        "given": "Connie R.",
+        "family": "Wanberg",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Edwin A. J.",
+        "family": "van Hooft",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-9471-8782",
+        "authenticated-orcid": false,
+        "given": "Karyn",
+        "family": "Dossinger",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Annelies E. M.",
+        "family": "van Vianen",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Ute-Christine",
+        "family": "Klehe",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Journal of Applied Psychology"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2020,
+          3
+        ]
+      ]
+    },
+    "volume": "105",
+    "issue": "3",
+    "page": "209-229",
+    "article-number": null,
+    "URL": "https://doi.org/10.1037/apl0000435",
+    "key": "wanberg",
+    "verified_on": "2026-09-29"
+  },
+  {
+    "DOI": "10.1111/j.1744-6570.2004.00003.x",
+    "title": [
+      "Applicant Reactions to Selection Procedures: An Updated Model and Meta‐Analysis"
+    ],
+    "author": [
+      {
+        "given": "John P.",
+        "family": "Hausknecht",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "David V.",
+        "family": "Day",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Scott C.",
+        "family": "Thomas",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Personnel Psychology"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2004,
+          9
+        ]
+      ]
+    },
+    "volume": "57",
+    "issue": "3",
+    "page": "639-683",
+    "article-number": null,
+    "URL": "https://doi.org/10.1111/j.1744-6570.2004.00003.x",
+    "key": "hausknecht",
+    "verified_on": "2026-09-29"
+  }
+]

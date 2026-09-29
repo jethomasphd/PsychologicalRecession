@@ -1,0 +1,43 @@
+exposed,variable,category,weighted_percent,n
+0,age_group,18-29,25.2315965951,4768
+0,age_group,30-44,35.6880743302,9648
+0,age_group,45-54,21.4714983019,5612
+0,age_group,55-64,17.6088307728,5457
+0,sex,1.0,53.1822250496,12872
+0,sex,2.0,46.8177749504,12613
+0,race_ethnicity,Hispanic,20.0214810436,4503
+0,race_ethnicity,NH Asian,6.62231884335,1874
+0,race_ethnicity,NH Black,11.7453390499,2828
+0,race_ethnicity,NH White,58.7926085166,15565
+0,race_ethnicity,NH other,2.81825254651,715
+0,education,Bachelor or higher,38.7250655488,11721
+0,education,High school or GED,24.8542331368,5618
+0,education,Less than high school,7.43512940304,1333
+0,education,Some college or associate,28.9855719113,6813
+0,region,1,17.3800867163,4363
+0,region,2,21.0061718087,5533
+0,region,3,37.5221242364,9110
+0,region,4,24.0916172387,6479
+0,year,2022,48.6801638114,13673
+0,year,2025,51.3198361886,11812
+1,age_group,18-29,43.4301048721,249
+1,age_group,30-44,28.5262216132,246
+1,age_group,45-54,14.4387986317,140
+1,age_group,55-64,13.6048748829,161
+1,sex,1.0,55.4629302118,422
+1,sex,2.0,44.5370697882,374
+1,race_ethnicity,Hispanic,27.1297970047,192
+1,race_ethnicity,NH Asian,7.05382775434,68
+1,race_ethnicity,NH Black,18.4102496261,140
+1,race_ethnicity,NH White,42.7812919826,366
+1,race_ethnicity,NH other,4.62483363221,30
+1,education,Bachelor or higher,20.6084865846,218
+1,education,High school or GED,41.2711491068,288
+1,education,Less than high school,17.3038722115,111
+1,education,Some college or associate,20.8164920971,179
+1,region,1,17.4282842649,143
+1,region,2,16.5445877835,140
+1,region,3,39.6537950598,293
+1,region,4,26.3733328918,220
+1,year,2022,45.789346268,407
+1,year,2025,54.210653732,389
