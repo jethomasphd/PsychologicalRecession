@@ -1,0 +1,16 @@
+{
+  "build_dashboard_v2.py": "58aa2ac62108f652dd76ce45ab7c529585c5d3571cdea11b038aeb35111fbb04",
+  "build_PRI_v2.py": "e73f77ef67e66f9255b99f400c0ab8a00f8c7d27b82ed1667fa36050995a17ed",
+  "data_HPS_ANXDEP.csv": "9baff91edf3bd32e77db4cbedcf91fd74500b681388df33ab0db5e8a958e8777",
+  "data_JTSJOL.csv": "adad57906b5374e620e8cd56c3f90a04e69822c0ad35df42105a90199b689dcb",
+  "data_PAYEMS.csv": "53460e3d062397c7d845544c087fd6d7d451ac94253c8d7c8ddb619ec8053f41",
+  "data_UMCSENT.csv": "5ec5d9fb859013f61c72f8e1e7c37e4085962b48a96e9979c56a64c6e476312c",
+  "data_UNRATE.csv": "adff941fed04455846d869ce9db4c26f4c4c7c6b160c4b6aa564a3754d39475a",
+  "Figure_1_PRI_v2.pdf": "1cf7ddaa7b5b319a68608d24dc3ede1edcf8e7532a06d3eb5adc30b835e1e7ff",
+  "Figure_1_PRI_v2.png": "80623ee0c2509f09a5f1aff28048ed2e3002dbb6d6beee37adfa909d3b60f046",
+  "PRI_Dashboard.html": "bf99eb92b0dff3b9c9148dea703c81125874838d1edd6ab7a08105544b1a7863",
+  "PRI_v2_OLS_fit.txt": "55d59f57152f4d7d0ed318345e946c502e290e4750c9bd54ed11118981466ae3",
+  "PRI_v2_quarterly.csv": "4d467f68d2d463ff22f308ef0a1dbf748f2b23cbc8e1104e5ae6b6487fa7d369",
+  "Psychological_Recession_APA.docx": "493c1a2fcc692abd27e14731108df8efd56f961db9c572a15e69fa637a5ca53c",
+  "README.md": "187004350f9eb9137f2732101415245374a7edb0dc004c6d3c40d761d5cb0a35"
+}

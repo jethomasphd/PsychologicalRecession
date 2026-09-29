@@ -1,149 +1,93 @@
-"""Reproduce the empirical illustration from frozen official NHIS files."""
+"""Weighted fixed-effect regressions using exactly collapsed respondent profiles.
+
+The sums of X'WX, X'Wy, and state scores equal the uncollapsed respondent analysis.
+State-clustered CR1 covariance uses original respondent N, not collapsed-row N.
+"""
 from pathlib import Path
-import json, zipfile, hashlib, sys, platform
-import numpy as np
-import pandas as pd
-import patsy
-from survey import prevalence, fit_poisson, contrast, design_covariance
+import os
+os.environ.setdefault('OPENBLAS_NUM_THREADS','2')
+import json,numpy as np,pandas as pd
+from scipy import stats
+ROOT=Path(__file__).resolve().parents[1]
+(ROOT/'results').mkdir(exist_ok=True)
 
-ROOT = Path(__file__).resolve().parents[1]
-RAW = ROOT/'data/raw'
-OUT = ROOT/'results'
-OUT.mkdir(exist_ok=True)
-YEARS = (2022, 2025)
+def design(d,terms,trends=False):
+    columns={'intercept':np.ones(len(d))}
+    for term in terms:columns[term]=d[term].to_numpy(float)
+    for name in ['state','year','age','sex','education','race']:
+        for value in sorted(d[name].unique())[1:]:columns[f'{name}_{value}']=(d[name].to_numpy()==value).astype(float)
+    if trends:
+        for value in sorted(d.state.unique())[1:]:columns[f'trend_{value}']=(d.state.to_numpy()==value)*(d.year.to_numpy()-2018)
+    return np.column_stack(list(columns.values())),list(columns)
 
-
-def load():
-    frames=[]
-    for year in YEARS:
-        path=RAW/f'adult{str(year)[-2:]}csv.zip'
-        with zipfile.ZipFile(path) as z:
-            name=next(n for n in z.namelist() if n.lower().endswith('.csv'))
-            needed={'WTFA_A','PSTRAT','PPSU','EMPWHYNOT_A','EMPWRKLSW1_A','PHQCAT_A','GADCAT_A','AGEP_A','SEX_A','HISPALLP_A','EDUCP_A','REGION','DISAB3_A','EMPLASTWK_A','EMPNOWRK_A'}
-            needed.update({f'PHQ8{j}_A' for j in range(1,9)})
-            needed.update({f'GAD7{j}_A' for j in range(1,8)})
-            f=pd.read_csv(z.open(name), usecols=lambda c:c in needed, low_memory=False).copy()
-        f['year']=year
-        frames.append(f)
-    d=pd.concat(frames,ignore_index=True).copy()
-    d['weight']=d.WTFA_A/len(YEARS)
-    d['exposed']=np.where(d.EMPWHYNOT_A.eq(1),1,np.where(d.EMPWRKLSW1_A.eq(1),0,np.nan))
-    assert not (d.EMPWHYNOT_A.eq(1)&d.EMPWRKLSW1_A.eq(1)).any()
-    for name,col in [('depression','PHQCAT_A'),('anxiety','GADCAT_A')]:
-        d[name]=np.where(d[col].isin([1,2,3,4]),d[col].isin([3,4]).astype(float),np.nan)
-    d['outcome']=np.where(d.depression.notna()&d.anxiety.notna(),
-                          (d.depression.eq(1)|d.anxiety.eq(1)).astype(float),np.nan)
-    d['age_group']=pd.cut(d.AGEP_A,[17,29,44,54,64],labels=['18-29','30-44','45-54','55-64'])
-    d['sex']=d.SEX_A.where(d.SEX_A.isin([1,2]))
-    d['race_ethnicity']=d.HISPALLP_A.map({1:'Hispanic',2:'NH White',3:'NH Black',4:'NH Asian',5:'NH other',6:'NH other',7:'NH other'})
-    d['education']=d.EDUCP_A.map({0:'Less than high school',1:'Less than high school',2:'Less than high school',3:'High school or GED',4:'High school or GED',5:'Some college or associate',6:'Some college or associate',7:'Some college or associate',8:'Bachelor or higher',9:'Bachelor or higher',10:'Bachelor or higher'})
-    d['region']=d.REGION.where(d.REGION.isin([1,2,3,4]))
-    d['eligible']=d.AGEP_A.between(18,64)&d.exposed.notna()
-    covs=['age_group','sex','race_ethnicity','education','region','year']
-    d['complete']=d.eligible&d.outcome.notna()&d[covs].notna().all(axis=1)
-    # Independently reconstruct complete-item scales for sensitivity analysis.
-    valid_items=[]
-    for scale,count in [('PHQ8',8),('GAD7',7)]:
-        cols=[f'{scale}{j}_A' for j in range(1,count+1)]
-        valid=d[cols].isin([1,2,3,4]).all(axis=1)
-        score=(d[cols]-1).sum(axis=1).where(valid)
-        d[scale+'_score']=score
-        valid_items.append(valid)
-        category=pd.cut(score,[-1,4,9,14,100],labels=[1,2,3,4]).astype(float)
-        existing=d.PHQCAT_A if scale=='PHQ8' else d.GADCAT_A
-        assert (category.loc[valid]==existing.loc[valid]).all(), 'NCHS score reconstruction disagrees'
-    d['all_items']=valid_items[0]&valid_items[1]
-    return d
-
-
-def estimate(d, mask, formula, outcome='outcome'):
-    X=patsy.dmatrix(formula, d.loc[mask],return_type='dataframe')
-    assert len(X)==int(mask.sum())
-    m=fit_poisson(d,mask,X,outcome)
-    c=np.zeros(X.shape[1]); c[X.columns.get_loc('exposed')]=1
-    e=contrast(m,c)
-    e.update({k:v for k,v in m.items() if k not in ['coef','covariance']})
-    e['terms']=list(X.columns)
-    e['coefficients']=[dict(term=n,estimate=float(b),se=float(np.sqrt(m['covariance'][i,i]))) for i,(n,b) in enumerate(zip(X.columns,m['coef']))]
-    return e,m,X
-
+def fit(d,terms,*,trends=False,equal=False,outcome='fmd',label='',influence=False):
+    d=d.dropna(subset=terms).reset_index(drop=True)
+    X,names=design(d,terms,trends);w=d.weight.to_numpy(float)
+    if equal:w=w/d.groupby(['state','year']).weight.transform('sum').to_numpy()
+    w=w/w.mean();y=d[outcome+'_weighted'].to_numpy()/d.weight.to_numpy()
+    p=X.shape[1];groups=sorted(d.state.unique());G=len(groups);N=int(d.n.sum())
+    sums=[]
+    for group in groups:
+        ix=d.state.to_numpy()==group;x=X[ix];wg=w[ix];yg=y[ix]
+        sums.append((x.T@(wg[:,None]*x),x.T@(wg*yg),int(d.loc[ix,'n'].sum())))
+    A=sum(s[0] for s in sums);b=sum(s[1] for s in sums)
+    rank=int(np.linalg.matrix_rank(A));assert rank==p,(label,rank,p)
+    bread=np.linalg.inv(A);beta=np.linalg.solve(A,b)
+    score=np.vstack([bs-As@beta for As,bs,_ in sums]);meat=score.T@score
+    vcov=bread@meat@bread*(G/(G-1))*((N-1)/(N-p))
+    se=np.sqrt(np.diag(vcov));crit=stats.t.ppf(.975,G-1);scale=100 if outcome=='fmd' else 1
+    estimates=[]
+    for term in terms:
+        j=names.index(term)
+        estimates.append(dict(model=label,term=term,estimate=float(beta[j]*scale),se=float(se[j]*scale),lower=float((beta[j]-crit*se[j])*scale),upper=float((beta[j]+crit*se[j])*scale),p=float(2*stats.t.sf(abs(beta[j]/se[j]),G-1)),n=N,state_years=len(d[['state','year']].drop_duplicates()),clusters=G,parameters=p,outcome=outcome))
+    if influence:
+        rows=[]
+        for state,(As,bs,ns) in zip(groups,sums):
+            # A state dummy is zero after removing that state; pseudoinverse handles it.
+            sub=np.linalg.pinv(A-As,hermitian=True)@(b-bs)
+            rows.append({'omitted_state':int(state),'estimate':float(sub[names.index(terms[0])]*scale)})
+        pd.DataFrame(rows).to_csv(ROOT/'results'/'leave_one_state_out.csv',index=False,lineterminator="\n")
+        j=names.index(terms[0]);other=np.delete(X,j,axis=1)
+        c=np.linalg.solve(other.T@(w[:,None]*other),other.T@(w*X[:,j]))
+        residual=X[:,j]-other@c
+        checks=dict(weighted_residual_exposure_sd=float(np.sqrt(np.average(residual**2,weights=w))),condition_number=float(np.linalg.cond(A)),prediction_min=float((X@beta).min()),prediction_max=float((X@beta).max()),score_max=float(abs(score.sum(axis=0)).max()),n=N,collapsed_rows=len(d),columns=names)
+        (ROOT/'results'/'model_diagnostics.json').write_text(json.dumps(checks,indent=2),encoding='utf8',newline='\n')
+        np.savez_compressed(ROOT/'results'/'primary_crossproducts.npz',A=A,b=b,beta=beta,vcov=vcov,state_A=np.stack([s[0] for s in sums]),state_b=np.stack([s[1] for s in sums]),state_n=np.array([s[2] for s in sums]),states=groups,columns=names)
+    return estimates
 
 def main():
-    d=load()
-    mask=d.complete
-    adjusted='exposed+C(year)+C(age_group)+C(sex)+C(race_ethnicity)+C(education)+C(region)'
-    result={'years':list(YEARS),'source_sha256':{f'adult{str(y)[-2:]}csv.zip':hashlib.sha256((RAW/f'adult{str(y)[-2:]}csv.zip').read_bytes()).hexdigest() for y in YEARS}}
-    result['flow']=[]
-    for year in YEARS:
-        y=d.year.eq(year)
-        age=y&d.AGEP_A.between(18,64)
-        eligible=y&d.eligible
-        observed=eligible&d.outcome.notna()
-        result['flow'].append({'year':year,'sample_adults':int(y.sum()),'aged_18_64':int(age.sum()),'eligible_employment':int(eligible.sum()),'both_symptom_recodes':int(observed.sum()),'complete_case':int((y&mask).sum()),'exposed_complete':int((y&mask&d.exposed.eq(1)).sum()),'comparator_complete':int((y&mask&d.exposed.eq(0)).sum()),'missing_outcomes':int((eligible&d.outcome.isna()).sum()),'missing_covariates_after_outcomes':int((observed&~mask).sum())})
-    prevalence_rows=[]
-    for year in [*YEARS,'Pooled']:
-        for exposed in [0,1]:
-            for outcome in ['outcome','depression','anxiety']:
-                sub=mask&d.exposed.eq(exposed)
-                if year!='Pooled': sub &= d.year.eq(year)
-                if year=='Pooled':
-                    row=prevalence(d,sub,outcome)
-                else:
-                    one=d.loc[d.year.eq(year)].copy().reset_index(drop=True)
-                    one['weight']=one.WTFA_A
-                    row=prevalence(one,one.complete&one.exposed.eq(exposed),outcome)
-                row.update(year=year,exposed=exposed,outcome=outcome)
-                prevalence_rows.append(row)
-    result['prevalence']=prevalence_rows
-    result['models']={}
-    for label,formula in [('unadjusted','exposed'),('adjusted',adjusted)]:
-        e,_,_=estimate(d,mask,formula)
-        result['models'][label]=e
-    for outcome in ['depression','anxiety']:
-        result['models'][outcome]=estimate(d,mask,adjusted,outcome)[0]
-    result['models']['all_items']=estimate(d,mask&d.all_items,adjusted)[0]
-    narrow=mask&(d.exposed.eq(1)|d.EMPLASTWK_A.eq(1)|d.EMPNOWRK_A.eq(1))
-    result['models']['narrow_comparator']=estimate(d,narrow,adjusted)[0]
-    result['models']['no_disability']=estimate(d,mask&d.DISAB3_A.eq(2),adjusted)[0]
-    e,m,X=estimate(d,mask,adjusted.replace('exposed+C(year)','exposed*C(year)'))
-    result['models']['interaction']=e
-    c=np.zeros(X.shape[1]); c[X.columns.get_loc('exposed:C(year)[T.2025]')]=1
-    result['interaction']=contrast(m,c)
-    c[X.columns.get_loc('exposed')]=1
-    result['year_specific_adjusted']={'2022':contrast(m,np.array([1. if n=='exposed' else 0. for n in X.columns])), '2025':contrast(m,c)}
-    # Simple characteristics table uses the same complete-case sample.
-    chars=[]
-    for group in [0,1]:
-        sub=mask&d.exposed.eq(group)
-        for variable in ['age_group','sex','race_ethnicity','education','region','year']:
-            for category in sorted(d.loc[sub,variable].dropna().unique()):
-                numerator=d.loc[sub&d[variable].eq(category),'weight'].sum()
-                chars.append({'exposed':group,'variable':variable,'category':str(category),'weighted_percent':float(100*numerator/d.loc[sub,'weight'].sum()),'n':int((sub&d[variable].eq(category)).sum())})
-    result['characteristics']=chars
-    # No assumptions about missing symptom outcomes: assign all 0 versus all 1.
-    missing=[]
-    for group in [0,1]:
-        sub=d.eligible&d.exposed.eq(group)
-        denom=d.loc[sub,'weight'].sum()
-        event=d.loc[sub&d.outcome.eq(1),'weight'].sum()
-        unknown=d.loc[sub&d.outcome.isna(),'weight'].sum()
-        missing.append({'exposed':group,'eligible_n':int(sub.sum()),'missing_n':int((sub&d.outcome.isna()).sum()),'weighted_missing_percent':float(100*unknown/denom),'prevalence_lower_bound':float(event/denom),'prevalence_upper_bound':float((event+unknown)/denom)})
-    result['missing_bounds']=missing
-    import scipy,statsmodels,matplotlib
-    result['software']={'python':platform.python_version(),'numpy':np.__version__,'pandas':pd.__version__,'scipy':scipy.__version__,'statsmodels':statsmodels.__version__,'matplotlib':matplotlib.__version__,'patsy':patsy.__version__}
-    (OUT/'results.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n',newline='\n')
-    pd.DataFrame(prevalence_rows).to_csv(OUT/'prevalence.csv',index=False,float_format='%.12g',lineterminator='\n')
-    pd.DataFrame(result['flow']).to_csv(OUT/'sample_flow.csv',index=False,lineterminator='\n')
-    pd.DataFrame(chars).to_csv(OUT/'sample_characteristics.csv',index=False,float_format='%.12g',lineterminator='\n')
+    profiles=pd.concat([pd.read_csv(ROOT/'data'/'derived'/f'profiles_{y}.csv.gz') for y in range(2013,2026)],ignore_index=True)
+    market=pd.read_csv(ROOT/'data'/'derived'/'market_annual.csv')
+    d=profiles.merge(market,on=['state','year'],how='left',validate='many_to_one')
+    assert d.lower_hiring.notna().all()
+    d['group']=np.where(d.employment>=3,'Out of work','Employed')
+    agg=d.groupby(['year','group']).agg(n=('n','sum'),weight=('weight','sum'),fmd_weighted=('fmd_weighted','sum'),days_weighted=('days_weighted','sum')).reset_index()
+    agg['fmd_percent']=100*agg.fmd_weighted/agg.weight;agg['mental_health_days']=agg.days_weighted/agg.weight
+    agg.to_csv(ROOT/'results'/'annual_burden.csv',index=False,lineterminator="\n",float_format='%.12g')
+    cells=d.groupby(['state','year','group']).agg(n=('n','sum'),weight=('weight','sum'),fmd_weighted=('fmd_weighted','sum'),days_weighted=('days_weighted','sum')).reset_index()
+    cells['fmd_percent']=100*cells.fmd_weighted/cells.weight
+    cells.merge(market,on=['state','year'],validate='many_to_one').to_csv(ROOT/'results'/'linked_state_year.csv',index=False,lineterminator="\n",float_format='%.12g')
+    base=d[(d.year<=2024)&(d.employment>=3)].copy()
+    balanced=base.groupby('state').year.nunique(); balanced=balanced[balanced==12].index
+    specs=[
+      ('Primary',base,['lower_hiring','unemployment_rate'],{'influence':True}),
+      ('No unemployment adjustment',base,['lower_hiring'],{}),
+      ('Previous-year conditions',base,['lag_lower_hiring','lag_unemployment_rate'],{}),
+      ('Exclude 2020–2021',base[~base.year.isin([2020,2021])],['lower_hiring','unemployment_rate'],{}),
+      ('State-specific trends',base,['lower_hiring','unemployment_rate'],{'trends':True}),
+      ('Equal state-year weights',base,['lower_hiring','unemployment_rate'],{'equal':True}),
+      ('Complete-state panel',base[base.state.isin(balanced)],['lower_hiring','unemployment_rate'],{}),
+      ('Out of work <1 year',base[base.employment==4],['lower_hiring','unemployment_rate'],{}),
+      ('Out of work >=1 year',base[base.employment==3],['lower_hiring','unemployment_rate'],{}),
+      ('Employed adults',d[(d.year<=2024)&(d.employment<=2)],['lower_hiring','unemployment_rate'],{}),
+      ('Poor mental health days',base,['lower_hiring','unemployment_rate'],{'outcome':'days'}),
+      ('Competition per opening',base,['competition'],{}),
+      ('Job-opening rate',base,['lower_openings'],{}),
+      ('Through 2025 (11-month unemployment input)',d[d.employment>=3],['lower_hiring','unemployment_rate'],{})]
     rows=[]
-    for name,e in result['models'].items():
-        rows.append({'model':name,**{k:e[k] for k in ['n','events','ratio','lower','upper','p','converged','max_mean','means_above_one','df']}})
-    pd.DataFrame(rows).to_csv(OUT/'models.csv',index=False,float_format='%.12g',lineterminator='\n')
-    # Analysis input is a reproducible public-data derivative, not restricted data.
-    cols=['year','PSTRAT','PPSU','weight','AGEP_A','exposed','outcome','depression','anxiety','age_group','sex','race_ethnicity','education','region','eligible','complete','all_items','DISAB3_A','EMPLASTWK_A','EMPNOWRK_A']
-    d[cols].to_csv(OUT/'analysis_input.csv.gz',index=False,compression={'method':'gzip','mtime':0},lineterminator='\n')
-    print(json.dumps({k:result[k] for k in ['flow','interaction','year_specific_adjusted','missing_bounds','software']},indent=2))
-    print(pd.DataFrame(rows).to_string(index=False))
-
-
-if __name__=='__main__': main()
+    for label,frame,terms,kwargs in specs:
+        rows.extend(fit(frame,terms,label=label,**kwargs));print(label,rows[-len(terms)],flush=True)
+    result=pd.DataFrame(rows);result.to_csv(ROOT/'results'/'models.csv',index=False,lineterminator="\n",float_format='%.12g')
+    meta={'primary_years':[2013,2024],'primary_n':int(base.n.sum()),'employed_n':int(d[(d.year<=2024)&(d.employment<=2)].n.sum()),'primary_state_years':len(base[['state','year']].drop_duplicates()),'primary_states':int(base.state.nunique()),'balanced_states':list(map(int,balanced)),'models':result.to_dict('records'),'sample_flow':json.loads((ROOT/'data'/'derived'/'sample_flow.json').read_text())}
+    (ROOT/'results'/'results.json').write_text(json.dumps(meta,indent=2,ensure_ascii=False),encoding='utf8',newline='\n')
+if __name__=='__main__':main()

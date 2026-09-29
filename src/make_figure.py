@@ -1,37 +1,32 @@
-"""One empirical figure: directly labeled prevalence with survey intervals."""
+"""One publication figure, with one exposure scale and direct numeric labels."""
 from pathlib import Path
-import json
-import matplotlib
+import pandas as pd,matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.ticker import PercentFormatter
-
 ROOT=Path(__file__).resolve().parents[1]
 def main():
-    r=json.loads((ROOT/'results/results.json').read_text())
-    rows=[next(x for x in r['prevalence'] if x['year']=='Pooled' and x['outcome']=='outcome' and x['exposed']==g) for g in [1,0]]
-    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':11,'svg.hashsalt':'PsychologicalRecession-2026','axes.spines.top':False,'axes.spines.right':False,'axes.spines.left':False,'axes.edgecolor':'#999999','text.color':'#20252A','axes.labelcolor':'#20252A','xtick.color':'#444444'})
-    fig,ax=plt.subplots(figsize=(6.5,2.75))
-    fig.subplots_adjust(left=.34,right=.975,bottom=.24,top=.92)
-    for y,row in zip([1,0],rows):
-        p=row['prevalence']*100;lo=row['lower']*100;hi=row['upper']*100
-        ax.errorbar(p,y,xerr=[[p-lo],[hi-p]],fmt='o',color='#245766',markersize=7,linewidth=1.6,capsize=4,capthick=1.3)
-        ax.text(p,y+.19,f'{p:.1f}%',ha='center',va='bottom',fontweight='bold',fontsize=12)
-    ax.set_yticks([1,0],['Unemployed, laid off,\nor looking for work','Employed'])
-    ax.tick_params(axis='y',length=0,pad=12)
-    ax.set_xlim(0,25);ax.set_ylim(-.52,1.5)
-    ax.set_xticks([0,5,10,15,20,25]);ax.xaxis.set_major_formatter(PercentFormatter(100,decimals=0))
-    ax.set_xlabel('Moderate or severe anxiety or depressive symptoms',labelpad=10,fontsize=10)
-    ax.set_axisbelow(True);ax.grid(axis='x',color='#E7E9EB',linewidth=.6)
-    for extension in ['png','svg','pdf']:
-        metadata={'Creator':'PsychologicalRecession reproducible figure'}
-        if extension=='pdf':metadata.update(CreationDate=None,ModDate=None)
-        if extension=='svg':metadata['Date']=None
-        fig.savefig(ROOT/f'results/figure1.{extension}',dpi=300,facecolor='white',metadata=metadata)
-        if extension=='svg':
-            p=ROOT/'results/figure1.svg'
-            p.write_text('\n'.join(line.rstrip() for line in p.read_text().splitlines())+'\n',encoding='utf8',newline='\n')
+    d=pd.read_csv(ROOT/'results/models.csv')
+    choices=[('Primary','Main analysis'),('Previous-year conditions','Previous-year conditions'),('Exclude 2020–2021','Exclude 2020–2021'),('State-specific trends','State-specific trends'),('Equal state-year weights','Equal state-year weights'),('Through 2025 (11-month unemployment input)','Include 2025*')]
+    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'svg.fonttype':'none','svg.hashsalt':'PsychologicalRecession','axes.unicode_minus':True})
+    fig=plt.figure(figsize=(8,4.25),facecolor='white')
+    ax=fig.add_axes([.35,.23,.37,.66]);ax.axvline(0,color='#72797d',lw=.9,zorder=0)
+    for i,(key,label) in enumerate(choices):
+        x=d[(d.model==key)&d.term.isin(['lower_hiring','lag_lower_hiring'])].iloc[0]
+        color='#1B5961' if i==0 else '#56616A';y=5-i
+        ax.errorbar(x.estimate,y,xerr=[[x.estimate-x.lower],[x.upper-x.estimate]],fmt='o',color=color,ms=6 if i==0 else 4.8,lw=1.5,capsize=3)
+        ax.text(-.065,y,label,ha='right',va='center',transform=ax.get_yaxis_transform(),fontweight='bold' if i==0 else 'normal')
+        ax.text(1.10,y,f'{x.estimate:+.2f}  ({x.lower:.2f}, {x.upper:.2f})',ha='left',va='center',transform=ax.get_yaxis_transform(),fontsize=9.5)
+    ax.set(xlim=(-3,3),ylim=(-.6,5.6),xticks=[-3,-2,-1,0,1,2,3],yticks=[])
+    ax.set_xlabel('Difference in frequent mental distress\n(percentage points)',labelpad=10)
+    ax.text(1.10,6.05,'Estimate (95% CI)',transform=ax.get_yaxis_transform(),ha='left',fontsize=9.5,fontweight='bold')
+    ax.tick_params(axis='x',length=3,color='#72797d')
+    for side in ['top','left','right']:ax.spines[side].set_visible(False)
+    ax.spines['bottom'].set_color('#72797d')
+    fig.text(.04,.96,'Association per one-percentage-point lower hiring rate',ha='left',va='top',fontsize=12,fontweight='bold')
+    fig.text(.04,.015,'*2025 unemployment input covers 11 months. Intervals are state-clustered.',ha='left',fontsize=8.5,color='#454B50')
+    for ext in ['png','pdf','svg']:
+        fig.savefig(ROOT/f'results/figure1.{ext}',dpi=300,metadata=({'Creator':'PsychologicalRecession reproducible analysis','CreationDate':None,'ModDate':None} if ext=='pdf' else {'Date':None} if ext=='svg' else {}))
+    svg=ROOT/'results/figure1.svg'
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf8').splitlines())+'\n',encoding='utf8',newline='\n')
     plt.close(fig)
-    print('Created figure1.png, figure1.svg, figure1.pdf')
-
-if __name__=='__main__': main()
+if __name__=='__main__':main()

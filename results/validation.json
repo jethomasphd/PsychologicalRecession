@@ -1,0 +1,15 @@
+{
+  "raw_respondent_n": 193060,
+  "collapsed_and_uncollapsed_coefficients_max_difference": 4.8683279629813114e-14,
+  "cluster_covariance_max_difference": 7.9472019243187475e-16,
+  "weighted_fraction_linear_predictions_outside_0_1": 8.564557847479413e-05,
+  "posthoc_logistic": {
+    "estimate_pp": -0.6465299877013607,
+    "lower_pp": -1.8816421450248553,
+    "upper_pp": 0.5885821696221339,
+    "iterations": 5,
+    "n": 193060,
+    "label": "Average marginal association per 1 percentage-point lower hiring rate; post hoc model-form check"
+  },
+  "pass": true
+}

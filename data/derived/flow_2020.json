@@ -1,0 +1,13 @@
+{
+  "year": 2020,
+  "raw": 401958,
+  "states_dc": 394831,
+  "age18_64": 250597,
+  "employed_or_out_of_work": 191480,
+  "valid_mental_health": 188673,
+  "complete": 185294,
+  "out_of_work": 19354,
+  "employed": 165940,
+  "interview_outside_year": 5133,
+  "missing_states": []
+}

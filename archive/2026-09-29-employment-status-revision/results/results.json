@@ -1,0 +1,1523 @@
+{
+  "years": [
+    2022,
+    2025
+  ],
+  "source_sha256": {
+    "adult22csv.zip": "25083298173acfff35c6635be0fbcaa3ff26b985e0a48fc5e7d9788761864dba",
+    "adult25csv.zip": "94d5477ffc3a03e292a3000da8eb5ad71626ae8032bbaa98c9711b7a3b572570"
+  },
+  "flow": [
+    {
+      "year": 2022,
+      "sample_adults": 27651,
+      "aged_18_64": 18816,
+      "eligible_employment": 14192,
+      "both_symptom_recodes": 14152,
+      "complete_case": 14080,
+      "exposed_complete": 407,
+      "comparator_complete": 13673,
+      "missing_outcomes": 40,
+      "missing_covariates_after_outcomes": 72
+    },
+    {
+      "year": 2025,
+      "sample_adults": 24215,
+      "aged_18_64": 15687,
+      "eligible_employment": 12295,
+      "both_symptom_recodes": 12250,
+      "complete_case": 12201,
+      "exposed_complete": 389,
+      "comparator_complete": 11812,
+      "missing_outcomes": 45,
+      "missing_covariates_after_outcomes": 49
+    }
+  ],
+  "prevalence": [
+    {
+      "n": 13673,
+      "events": 1100,
+      "prevalence": 0.08150762997392451,
+      "se": 0.0029688758113856264,
+      "lower": 0.07586322331256447,
+      "upper": 0.0875322166419711,
+      "weighted_population": 142933336.115,
+      "design_df": 571,
+      "year": 2022,
+      "exposed": 0,
+      "outcome": "outcome"
+    },
+    {
+      "n": 13673,
+      "events": 775,
+      "prevalence": 0.0578307846278034,
+      "se": 0.002509990383074088,
+      "lower": 0.05309359880306441,
+      "upper": 0.06296253341271954,
+      "weighted_population": 142933336.115,
+      "design_df": 571,
+      "year": 2022,
+      "exposed": 0,
+      "outcome": "depression"
+    },
+    {
+      "n": 13673,
+      "events": 777,
+      "prevalence": 0.05741580889427489,
+      "se": 0.0025048203654266126,
+      "lower": 0.05268943704812567,
+      "upper": 0.06253815905558588,
+      "weighted_population": 142933336.115,
+      "design_df": 571,
+      "year": 2022,
+      "exposed": 0,
+      "outcome": "anxiety"
+    },
+    {
+      "n": 407,
+      "events": 63,
+      "prevalence": 0.15737093991496334,
+      "se": 0.021552281661474573,
+      "lower": 0.11950249707680881,
+      "upper": 0.20445289335164982,
+      "weighted_population": 5086384.413999999,
+      "design_df": 571,
+      "year": 2022,
+      "exposed": 1,
+      "outcome": "outcome"
+    },
+    {
+      "n": 407,
+      "events": 50,
+      "prevalence": 0.13208891037624984,
+      "se": 0.020646718983118508,
+      "lower": 0.09653341871673335,
+      "upper": 0.17815788180906866,
+      "weighted_population": 5086384.413999999,
+      "design_df": 571,
+      "year": 2022,
+      "exposed": 1,
+      "outcome": "depression"
+    },
+    {
+      "n": 407,
+      "events": 44,
+      "prevalence": 0.1186523846563517,
+      "se": 0.019262100857607777,
+      "lower": 0.08572097864495232,
+      "upper": 0.16199347096324762,
+      "weighted_population": 5086384.413999999,
+      "design_df": 571,
+      "year": 2022,
+      "exposed": 1,
+      "outcome": "anxiety"
+    },
+    {
+      "n": 11812,
+      "events": 985,
+      "prevalence": 0.08268625683648957,
+      "se": 0.0031271116914702943,
+      "lower": 0.0767479271842373,
+      "upper": 0.0890397491246108,
+      "weighted_population": 150683868.356,
+      "design_df": 562,
+      "year": 2025,
+      "exposed": 0,
+      "outcome": "outcome"
+    },
+    {
+      "n": 11812,
+      "events": 697,
+      "prevalence": 0.05775132134543115,
+      "se": 0.0025582644412912793,
+      "lower": 0.052926845271812344,
+      "upper": 0.06298631872602393,
+      "weighted_population": 150683868.356,
+      "design_df": 562,
+      "year": 2025,
+      "exposed": 0,
+      "outcome": "depression"
+    },
+    {
+      "n": 11812,
+      "events": 687,
+      "prevalence": 0.05892737448856738,
+      "se": 0.0026414594796822163,
+      "lower": 0.05394814277999825,
+      "upper": 0.06433492034066177,
+      "weighted_population": 150683868.356,
+      "design_df": 562,
+      "year": 2025,
+      "exposed": 0,
+      "outcome": "anxiety"
+    },
+    {
+      "n": 389,
+      "events": 65,
+      "prevalence": 0.1863737321692947,
+      "se": 0.02564688035213923,
+      "lower": 0.14112776743705857,
+      "upper": 0.24203776767096413,
+      "weighted_population": 6021842.343,
+      "design_df": 562,
+      "year": 2025,
+      "exposed": 1,
+      "outcome": "outcome"
+    },
+    {
+      "n": 389,
+      "events": 51,
+      "prevalence": 0.15314922850347362,
+      "se": 0.023540221420492016,
+      "lower": 0.11238347056069009,
+      "upper": 0.20528236541105985,
+      "weighted_population": 6021842.343,
+      "design_df": 562,
+      "year": 2025,
+      "exposed": 1,
+      "outcome": "depression"
+    },
+    {
+      "n": 389,
+      "events": 49,
+      "prevalence": 0.1352784441371085,
+      "se": 0.021739887694054636,
+      "lower": 0.09795914739577509,
+      "upper": 0.1839164111173462,
+      "weighted_population": 6021842.343,
+      "design_df": 562,
+      "year": 2025,
+      "exposed": 1,
+      "outcome": "anxiety"
+    },
+    {
+      "n": 25485,
+      "events": 2085,
+      "prevalence": 0.0821124993490675,
+      "se": 0.002159676009953495,
+      "lower": 0.07797342022067262,
+      "upper": 0.08645069318084758,
+      "weighted_population": 146808602.23549998,
+      "design_df": 1133,
+      "year": "Pooled",
+      "exposed": 0,
+      "outcome": "outcome"
+    },
+    {
+      "n": 25485,
+      "events": 1472,
+      "prevalence": 0.05779000420145991,
+      "se": 0.0017935148299602975,
+      "lower": 0.05436995211943536,
+      "upper": 0.06141121783866539,
+      "weighted_population": 146808602.23549998,
+      "design_df": 1133,
+      "year": "Pooled",
+      "exposed": 0,
+      "outcome": "depression"
+    },
+    {
+      "n": 25485,
+      "events": 1464,
+      "prevalence": 0.058191541881148716,
+      "se": 0.001823330774000297,
+      "lower": 0.05471553828989652,
+      "upper": 0.06187391701785023,
+      "weighted_population": 146808602.23549998,
+      "design_df": 1133,
+      "year": "Pooled",
+      "exposed": 0,
+      "outcome": "anxiety"
+    },
+    {
+      "n": 796,
+      "events": 128,
+      "prevalence": 0.17309354319656334,
+      "se": 0.017079044928478348,
+      "lower": 0.1420972010152741,
+      "upper": 0.20920248043979292,
+      "weighted_population": 5554113.3785,
+      "design_df": 1133,
+      "year": "Pooled",
+      "exposed": 1,
+      "outcome": "outcome"
+    },
+    {
+      "n": 796,
+      "events": 101,
+      "prevalence": 0.14350584651105175,
+      "se": 0.01588964479424701,
+      "lower": 0.1150544812717051,
+      "upper": 0.1775810059163897,
+      "weighted_population": 5554113.3785,
+      "design_df": 1133,
+      "year": "Pooled",
+      "exposed": 1,
+      "outcome": "depression"
+    },
+    {
+      "n": 796,
+      "events": 93,
+      "prevalence": 0.12766548019073715,
+      "se": 0.014723566820416065,
+      "lower": 0.10145523600500368,
+      "upper": 0.15944541115874983,
+      "weighted_population": 5554113.3785,
+      "design_df": 1133,
+      "year": "Pooled",
+      "exposed": 1,
+      "outcome": "anxiety"
+    }
+  ],
+  "models": {
+    "unadjusted": {
+      "log_estimate": 0.745741910193257,
+      "se": 0.100491363292451,
+      "ratio": 2.1080048052212863,
+      "lower": 1.7307794008963169,
+      "upper": 2.5674469297096945,
+      "p": 2.276464236950686e-13,
+      "df": 1133,
+      "converged": true,
+      "max_mean": 0.17309354319656406,
+      "min_mean": 0.08211249934906752,
+      "means_above_one": 0,
+      "condition_number": 5.840543866594403,
+      "score_max": 1.6679990721968352e-12,
+      "n": 26281,
+      "events": 2213,
+      "terms": [
+        "Intercept",
+        "exposed"
+      ],
+      "coefficients": [
+        {
+          "term": "Intercept",
+          "estimate": -2.499665028690871,
+          "se": 0.026301428248731287
+        },
+        {
+          "term": "exposed",
+          "estimate": 0.745741910193257,
+          "se": 0.100491363292451
+        }
+      ]
+    },
+    "adjusted": {
+      "log_estimate": 0.649848983260895,
+      "se": 0.09893278601583012,
+      "ratio": 1.9152515721261416,
+      "lower": 1.5773353294923929,
+      "upper": 2.325560403007094,
+      "p": 7.723893643826986e-11,
+      "df": 1133,
+      "converged": true,
+      "max_mean": 0.4359732062985669,
+      "min_mean": 0.00873118517491956,
+      "means_above_one": 0,
+      "condition_number": 11.691927269508621,
+      "score_max": 5.772271549631114e-12,
+      "n": 26281,
+      "events": 2213,
+      "terms": [
+        "Intercept",
+        "C(year)[T.2025]",
+        "C(age_group)[T.30-44]",
+        "C(age_group)[T.45-54]",
+        "C(age_group)[T.55-64]",
+        "C(sex)[T.2.0]",
+        "C(race_ethnicity)[T.NH Asian]",
+        "C(race_ethnicity)[T.NH Black]",
+        "C(race_ethnicity)[T.NH White]",
+        "C(race_ethnicity)[T.NH other]",
+        "C(education)[T.High school or GED]",
+        "C(education)[T.Less than high school]",
+        "C(education)[T.Some college or associate]",
+        "C(region)[T.2]",
+        "C(region)[T.3]",
+        "C(region)[T.4]",
+        "exposed"
+      ],
+      "coefficients": [
+        {
+          "term": "Intercept",
+          "estimate": -3.177137276398268,
+          "se": 0.11291730905498093
+        },
+        {
+          "term": "C(year)[T.2025]",
+          "estimate": 0.03273250903541958,
+          "se": 0.04975029743333894
+        },
+        {
+          "term": "C(age_group)[T.30-44]",
+          "estimate": -0.24470423923111262,
+          "se": 0.05791106543807439
+        },
+        {
+          "term": "C(age_group)[T.45-54]",
+          "estimate": -0.5542058257636129,
+          "se": 0.07067486384465264
+        },
+        {
+          "term": "C(age_group)[T.55-64]",
+          "estimate": -0.91328334918383,
+          "se": 0.07657809105664788
+        },
+        {
+          "term": "C(sex)[T.2.0]",
+          "estimate": 0.5791145722995075,
+          "se": 0.04923708563067106
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Asian]",
+          "estimate": -0.6311962163395527,
+          "se": 0.15790044845873982
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Black]",
+          "estimate": 0.29768194389201824,
+          "se": 0.09505550633689414
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH White]",
+          "estimate": 0.4855645245347577,
+          "se": 0.07091013470313758
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH other]",
+          "estimate": 0.3820580797554493,
+          "se": 0.14044827653685968
+        },
+        {
+          "term": "C(education)[T.High school or GED]",
+          "estimate": 0.4372415283216794,
+          "se": 0.05968364257067267
+        },
+        {
+          "term": "C(education)[T.Less than high school]",
+          "estimate": 0.40891383184251545,
+          "se": 0.1091742426788072
+        },
+        {
+          "term": "C(education)[T.Some college or associate]",
+          "estimate": 0.4793414935753581,
+          "se": 0.05931536121119371
+        },
+        {
+          "term": "C(region)[T.2]",
+          "estimate": 0.0985815748695413,
+          "se": 0.08047632350367273
+        },
+        {
+          "term": "C(region)[T.3]",
+          "estimate": -0.019237317555156626,
+          "se": 0.07656101198892264
+        },
+        {
+          "term": "C(region)[T.4]",
+          "estimate": 0.12036070272723375,
+          "se": 0.08160476285195728
+        },
+        {
+          "term": "exposed",
+          "estimate": 0.649848983260895,
+          "se": 0.09893278601583012
+        }
+      ]
+    },
+    "depression": {
+      "log_estimate": 0.7780001446150696,
+      "se": 0.11212073039475423,
+      "ratio": 2.1771139958480292,
+      "lower": 1.7471965752439724,
+      "upper": 2.7128174460023304,
+      "p": 6.631952245215285e-12,
+      "df": 1133,
+      "converged": true,
+      "max_mean": 0.37449270733944,
+      "min_mean": 0.005028430968435783,
+      "means_above_one": 0,
+      "condition_number": 11.691927269508621,
+      "score_max": 6.012967901369848e-12,
+      "n": 26281,
+      "events": 1573,
+      "terms": [
+        "Intercept",
+        "C(year)[T.2025]",
+        "C(age_group)[T.30-44]",
+        "C(age_group)[T.45-54]",
+        "C(age_group)[T.55-64]",
+        "C(sex)[T.2.0]",
+        "C(race_ethnicity)[T.NH Asian]",
+        "C(race_ethnicity)[T.NH Black]",
+        "C(race_ethnicity)[T.NH White]",
+        "C(race_ethnicity)[T.NH other]",
+        "C(education)[T.High school or GED]",
+        "C(education)[T.Less than high school]",
+        "C(education)[T.Some college or associate]",
+        "C(region)[T.2]",
+        "C(region)[T.3]",
+        "C(region)[T.4]",
+        "exposed"
+      ],
+      "coefficients": [
+        {
+          "term": "Intercept",
+          "estimate": -3.630354796978864,
+          "se": 0.13469241109253188
+        },
+        {
+          "term": "C(year)[T.2025]",
+          "estimate": 0.018676048754017478,
+          "se": 0.059210723739747576
+        },
+        {
+          "term": "C(age_group)[T.30-44]",
+          "estimate": -0.29016371766217414,
+          "se": 0.06888524280419692
+        },
+        {
+          "term": "C(age_group)[T.45-54]",
+          "estimate": -0.5256870511259346,
+          "se": 0.08636985803245643
+        },
+        {
+          "term": "C(age_group)[T.55-64]",
+          "estimate": -0.9622565998284092,
+          "se": 0.09439713695725577
+        },
+        {
+          "term": "C(sex)[T.2.0]",
+          "estimate": 0.5729576619795295,
+          "se": 0.0602719203827312
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Asian]",
+          "estimate": -0.7000358814295821,
+          "se": 0.1947117649075834
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Black]",
+          "estimate": 0.3298837165741397,
+          "se": 0.1130663340053826
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH White]",
+          "estimate": 0.49286807067590727,
+          "se": 0.08557628692256801
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH other]",
+          "estimate": 0.40918541162640515,
+          "se": 0.17131368209278447
+        },
+        {
+          "term": "C(education)[T.High school or GED]",
+          "estimate": 0.5759609147881624,
+          "se": 0.07477046669621502
+        },
+        {
+          "term": "C(education)[T.Less than high school]",
+          "estimate": 0.573134699732769,
+          "se": 0.131598633671004
+        },
+        {
+          "term": "C(education)[T.Some college or associate]",
+          "estimate": 0.5937085821116522,
+          "se": 0.07319153266304088
+        },
+        {
+          "term": "C(region)[T.2]",
+          "estimate": 0.11181535871884468,
+          "se": 0.09485147456683841
+        },
+        {
+          "term": "C(region)[T.3]",
+          "estimate": 0.002066100520231569,
+          "se": 0.0881937890658586
+        },
+        {
+          "term": "C(region)[T.4]",
+          "estimate": 0.1919613395693169,
+          "se": 0.09430054786645786
+        },
+        {
+          "term": "exposed",
+          "estimate": 0.7780001446150696,
+          "se": 0.11212073039475423
+        }
+      ]
+    },
+    "anxiety": {
+      "log_estimate": 0.6885459348138987,
+      "se": 0.1192208916870554,
+      "ratio": 1.99081864753594,
+      "lower": 1.5755862012364934,
+      "upper": 2.515482100735874,
+      "p": 9.90915909896609e-09,
+      "df": 1133,
+      "converged": true,
+      "max_mean": 0.33362223626015136,
+      "min_mean": 0.00546606614998123,
+      "means_above_one": 0,
+      "condition_number": 11.691927269508621,
+      "score_max": 7.44826422760525e-12,
+      "n": 26281,
+      "events": 1557,
+      "terms": [
+        "Intercept",
+        "C(year)[T.2025]",
+        "C(age_group)[T.30-44]",
+        "C(age_group)[T.45-54]",
+        "C(age_group)[T.55-64]",
+        "C(sex)[T.2.0]",
+        "C(race_ethnicity)[T.NH Asian]",
+        "C(race_ethnicity)[T.NH Black]",
+        "C(race_ethnicity)[T.NH White]",
+        "C(race_ethnicity)[T.NH other]",
+        "C(education)[T.High school or GED]",
+        "C(education)[T.Less than high school]",
+        "C(education)[T.Some college or associate]",
+        "C(region)[T.2]",
+        "C(region)[T.3]",
+        "C(region)[T.4]",
+        "exposed"
+      ],
+      "coefficients": [
+        {
+          "term": "Intercept",
+          "estimate": -3.6058306887978633,
+          "se": 0.134942145797702
+        },
+        {
+          "term": "C(year)[T.2025]",
+          "estimate": 0.03995012166417108,
+          "se": 0.05962953200921564
+        },
+        {
+          "term": "C(age_group)[T.30-44]",
+          "estimate": -0.2621692428155792,
+          "se": 0.06965557907334814
+        },
+        {
+          "term": "C(age_group)[T.45-54]",
+          "estimate": -0.6553168637762312,
+          "se": 0.08802244759091463
+        },
+        {
+          "term": "C(age_group)[T.55-64]",
+          "estimate": -1.0085925534155882,
+          "se": 0.09466245720905406
+        },
+        {
+          "term": "C(sex)[T.2.0]",
+          "estimate": 0.5891440863972667,
+          "se": 0.05999936984010749
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Asian]",
+          "estimate": -0.5947728472538527,
+          "se": 0.19139639838708783
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Black]",
+          "estimate": 0.29700403734302944,
+          "se": 0.11900417841700213
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH White]",
+          "estimate": 0.5733199581745038,
+          "se": 0.09001544573135986
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH other]",
+          "estimate": 0.36092672270474707,
+          "se": 0.17886832528098215
+        },
+        {
+          "term": "C(education)[T.High school or GED]",
+          "estimate": 0.46395471647117636,
+          "se": 0.07285733228013934
+        },
+        {
+          "term": "C(education)[T.Less than high school]",
+          "estimate": 0.38493307075771105,
+          "se": 0.12968178231793412
+        },
+        {
+          "term": "C(education)[T.Some college or associate]",
+          "estimate": 0.4673142394543852,
+          "se": 0.07132670600263734
+        },
+        {
+          "term": "C(region)[T.2]",
+          "estimate": 0.1480537892026342,
+          "se": 0.09527923864834983
+        },
+        {
+          "term": "C(region)[T.3]",
+          "estimate": 0.0569834886060972,
+          "se": 0.09203933367470564
+        },
+        {
+          "term": "C(region)[T.4]",
+          "estimate": 0.1498103930308054,
+          "se": 0.09745030439206699
+        },
+        {
+          "term": "exposed",
+          "estimate": 0.6885459348138987,
+          "se": 0.1192208916870554
+        }
+      ]
+    },
+    "all_items": {
+      "log_estimate": 0.6463620536738536,
+      "se": 0.09967594874994576,
+      "ratio": 1.9085848546946687,
+      "lower": 1.569554566543053,
+      "upper": 2.3208470894980824,
+      "p": 1.3253627646432782e-10,
+      "df": 1133,
+      "converged": true,
+      "max_mean": 0.43532211660085457,
+      "min_mean": 0.008358073178510656,
+      "means_above_one": 0,
+      "condition_number": 11.701482028723396,
+      "score_max": 1.8740564655672642e-12,
+      "n": 26170,
+      "events": 2188,
+      "terms": [
+        "Intercept",
+        "C(year)[T.2025]",
+        "C(age_group)[T.30-44]",
+        "C(age_group)[T.45-54]",
+        "C(age_group)[T.55-64]",
+        "C(sex)[T.2.0]",
+        "C(race_ethnicity)[T.NH Asian]",
+        "C(race_ethnicity)[T.NH Black]",
+        "C(race_ethnicity)[T.NH White]",
+        "C(race_ethnicity)[T.NH other]",
+        "C(education)[T.High school or GED]",
+        "C(education)[T.Less than high school]",
+        "C(education)[T.Some college or associate]",
+        "C(region)[T.2]",
+        "C(region)[T.3]",
+        "C(region)[T.4]",
+        "exposed"
+      ],
+      "coefficients": [
+        {
+          "term": "Intercept",
+          "estimate": -3.1672058758819275,
+          "se": 0.11343617117547031
+        },
+        {
+          "term": "C(year)[T.2025]",
+          "estimate": 0.037505903376334415,
+          "se": 0.0499664073694016
+        },
+        {
+          "term": "C(age_group)[T.30-44]",
+          "estimate": -0.2491948625032041,
+          "se": 0.05812774778745119
+        },
+        {
+          "term": "C(age_group)[T.45-54]",
+          "estimate": -0.562364387536457,
+          "se": 0.07144154734532165
+        },
+        {
+          "term": "C(age_group)[T.55-64]",
+          "estimate": -0.9241640504496275,
+          "se": 0.07736190916762907
+        },
+        {
+          "term": "C(sex)[T.2.0]",
+          "estimate": 0.5759367488220254,
+          "se": 0.04944296307230151
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Asian]",
+          "estimate": -0.6698188365228936,
+          "se": 0.1603004997537369
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Black]",
+          "estimate": 0.2956947981317509,
+          "se": 0.09545301295959496
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH White]",
+          "estimate": 0.4797257781131175,
+          "se": 0.07132417389068384
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH other]",
+          "estimate": 0.3703048442081476,
+          "se": 0.14198536399831588
+        },
+        {
+          "term": "C(education)[T.High school or GED]",
+          "estimate": 0.4373023581087927,
+          "se": 0.059977579930865096
+        },
+        {
+          "term": "C(education)[T.Less than high school]",
+          "estimate": 0.38680657973143184,
+          "se": 0.11161275126317523
+        },
+        {
+          "term": "C(education)[T.Some college or associate]",
+          "estimate": 0.47351193846637707,
+          "se": 0.05965839037371294
+        },
+        {
+          "term": "C(region)[T.2]",
+          "estimate": 0.08880195543999012,
+          "se": 0.0808376257280762
+        },
+        {
+          "term": "C(region)[T.3]",
+          "estimate": -0.02333859663531013,
+          "se": 0.07708445357583965
+        },
+        {
+          "term": "C(region)[T.4]",
+          "estimate": 0.12249442943644337,
+          "se": 0.08202957128361887
+        },
+        {
+          "term": "exposed",
+          "estimate": 0.6463620536738536,
+          "se": 0.09967594874994576
+        }
+      ]
+    },
+    "narrow_comparator": {
+      "log_estimate": 0.6425234678099697,
+      "se": 0.09920677902352933,
+      "ratio": 1.9012726311290624,
+      "lower": 1.5649812088703725,
+      "upper": 2.3098281291758602,
+      "p": 1.3951182012768369e-10,
+      "df": 1133,
+      "converged": true,
+      "max_mean": 0.43524440118673713,
+      "min_mean": 0.00878424407118836,
+      "means_above_one": 0,
+      "condition_number": 11.693651515528789,
+      "score_max": 6.576073019459727e-12,
+      "n": 26042,
+      "events": 2195,
+      "terms": [
+        "Intercept",
+        "C(year)[T.2025]",
+        "C(age_group)[T.30-44]",
+        "C(age_group)[T.45-54]",
+        "C(age_group)[T.55-64]",
+        "C(sex)[T.2.0]",
+        "C(race_ethnicity)[T.NH Asian]",
+        "C(race_ethnicity)[T.NH Black]",
+        "C(race_ethnicity)[T.NH White]",
+        "C(race_ethnicity)[T.NH other]",
+        "C(education)[T.High school or GED]",
+        "C(education)[T.Less than high school]",
+        "C(education)[T.Some college or associate]",
+        "C(region)[T.2]",
+        "C(region)[T.3]",
+        "C(region)[T.4]",
+        "exposed"
+      ],
+      "coefficients": [
+        {
+          "term": "Intercept",
+          "estimate": -3.1746600297663656,
+          "se": 0.1137511384382278
+        },
+        {
+          "term": "C(year)[T.2025]",
+          "estimate": 0.037627374523329295,
+          "se": 0.050138079620001275
+        },
+        {
+          "term": "C(age_group)[T.30-44]",
+          "estimate": -0.25264015320766064,
+          "se": 0.05814689201197009
+        },
+        {
+          "term": "C(age_group)[T.45-54]",
+          "estimate": -0.5599790108799709,
+          "se": 0.07080290497976688
+        },
+        {
+          "term": "C(age_group)[T.55-64]",
+          "estimate": -0.919204366686211,
+          "se": 0.07692126376883471
+        },
+        {
+          "term": "C(sex)[T.2.0]",
+          "estimate": 0.5807684024758315,
+          "se": 0.04937512511251713
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Asian]",
+          "estimate": -0.6299916170722836,
+          "se": 0.15790808101933748
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Black]",
+          "estimate": 0.2877589381716309,
+          "se": 0.09548576797993043
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH White]",
+          "estimate": 0.48191539576589837,
+          "se": 0.07094455848959856
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH other]",
+          "estimate": 0.38852630801092597,
+          "se": 0.14037718301981028
+        },
+        {
+          "term": "C(education)[T.High school or GED]",
+          "estimate": 0.43715310574432,
+          "se": 0.05999195369579151
+        },
+        {
+          "term": "C(education)[T.Less than high school]",
+          "estimate": 0.4300041578763852,
+          "se": 0.10948430255140056
+        },
+        {
+          "term": "C(education)[T.Some college or associate]",
+          "estimate": 0.47490586852786554,
+          "se": 0.059617640216784784
+        },
+        {
+          "term": "C(region)[T.2]",
+          "estimate": 0.10086359422406277,
+          "se": 0.08223824526325126
+        },
+        {
+          "term": "C(region)[T.3]",
+          "estimate": -0.010939595194022994,
+          "se": 0.07815663151702587
+        },
+        {
+          "term": "C(region)[T.4]",
+          "estimate": 0.12507195680459404,
+          "se": 0.08314668862385798
+        },
+        {
+          "term": "exposed",
+          "estimate": 0.6425234678099697,
+          "se": 0.09920677902352933
+        }
+      ]
+    },
+    "no_disability": {
+      "log_estimate": 0.5324506791292665,
+      "se": 0.12065348708523814,
+      "ratio": 1.7031009524872354,
+      "lower": 1.344095505892261,
+      "upper": 2.1579960959972357,
+      "p": 1.1164331801411557e-05,
+      "df": 1133,
+      "converged": true,
+      "max_mean": 0.3324941498115221,
+      "min_mean": 0.008169710601354244,
+      "means_above_one": 0,
+      "condition_number": 11.702284578088289,
+      "score_max": 7.387868095065642e-12,
+      "n": 25313,
+      "events": 1834,
+      "terms": [
+        "Intercept",
+        "C(year)[T.2025]",
+        "C(age_group)[T.30-44]",
+        "C(age_group)[T.45-54]",
+        "C(age_group)[T.55-64]",
+        "C(sex)[T.2.0]",
+        "C(race_ethnicity)[T.NH Asian]",
+        "C(race_ethnicity)[T.NH Black]",
+        "C(race_ethnicity)[T.NH White]",
+        "C(race_ethnicity)[T.NH other]",
+        "C(education)[T.High school or GED]",
+        "C(education)[T.Less than high school]",
+        "C(education)[T.Some college or associate]",
+        "C(region)[T.2]",
+        "C(region)[T.3]",
+        "C(region)[T.4]",
+        "exposed"
+      ],
+      "coefficients": [
+        {
+          "term": "Intercept",
+          "estimate": -3.1699967651305174,
+          "se": 0.12060594918269596
+        },
+        {
+          "term": "C(year)[T.2025]",
+          "estimate": 0.009097843621336012,
+          "se": 0.055538461408775636
+        },
+        {
+          "term": "C(age_group)[T.30-44]",
+          "estimate": -0.23223567472257498,
+          "se": 0.06561339217999046
+        },
+        {
+          "term": "C(age_group)[T.45-54]",
+          "estimate": -0.635762574903255,
+          "se": 0.07988307085373929
+        },
+        {
+          "term": "C(age_group)[T.55-64]",
+          "estimate": -0.9610899269316673,
+          "se": 0.0854408706449465
+        },
+        {
+          "term": "C(sex)[T.2.0]",
+          "estimate": 0.5550080359163604,
+          "se": 0.05390361615777704
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Asian]",
+          "estimate": -0.6051505387352031,
+          "se": 0.16509283559445662
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Black]",
+          "estimate": 0.294875147569786,
+          "se": 0.10656258992927128
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH White]",
+          "estimate": 0.4536359988753304,
+          "se": 0.08009228881693434
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH other]",
+          "estimate": 0.32198228104029,
+          "se": 0.16108807145400053
+        },
+        {
+          "term": "C(education)[T.High school or GED]",
+          "estimate": 0.3692395676363875,
+          "se": 0.06699500111436563
+        },
+        {
+          "term": "C(education)[T.Less than high school]",
+          "estimate": 0.2876461889385452,
+          "se": 0.12818511410003844
+        },
+        {
+          "term": "C(education)[T.Some college or associate]",
+          "estimate": 0.4726827234713069,
+          "se": 0.06312053580533995
+        },
+        {
+          "term": "C(region)[T.2]",
+          "estimate": 0.01403543226310416,
+          "se": 0.08780283491723495
+        },
+        {
+          "term": "C(region)[T.3]",
+          "estimate": -0.07108456205107962,
+          "se": 0.083281827745792
+        },
+        {
+          "term": "C(region)[T.4]",
+          "estimate": 0.045988470524089775,
+          "se": 0.08855481247989486
+        },
+        {
+          "term": "exposed",
+          "estimate": 0.5324506791292665,
+          "se": 0.12065348708523814
+        }
+      ]
+    },
+    "interaction": {
+      "log_estimate": 0.5695800063209364,
+      "se": 0.13914359758094355,
+      "ratio": 1.767524546383865,
+      "lower": 1.3452393086112768,
+      "upper": 2.322369709293297,
+      "p": 4.551171230762848e-05,
+      "df": 1133,
+      "converged": true,
+      "max_mean": 0.4613369546594505,
+      "min_mean": 0.008782157626546418,
+      "means_above_one": 0,
+      "condition_number": 21.203781893488202,
+      "score_max": 1.5855761148486636e-11,
+      "n": 26281,
+      "events": 2213,
+      "terms": [
+        "Intercept",
+        "C(year)[T.2025]",
+        "C(age_group)[T.30-44]",
+        "C(age_group)[T.45-54]",
+        "C(age_group)[T.55-64]",
+        "C(sex)[T.2.0]",
+        "C(race_ethnicity)[T.NH Asian]",
+        "C(race_ethnicity)[T.NH Black]",
+        "C(race_ethnicity)[T.NH White]",
+        "C(race_ethnicity)[T.NH other]",
+        "C(education)[T.High school or GED]",
+        "C(education)[T.Less than high school]",
+        "C(education)[T.Some college or associate]",
+        "C(region)[T.2]",
+        "C(region)[T.3]",
+        "C(region)[T.4]",
+        "exposed",
+        "exposed:C(year)[T.2025]"
+      ],
+      "coefficients": [
+        {
+          "term": "Intercept",
+          "estimate": -3.1716271707961794,
+          "se": 0.11293505505609634
+        },
+        {
+          "term": "C(year)[T.2025]",
+          "estimate": 0.022416424446919252,
+          "se": 0.0510181402866403
+        },
+        {
+          "term": "C(age_group)[T.30-44]",
+          "estimate": -0.24484375890387927,
+          "se": 0.05791289306231802
+        },
+        {
+          "term": "C(age_group)[T.45-54]",
+          "estimate": -0.5543906575585702,
+          "se": 0.07063832927622044
+        },
+        {
+          "term": "C(age_group)[T.55-64]",
+          "estimate": -0.9132494483765627,
+          "se": 0.07657760843835422
+        },
+        {
+          "term": "C(sex)[T.2.0]",
+          "estimate": 0.5791204281128252,
+          "se": 0.049222597768972705
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Asian]",
+          "estimate": -0.6298720258201376,
+          "se": 0.1580178110802453
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH Black]",
+          "estimate": 0.29813370869617795,
+          "se": 0.09506217040998326
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH White]",
+          "estimate": 0.486118179795384,
+          "se": 0.07095543155387657
+        },
+        {
+          "term": "C(race_ethnicity)[T.NH other]",
+          "estimate": 0.3793601316605129,
+          "se": 0.14069941670113786
+        },
+        {
+          "term": "C(education)[T.High school or GED]",
+          "estimate": 0.4382005967564537,
+          "se": 0.05972571606790501
+        },
+        {
+          "term": "C(education)[T.Less than high school]",
+          "estimate": 0.4104331978837421,
+          "se": 0.10921267958095024
+        },
+        {
+          "term": "C(education)[T.Some college or associate]",
+          "estimate": 0.47958298692702894,
+          "se": 0.05931884469712312
+        },
+        {
+          "term": "C(region)[T.2]",
+          "estimate": 0.09749935268215222,
+          "se": 0.08063972223064211
+        },
+        {
+          "term": "C(region)[T.3]",
+          "estimate": -0.02028451318976477,
+          "se": 0.07668190349127794
+        },
+        {
+          "term": "C(region)[T.4]",
+          "estimate": 0.11921787011867535,
+          "se": 0.08172391910207709
+        },
+        {
+          "term": "exposed",
+          "estimate": 0.5695800063209364,
+          "se": 0.13914359758094355
+        },
+        {
+          "term": "exposed:C(year)[T.2025]",
+          "estimate": 0.1419646932663101,
+          "se": 0.1929355511617207
+        }
+      ]
+    }
+  },
+  "interaction": {
+    "log_estimate": 0.1419646932663101,
+    "se": 0.1929355511617207,
+    "ratio": 1.1525359555385906,
+    "lower": 0.7893176581159013,
+    "upper": 1.6828954922660584,
+    "p": 0.4619961556704582
+  },
+  "year_specific_adjusted": {
+    "2022": {
+      "log_estimate": 0.5695800063209364,
+      "se": 0.13914359758094355,
+      "ratio": 1.767524546383865,
+      "lower": 1.3452393086112768,
+      "upper": 2.322369709293297,
+      "p": 4.551171230762848e-05
+    },
+    "2025": {
+      "log_estimate": 0.7115446995872465,
+      "se": 0.13566223995326862,
+      "ratio": 2.0371355920044416,
+      "lower": 1.5610633873469453,
+      "upper": 2.658393921635784,
+      "p": 1.8641421034794706e-07
+    }
+  },
+  "characteristics": [
+    {
+      "exposed": 0,
+      "variable": "age_group",
+      "category": "18-29",
+      "weighted_percent": 25.231596595122948,
+      "n": 4768
+    },
+    {
+      "exposed": 0,
+      "variable": "age_group",
+      "category": "30-44",
+      "weighted_percent": 35.68807433024572,
+      "n": 9648
+    },
+    {
+      "exposed": 0,
+      "variable": "age_group",
+      "category": "45-54",
+      "weighted_percent": 21.471498301873773,
+      "n": 5612
+    },
+    {
+      "exposed": 0,
+      "variable": "age_group",
+      "category": "55-64",
+      "weighted_percent": 17.608830772757585,
+      "n": 5457
+    },
+    {
+      "exposed": 0,
+      "variable": "sex",
+      "category": "1.0",
+      "weighted_percent": 53.18222504956207,
+      "n": 12872
+    },
+    {
+      "exposed": 0,
+      "variable": "sex",
+      "category": "2.0",
+      "weighted_percent": 46.81777495043795,
+      "n": 12613
+    },
+    {
+      "exposed": 0,
+      "variable": "race_ethnicity",
+      "category": "Hispanic",
+      "weighted_percent": 20.021481043630818,
+      "n": 4503
+    },
+    {
+      "exposed": 0,
+      "variable": "race_ethnicity",
+      "category": "NH Asian",
+      "weighted_percent": 6.622318843349821,
+      "n": 1874
+    },
+    {
+      "exposed": 0,
+      "variable": "race_ethnicity",
+      "category": "NH Black",
+      "weighted_percent": 11.745339049914616,
+      "n": 2828
+    },
+    {
+      "exposed": 0,
+      "variable": "race_ethnicity",
+      "category": "NH White",
+      "weighted_percent": 58.792608516593205,
+      "n": 15565
+    },
+    {
+      "exposed": 0,
+      "variable": "race_ethnicity",
+      "category": "NH other",
+      "weighted_percent": 2.8182525465115567,
+      "n": 715
+    },
+    {
+      "exposed": 0,
+      "variable": "education",
+      "category": "Bachelor or higher",
+      "weighted_percent": 38.72506554881742,
+      "n": 11721
+    },
+    {
+      "exposed": 0,
+      "variable": "education",
+      "category": "High school or GED",
+      "weighted_percent": 24.854233136807803,
+      "n": 5618
+    },
+    {
+      "exposed": 0,
+      "variable": "education",
+      "category": "Less than high school",
+      "weighted_percent": 7.435129403037481,
+      "n": 1333
+    },
+    {
+      "exposed": 0,
+      "variable": "education",
+      "category": "Some college or associate",
+      "weighted_percent": 28.98557191133731,
+      "n": 6813
+    },
+    {
+      "exposed": 0,
+      "variable": "region",
+      "category": "1",
+      "weighted_percent": 17.380086716287853,
+      "n": 4363
+    },
+    {
+      "exposed": 0,
+      "variable": "region",
+      "category": "2",
+      "weighted_percent": 21.006171808672676,
+      "n": 5533
+    },
+    {
+      "exposed": 0,
+      "variable": "region",
+      "category": "3",
+      "weighted_percent": 37.52212423638188,
+      "n": 9110
+    },
+    {
+      "exposed": 0,
+      "variable": "region",
+      "category": "4",
+      "weighted_percent": 24.09161723865762,
+      "n": 6479
+    },
+    {
+      "exposed": 0,
+      "variable": "year",
+      "category": "2022",
+      "weighted_percent": 48.68016381142178,
+      "n": 13673
+    },
+    {
+      "exposed": 0,
+      "variable": "year",
+      "category": "2025",
+      "weighted_percent": 51.31983618857824,
+      "n": 11812
+    },
+    {
+      "exposed": 1,
+      "variable": "age_group",
+      "category": "18-29",
+      "weighted_percent": 43.43010487213805,
+      "n": 249
+    },
+    {
+      "exposed": 1,
+      "variable": "age_group",
+      "category": "30-44",
+      "weighted_percent": 28.526221613212613,
+      "n": 246
+    },
+    {
+      "exposed": 1,
+      "variable": "age_group",
+      "category": "45-54",
+      "weighted_percent": 14.438798631737365,
+      "n": 140
+    },
+    {
+      "exposed": 1,
+      "variable": "age_group",
+      "category": "55-64",
+      "weighted_percent": 13.604874882911972,
+      "n": 161
+    },
+    {
+      "exposed": 1,
+      "variable": "sex",
+      "category": "1.0",
+      "weighted_percent": 55.46293021176937,
+      "n": 422
+    },
+    {
+      "exposed": 1,
+      "variable": "sex",
+      "category": "2.0",
+      "weighted_percent": 44.537069788230646,
+      "n": 374
+    },
+    {
+      "exposed": 1,
+      "variable": "race_ethnicity",
+      "category": "Hispanic",
+      "weighted_percent": 27.12979700473718,
+      "n": 192
+    },
+    {
+      "exposed": 1,
+      "variable": "race_ethnicity",
+      "category": "NH Asian",
+      "weighted_percent": 7.053827754337406,
+      "n": 68
+    },
+    {
+      "exposed": 1,
+      "variable": "race_ethnicity",
+      "category": "NH Black",
+      "weighted_percent": 18.410249626127616,
+      "n": 140
+    },
+    {
+      "exposed": 1,
+      "variable": "race_ethnicity",
+      "category": "NH White",
+      "weighted_percent": 42.78129198258679,
+      "n": 366
+    },
+    {
+      "exposed": 1,
+      "variable": "race_ethnicity",
+      "category": "NH other",
+      "weighted_percent": 4.6248336322110255,
+      "n": 30
+    },
+    {
+      "exposed": 1,
+      "variable": "education",
+      "category": "Bachelor or higher",
+      "weighted_percent": 20.60848658457036,
+      "n": 218
+    },
+    {
+      "exposed": 1,
+      "variable": "education",
+      "category": "High school or GED",
+      "weighted_percent": 41.27114910677368,
+      "n": 288
+    },
+    {
+      "exposed": 1,
+      "variable": "education",
+      "category": "Less than high school",
+      "weighted_percent": 17.303872211545638,
+      "n": 111
+    },
+    {
+      "exposed": 1,
+      "variable": "education",
+      "category": "Some college or associate",
+      "weighted_percent": 20.81649209711033,
+      "n": 179
+    },
+    {
+      "exposed": 1,
+      "variable": "region",
+      "category": "1",
+      "weighted_percent": 17.428284264903223,
+      "n": 143
+    },
+    {
+      "exposed": 1,
+      "variable": "region",
+      "category": "2",
+      "weighted_percent": 16.544587783481095,
+      "n": 140
+    },
+    {
+      "exposed": 1,
+      "variable": "region",
+      "category": "3",
+      "weighted_percent": 39.653795059812175,
+      "n": 293
+    },
+    {
+      "exposed": 1,
+      "variable": "region",
+      "category": "4",
+      "weighted_percent": 26.373332891803514,
+      "n": 220
+    },
+    {
+      "exposed": 1,
+      "variable": "year",
+      "category": "2022",
+      "weighted_percent": 45.78934626802379,
+      "n": 407
+    },
+    {
+      "exposed": 1,
+      "variable": "year",
+      "category": "2025",
+      "weighted_percent": 54.210653731976215,
+      "n": 389
+    }
+  ],
+  "missing_bounds": [
+    {
+      "exposed": 0,
+      "eligible_n": 25685,
+      "missing_n": 82,
+      "weighted_missing_percent": 0.35290112030336823,
+      "prevalence_lower_bound": 0.08202477671193256,
+      "prevalence_upper_bound": 0.08555378791496625
+    },
+    {
+      "exposed": 1,
+      "eligible_n": 802,
+      "missing_n": 3,
+      "weighted_missing_percent": 0.2538763972214836,
+      "prevalence_lower_bound": 0.17209455052548364,
+      "prevalence_upper_bound": 0.17463331449769848
+    }
+  ],
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "matplotlib": "3.11.2",
+    "patsy": "1.0.3"
+  }
+}

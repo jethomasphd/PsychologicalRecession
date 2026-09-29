@@ -52,119 +52,125 @@ def table(doc,headers,rows,widths):
     return t
 
 def main():
-    r=json.loads((ROOT/'results/results.json').read_text())
+    import pandas as pd
+    result=json.loads((ROOT/'results/results.json').read_text(encoding='utf8'))
+    models=pd.read_csv(ROOT/'results/models.csv');annual=pd.read_csv(ROOT/'results/annual_burden.csv')
+    val=json.loads((ROOT/'results/validation.json').read_text());diag=json.loads((ROOT/'results/model_diagnostics.json').read_text())
+    influence=pd.read_csv(ROOT/'results/leave_one_state_out.csv')
     refs={x['key']:x for x in json.loads((ROOT/'manuscript/references.json').read_text(encoding='utf8'))}
-    values={'N':f"{r['models']['adjusted']['n']:,}"}
-    for label,model in [('A','adjusted'),('U','unadjusted'),('D','no_disability')]:
-        for suffix,k in [('PR','ratio'),('LO','lower'),('HI','upper')]:values[label+suffix]=f"{r['models'][model][k]:.2f}"
-    for g in [0,1]:
-        e=next(x for x in r['prevalence'] if x['year']=='Pooled' and x['outcome']=='outcome' and x['exposed']==g)
-        for suffix,k in [('', 'prevalence'),('LO','lower'),('HI','upper')]:values[f'P{g}'+suffix]=f"{100*e[k]:.1f}"
+    def model(label,term='lower_hiring'):return models[(models.model==label)&(models.term==term)].iloc[0]
+    def interval(row):return f"{row.estimate:.2f} ({row.lower:.2f} to {row.upper:.2f})"
+    values={'N':f"{result['primary_n']:,}",'NE':f"{result['employed_n']:,}",'SY':str(result['primary_state_years'])}
+    for token,label,term in [('H','Primary','lower_hiring'),('C','Competition per opening','competition'),('U','Primary','unemployment_rate'),('LAG','Previous-year conditions','lag_lower_hiring')]:
+        m=model(label,term)
+        for suffix,k in [('', 'estimate'),('LO','lower'),('HI','upper')]:values[token+suffix]=f'{m[k]:.2f}'
+    for year in [2013,2024]:
+        for prefix,group in [('P','Out of work'),('E','Employed')]:values[prefix+str(year)]=f'{annual[(annual.year==year)&(annual.group==group)].iloc[0].fmd_percent:.1f}'
+    for suffix,key in [('', 'estimate_pp'),('LO','lower_pp'),('HI','upper_pp')]:values['LOG'+suffix]=f"{val['posthoc_logistic'][key]:.2f}"
+    values.update(RSD=f"{diag['weighted_residual_exposure_sd']:.2f}",OUTSIDE=f"{val['weighted_fraction_linear_predictions_outside_0_1']*100:.3f}",LOOLO=f'{influence.estimate.min():.2f}',LOOHI=f'{influence.estimate.max():.2f}')
     source=(ROOT/'manuscript/paper.md').read_text(encoding='utf8')
     for key,value in values.items():source=source.replace('{{'+key+'}}',value)
-    assert not re.search(r'\{\{.+?\}\}',source),'Unresolved numerical token'
+    assert not re.search(r'\{\{.+?\}\}',source)
     order=[]
-    def cite(match):
-        keys=[x.strip().lstrip('@') for x in match.group(1).split(';')]
+    def cite(m):
+        keys=[x.strip().lstrip('@') for x in m.group(1).split(';')]
         for key in keys:
             assert key in refs,key
             if key not in order:order.append(key)
         return '['+', '.join(str(order.index(k)+1) for k in keys)+']'
     source=re.sub(r'\[(@[^\]]+)\]',cite,source)
-    assert len(order)==len(refs),'Uncited reference'
+    assert set(order)==set(refs),set(refs)-set(order)
     doc=Document();sec=doc.sections[0]
     sec.page_width=Inches(8.5);sec.page_height=Inches(11)
-    sec.top_margin=Inches(.85);sec.bottom_margin=Inches(.85);sec.left_margin=Inches(1);sec.right_margin=Inches(1)
-    sec.footer_distance=Inches(.42)
-    # Clear decorative theme residue from the installed default template.
+    sec.top_margin=Inches(.85);sec.bottom_margin=Inches(.85);sec.left_margin=Inches(1);sec.right_margin=Inches(1);sec.footer_distance=Inches(.42)
     for element in list(doc.styles.element.iter()):
-        if element.tag in [qn('w:pBdr'),qn('w:spacing')] and element.getparent().tag==qn('w:rPr'):
-            element.getparent().remove(element)
-        elif element.tag==qn('w:pBdr'):
-            element.getparent().remove(element)
+        if element.tag==qn('w:pBdr') or (element.tag==qn('w:spacing') and element.getparent().tag==qn('w:rPr')):element.getparent().remove(element)
         elif element.tag==qn('w:rFonts'):
             for attr in list(element.attrib):
                 if attr.endswith('Theme'):del element.attrib[attr]
-    normal=doc.styles['Normal'];normal.font.name='Times New Roman';normal.font.size=Pt(11.5)
-    normal.font.color.rgb=RGBColor.from_string('111111')
-    normal.paragraph_format.line_spacing=1.14;normal.paragraph_format.space_after=Pt(7)
-    normal.paragraph_format.widow_control=True
+    normal=doc.styles['Normal'];normal.font.name='Times New Roman';normal.font.size=Pt(11.5);normal.font.color.rgb=RGBColor.from_string('111111')
+    normal.paragraph_format.line_spacing=1.14;normal.paragraph_format.space_after=Pt(7);normal.paragraph_format.widow_control=True
     for name,size in [('Title',23),('Subtitle',13),('Heading 1',14),('Heading 2',12),('Caption',11)]:
-        s=doc.styles[name];s.font.name='Times New Roman';s.font.size=Pt(size);s.font.color.rgb=RGBColor.from_string('111111')
-        s.font.bold=name not in ['Subtitle'];s.font.italic=False
-        s.paragraph_format.space_before=Pt(12 if name.startswith('Heading') else 0)
-        s.paragraph_format.space_after=Pt(6);s.paragraph_format.keep_with_next=True
+        s=doc.styles[name];s.font.name='Times New Roman';s.font.size=Pt(size);s.font.color.rgb=RGBColor.from_string('111111');s.font.bold=name!='Subtitle';s.font.italic=False
+        s.paragraph_format.space_before=Pt(12 if name.startswith('Heading') else 0);s.paragraph_format.space_after=Pt(6);s.paragraph_format.keep_with_next=True
     foot=sec.footer.paragraphs[0];foot.alignment=WD_ALIGN_PARAGRAPH.CENTER
-    run=foot.add_run();run.font.size=Pt(9)
-    field=OxmlElement('w:fldSimple');field.set(qn('w:instr'),'PAGE');run._r.addnext(field)
+    field=OxmlElement('w:fldSimple');field.set(qn('w:instr'),'PAGE');foot._p.append(field)
     doc.core_properties.title='Job seeking as a psychiatric exposure'
-    doc.core_properties.subject='A public health position from the hiring industry'
-    doc.core_properties.author='Jacob E. Thomas'
-    doc.core_properties.keywords='job seeking; unemployment; mental health; structural exposure'
-    doc.core_properties.created=datetime.datetime(2026,9,29,0,0,0)
-    doc.core_properties.modified=datetime.datetime(2026,9,29,0,0,0)
+    doc.core_properties.subject='Labor-market conditions, mental distress, and the responsibilities of the hiring industry'
+    doc.core_properties.author='Jacob E. Thomas';doc.core_properties.keywords='job seeking; labor market; mental distress; public health'
+    doc.core_properties.created=doc.core_properties.modified=datetime.datetime(2026,9,29,0,0,0)
     md=[];front=True
     def para(text,style=None):
-        rendered=re.sub(r'(?<=\d)–(?=\d)','\u2011',text)
-        p=doc.add_paragraph(rendered,style=style);md.append(text);return p
+        p=doc.add_paragraph(text,style=style);md.append(text);return p
     def note(text):
-        p=para(text)
-        p.paragraph_format.line_spacing=1.05;p.paragraph_format.space_after=Pt(9)
-        for run in p.runs:run.font.size=Pt(10)
-    def mtable(headers,rows):
-        md.extend(['| '+' | '.join(headers)+' |','| '+' | '.join('---' for _ in headers)+' |',*['| '+' | '.join(str(x) for x in row)+' |' for row in rows]])
+        p=para(text);p.paragraph_format.line_spacing=1.05;p.paragraph_format.space_after=Pt(9)
+        for r in p.runs:r.font.size=Pt(10)
+    def put_table(headers,rows,widths):
+        t=table(doc,headers,rows,widths)
+        # Keep rows intact, but allow long tables to continue rather than pushing a whole page.
+        for i,row in enumerate(t.rows):
+            for cell in row.cells:
+                for p in cell.paragraphs:p.paragraph_format.keep_with_next=(i==0)
+        md.extend(['| '+' | '.join(headers)+' |','| '+' | '.join('---' for _ in headers)+' |',*['| '+' | '.join(map(str,row))+' |' for row in rows]])
     for block in source.strip().split('\n\n'):
         if block=='@@PAGEBREAK@@':doc.add_page_break();front=False;continue
-        if block=='@@FIGURE1@@':
-            para('Figure 1. Symptom burden by employment category','Caption')
-            p=doc.add_paragraph();p.paragraph_format.space_after=Pt(3);p.paragraph_format.keep_with_next=True
-            shape=p.add_run().add_picture(str(ROOT/'results/figure1.png'),width=Inches(6.5))
-            shape._inline.docPr.set('descr',f"Weighted prevalence was {values['P1']} percent in the unemployment/search category and {values['P0']} percent in the employed category. Whiskers show 95 percent confidence intervals.")
-            md.append('![Figure 1](../results/figure1.png)')
-            note('Points show pooled survey-weighted prevalence; whiskers show 95% confidence intervals. Adults aged 18–64 in the 2022 and 2025 NHIS, complete-case sample (n = 26,281). The unemployment/search category is not a verified measure of active searching. Symptoms are PHQ-8 or GAD-7 scores of at least 10, not clinical diagnoses.')
-            continue
         if block=='@@TABLE1@@':
-            para('Table 1. Prevalence ratios and sensitivity analyses','Caption')
+            para('Table 1. Labor-market conditions and frequent mental distress','Caption')
             rows=[]
-            for label,key in [('Primary outcome, unadjusted','unadjusted'),('Primary outcome, adjusted','adjusted'),('Depressive symptoms, adjusted','depression'),('Anxiety symptoms, adjusted','anxiety'),('All symptom items complete, adjusted','all_items'),('Narrower employed comparator, adjusted','narrow_comparator'),('Adults without disability, adjusted','no_disability')]:
-                m=r['models'][key];rows.append([label,f"{m['n']:,}",f"{m['ratio']:.2f} ({m['lower']:.2f}–{m['upper']:.2f})"])
-            headers=['Analysis','Sample n','Prevalence ratio (95% CI)']
-            table(doc,headers,rows,[3.4,.8,2.3]);mtable(headers,rows)
-            note('Each ratio compares the unemployment/search group with the employed group. Primary outcome: moderate or severe anxiety or depressive symptoms. Adjusted models include year, age group, sex, race and Hispanic origin, education, and Census region. The narrower comparator requires work last week or temporary absence from a job. Disability exclusion uses DISAB3_A = 2. Sample sizes are unweighted; all estimates account for survey weights, strata, and clustering.')
+            for label,term,exposure in [('Primary','lower_hiring','1-point lower hiring rate (primary)'),('Primary','unemployment_rate','1-point higher unemployment rate (same model)'),('Competition per opening','competition','Doubling unemployed people per opening (separate model)'),('Job-opening rate','lower_openings','1-point lower job-opening rate (separate model)')]:
+                m=model(label,term);rows.append([exposure,f'{m.estimate:.2f}',f'{m.lower:.2f} to {m.upper:.2f}'])
+            put_table(['Change in market condition','Distress difference, pp','95% confidence interval'],rows,[3.4,1.35,1.75])
+            note('Out-of-work adults aged 18–64, 2013–2024; n = 193,060 in 607 state-years. pp = percentage points. All models include state, year, and demographic terms. Hiring and unemployment appear jointly in the primary model; other exposures are fitted separately. Exposure changes have different units, so coefficient magnitudes should not be ranked as equivalent effects. Confidence intervals are clustered by state.')
             continue
-        if block=='@@TABLE2@@':
-            para('Table 2. Hiring practices that can be measured and changed','Caption')
-            headers=['Priority','Observable measure','Proposed change to evaluate']
-            rows=[['Vacancy accuracy','Whether an advertised vacancy is current, authorized, and accepting applications; time to remove closed listings.','Label vacancy status, distinguish ongoing talent pools, and close unavailable roles promptly.'],['Predictable communication','Days without an update; whether stages and decision dates are stated; whether applicants receive closure.','Publish the process and update schedule; provide accurate status and a defined closure procedure.'],['Proportionate demands','Applicant time and out-of-pocket costs; repeated forms; length and number of unpaid assessments.','Remove duplicate demands, limit unpaid tasks, and test compensation for substantial assessments.'],['Accessible review','Availability and use of accommodations, explanations of process, and review of disputed exclusions.','Offer accessible routes to request assistance or review; audit differences in access and outcomes.']]
-            table(doc,headers,rows,[1.1,2.65,2.75]);mtable(headers,rows)
-            note('These are proposed intervention targets, not demonstrated causes of psychiatric disorder or proven treatments. Evaluate mental health, employment quality, access, and unintended effects together. Process transparency does not require sharing confidential evaluations or collecting clinical information for hiring decisions.')
+        if block=='@@FIGURE1@@':
+            para('Figure 1. Hiring estimates across model specifications','Caption')
+            p=doc.add_paragraph();p.paragraph_format.keep_with_next=True;p.paragraph_format.space_after=Pt(3)
+            shape=p.add_run().add_picture(str(ROOT/'results/figure1.png'),width=Inches(6.5))
+            shape._inline.docPr.set('descr','Hiring coefficients and 95% confidence intervals for the main model and five sensitivity checks. Intervals cross zero; the lagged estimate has the opposite direction from the same-year estimate.')
+            md.append('![Hiring estimates](../results/figure1.png)')
+            note('Each point is an adjusted association with frequent mental distress per one-percentage-point lower state hiring rate. Lines show 95% confidence intervals. Positive values indicate more distress; negative values indicate less. The previous-year model uses lagged hiring and unemployment. The 2025 extension uses the published 11-month unemployment input and has different state coverage. These observational estimates are not effects of an intervention.')
+            continue
+        if block=='@@FLOW@@':
+            flows=pd.DataFrame(result['sample_flow']).query('year<=2024');totals=flows.select_dtypes('number').sum()
+            rows=[[label,f'{int(totals[key]):,}'] for key,label in [('raw','All public records, 2013–2024'),('states_dc','50 states and District of Columbia'),('age18_64','Age 18–64'),('employed_or_out_of_work','Employed, self-employed, or out of work'),('valid_mental_health','Valid mental-health-days response'),('complete','Complete demographics and positive weight'),('out_of_work','Out of work: primary analysis'),('employed','Employed: contextual analysis')]]
+            put_table(['Sequential sample definition','Respondents'],rows,[4.7,1.8]);note('The final two rows partition the complete sample. Counts represent different respondents in repeated annual cross-sections. Year-specific counts, missing states, and the 2025 extension are supplied in the reproducibility files.')
+            continue
+        if block=='@@EQUATION@@':
+            p=para('Pr(Y = 1) = a(state) + g(year) + b × (−H) + c × U + X′d')
+            p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+            for run in p.runs:run.font.name='Cambria';run.font.size=Pt(11)
+            continue
+        if block=='@@CHECKS@@':
+            rows=[]
+            specs=[('Primary','Primary model'),('No unemployment adjustment','Without unemployment adjustment'),('Previous-year conditions','Previous-year conditions'),('Exclude 2020–2021','Exclude 2020–2021'),('State-specific trends','State-specific linear trends'),('Equal state-year weights','Equal total weight per state-year'),('Complete-state panel','46 continuously observed states'),('Out of work <1 year','Out of work <1 year'),('Out of work >=1 year','Out of work ≥1 year'),('Employed adults','Employed adults'),('Through 2025 (11-month unemployment input)','Through 2025: 11-month unemployment input')]
+            for key,label in specs:
+                m=model(key,'lag_lower_hiring' if key=='Previous-year conditions' else 'lower_hiring');rows.append([label,f'{int(m.n):,}',interval(m)])
+            log=val['posthoc_logistic'];rows.append(['Logistic average marginal association (post hoc)',values['N'],f"{log['estimate_pp']:.2f} ({log['lower_pp']:.2f} to {log['upper_pp']:.2f})"])
+            put_table(['Model or population','Respondents','Difference in distress, pp (95% CI)'],rows,[2.95,1.05,2.5])
+            note('All rows use a one-percentage-point lower hiring rate; all except the explicitly unadjusted-for-unemployment row include unemployment. The continuous-days check gave '+interval(model('Poor mental health days'))+' mentally unhealthy days per month. The outcome units in this last estimate are days, not percentage points. Full coefficients, including the unemployment term in every model, are in results/models.csv.')
             continue
         if block=='@@REFERENCES@@':
             doc.add_page_break();para('References','Heading 1')
-            for n,key in enumerate(order,1):
-                ref=refs[key];p=doc.add_paragraph();p.paragraph_format.left_indent=Inches(.23);p.paragraph_format.first_line_indent=Inches(-.23)
-                p.paragraph_format.line_spacing=1.05;p.paragraph_format.space_after=Pt(5);p.paragraph_format.keep_together=True
-                p.add_run(f"{n}. {ref['text']} ");hyperlink(p,ref['url'],ref['url'])
+            for i,key in enumerate(order,1):
+                ref=refs[key];p=doc.add_paragraph();p.paragraph_format.left_indent=Inches(.23);p.paragraph_format.first_line_indent=Inches(-.23);p.paragraph_format.line_spacing=1.05;p.paragraph_format.space_after=Pt(6);p.paragraph_format.keep_together=True
+                p.add_run(f"{i}. {ref['text']} ");hyperlink(p,ref['url'],ref['url'])
                 for run in p.runs:run.font.size=Pt(10.5)
-                md.append(f"{n}. {ref['text']} {ref['url']}")
+                md.append(f"{i}. {ref['text']} {ref['url']}")
             continue
         if block.startswith('# '):para(block[2:],'Title');continue
         if block.startswith('## '):para(block[3:],'Subtitle' if front else 'Heading 1');continue
         if block.startswith('### '):para(block[4:],'Heading 2');continue
         p=para(block)
-        if front and not block.startswith('The health consequences'):
+        if front:
             p.paragraph_format.space_after=Pt(5)
             if block.startswith(('Correspondence:','Article type:','Keywords:')):
                 for run in p.runs:run.font.size=Pt(10)
-    target=ROOT/'manuscript/Job_seeking_as_a_psychiatric_exposure.docx'
-    memory=io.BytesIO();doc.save(memory)
-    # Remove ZIP timestamp variability. All substantive content is deterministic.
+    target=ROOT/'manuscript/Job_seeking_as_a_psychiatric_exposure.docx';memory=io.BytesIO();doc.save(memory)
     with zipfile.ZipFile(memory) as original,zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED) as out:
         for name in original.namelist():
-            info=zipfile.ZipInfo(name,date_time=(2026,9,29,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED
-            out.writestr(info,original.read(name))
+            info=zipfile.ZipInfo(name,date_time=(2026,9,29,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;out.writestr(info,original.read(name))
     (ROOT/'manuscript/manuscript.md').write_text('\n\n'.join(md)+'\n',encoding='utf8',newline='\n')
-    (ROOT/'audit/citation_order.json').write_text(json.dumps(order,indent=2)+'\n',newline='\n')
-    print(f'Created {target.name}; {len(order)} references; approximately {len(" ".join(md).split())} words including references and tables')
+    (ROOT/'audit/citation_order.json').write_text(json.dumps(order,indent=2)+'\n',encoding='utf8',newline='\n')
+    print(f'Built {target.name}; {len(order)} references; {len(" ".join(md).split())} words including references and tables')
 
 if __name__=='__main__':main()

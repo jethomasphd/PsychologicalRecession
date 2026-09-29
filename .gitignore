@@ -1,7 +1,6 @@
+.venv/
 __pycache__/
 *.pyc
-.venv/
+data/source_cache/
 *.partial
-data/raw/*.txt
-~$*.docx
-rendered/
+.DS_Store

@@ -1,0 +1,184 @@
+[
+  {
+    "year": 2013,
+    "raw": 491773,
+    "states_dc": 483865,
+    "age18_64": 320695,
+    "employed_or_out_of_work": 236515,
+    "valid_mental_health": 233969,
+    "complete": 230302,
+    "out_of_work": 22342,
+    "employed": 207960,
+    "interview_outside_year": 2867,
+    "missing_states": []
+  },
+  {
+    "year": 2014,
+    "raw": 464664,
+    "states_dc": 456158,
+    "age18_64": 293777,
+    "employed_or_out_of_work": 215383,
+    "valid_mental_health": 213123,
+    "complete": 210067,
+    "out_of_work": 17049,
+    "employed": 193018,
+    "interview_outside_year": 2567,
+    "missing_states": []
+  },
+  {
+    "year": 2015,
+    "raw": 441456,
+    "states_dc": 434382,
+    "age18_64": 278420,
+    "employed_or_out_of_work": 203622,
+    "valid_mental_health": 201529,
+    "complete": 198698,
+    "out_of_work": 15455,
+    "employed": 183243,
+    "interview_outside_year": 6020,
+    "missing_states": []
+  },
+  {
+    "year": 2016,
+    "raw": 486303,
+    "states_dc": 477665,
+    "age18_64": 303047,
+    "employed_or_out_of_work": 221554,
+    "valid_mental_health": 219242,
+    "complete": 216051,
+    "out_of_work": 16048,
+    "employed": 200003,
+    "interview_outside_year": 7034,
+    "missing_states": []
+  },
+  {
+    "year": 2017,
+    "raw": 450016,
+    "states_dc": 444023,
+    "age18_64": 283191,
+    "employed_or_out_of_work": 209590,
+    "valid_mental_health": 207439,
+    "complete": 204027,
+    "out_of_work": 15614,
+    "employed": 188413,
+    "interview_outside_year": 5784,
+    "missing_states": []
+  },
+  {
+    "year": 2018,
+    "raw": 437436,
+    "states_dc": 430949,
+    "age18_64": 272570,
+    "employed_or_out_of_work": 202298,
+    "valid_mental_health": 200225,
+    "complete": 197024,
+    "out_of_work": 13876,
+    "employed": 183148,
+    "interview_outside_year": 8261,
+    "missing_states": []
+  },
+  {
+    "year": 2019,
+    "raw": 418268,
+    "states_dc": 409810,
+    "age18_64": 253018,
+    "employed_or_out_of_work": 187562,
+    "valid_mental_health": 184770,
+    "complete": 181793,
+    "out_of_work": 12884,
+    "employed": 168909,
+    "interview_outside_year": 7870,
+    "missing_states": [
+      34
+    ]
+  },
+  {
+    "year": 2020,
+    "raw": 401958,
+    "states_dc": 394831,
+    "age18_64": 250597,
+    "employed_or_out_of_work": 191480,
+    "valid_mental_health": 188673,
+    "complete": 185294,
+    "out_of_work": 19354,
+    "employed": 165940,
+    "interview_outside_year": 5133,
+    "missing_states": []
+  },
+  {
+    "year": 2021,
+    "raw": 438693,
+    "states_dc": 431639,
+    "age18_64": 271139,
+    "employed_or_out_of_work": 209055,
+    "valid_mental_health": 206237,
+    "complete": 202067,
+    "out_of_work": 17055,
+    "employed": 185012,
+    "interview_outside_year": 11233,
+    "missing_states": [
+      12
+    ]
+  },
+  {
+    "year": 2022,
+    "raw": 445132,
+    "states_dc": 435826,
+    "age18_64": 270318,
+    "employed_or_out_of_work": 205159,
+    "valid_mental_health": 202087,
+    "complete": 196809,
+    "out_of_work": 13370,
+    "employed": 183439,
+    "interview_outside_year": 11272,
+    "missing_states": []
+  },
+  {
+    "year": 2023,
+    "raw": 433323,
+    "states_dc": 425106,
+    "age18_64": 256875,
+    "employed_or_out_of_work": 197107,
+    "valid_mental_health": 194438,
+    "complete": 190866,
+    "out_of_work": 13547,
+    "employed": 177319,
+    "interview_outside_year": 10916,
+    "missing_states": [
+      21,
+      42
+    ]
+  },
+  {
+    "year": 2024,
+    "raw": 457670,
+    "states_dc": 450353,
+    "age18_64": 273157,
+    "employed_or_out_of_work": 209225,
+    "valid_mental_health": 206520,
+    "complete": 203086,
+    "out_of_work": 16466,
+    "employed": 186620,
+    "interview_outside_year": 9593,
+    "missing_states": [
+      47
+    ]
+  },
+  {
+    "year": 2025,
+    "raw": 356158,
+    "states_dc": 350386,
+    "age18_64": 204547,
+    "employed_or_out_of_work": 155587,
+    "valid_mental_health": 153598,
+    "complete": 150627,
+    "out_of_work": 12532,
+    "employed": 138095,
+    "interview_outside_year": 9410,
+    "missing_states": [
+      6,
+      28,
+      32
+    ]
+  }
+]

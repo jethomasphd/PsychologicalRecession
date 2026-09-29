@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+*.partial
+data/raw/*.txt
+~$*.docx
+rendered/

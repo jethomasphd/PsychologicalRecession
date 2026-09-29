@@ -1,46 +1,38 @@
-# Study review and revision decisions
+# Study review and current state
 
-Original repository: `jethomasphd/PsychologicalRecession`, main at `b6ceb3f` before revision. Review date: 2026-09-29.
+Repository: `jethomasphd/PsychologicalRecession`. Review and linked-data revision: September 29, 2026.
 
-## Core question
+## The question and the corrected scope
 
-The user clarified that the question is whether the structural environment of looking for work makes people sick. The article is a position paper / empirical editorial written from an industry perspective. It is not principally about a divergence between macroeconomic indicators and consumer sentiment. The named future coauthor is intentionally absent at the user's request.
+Job seeking places people in a structural environment that can constrain access to income, security, control and participation. The user’s intended paper asks whether that environment is a psychiatric exposure. It is an empirical editorial written with an industry perspective. It must relate measured mental-health burden to market conditions and include relevant grey literature, preprints and popular reporting.
 
-## What existed
+The first revision compared employment groups in NHIS. That answered a different question. It has been preserved in full at `archive/2026-09-29-employment-status-revision/` (commit `1c651fdac40ea736028b56c75beb6ff67e497691`), and none of its estimates are presented as evidence of the market-condition effect in the current paper.
 
-All 14 original files were read or inspected in their relevant form: the Word manuscript (including tables and bibliography); both Python scripts; README; the five source CSV files; derived PRI CSV; OLS output; the dashboard HTML; and the PNG/PDF figure. They are preserved byte for byte under `archive/`. The checksum manifest is `archive_sha256.json`. The archive is a historical record, not current evidence endorsed by this revision.
+## What was in the original repository
 
-The original project was a long conceptual paper plus an exploratory composite index. It regressed consumer sentiment on unemployment, payroll growth, and the log of job openings, then combined a standardized residual with selected anxiety/depression prevalence values. The supplied code depended on a machine-specific `/home/claude/pri` path and a data-directory structure that did not match the uploaded files. There was no executable source-acquisition pipeline or frozen environment.
+The original main commit was `b6ceb3fe006a99774dda29196cd79fcaaf1cac8d`. All 14 files were inspected: Word manuscript and bibliography, two Python scripts, README, five source CSVs, derived PRI table, OLS output, dashboard and figure files. Their bytes remain at the archive root and are checked by `audit/archive_sha256.json`.
 
-## Why the old index is not the revised analysis
+The project combined a conceptual paper with an index based on a consumer-sentiment regression residual and selected anxiety/depression values. It was not an analysis directly linking individual mental-health outcomes to measured job-market conditions. Machine-specific paths prevented a portable rebuild. The HPS component used `(prevalence − 10.8) / 1.5` without establishing an appropriate reference standard deviation; components changed with data availability. NHIS and HPS measures, modes and recall periods were treated as comparable without a linking model. Some supplied 2025 HPS observations could not be traced to the cited legacy release, which ended in September 2024. Those observations remain unverified; no fabrication finding is asserted. Time-series dependence and index construction were not adequately reflected in inference. The 64-reference bibliography also contained incorrect titles, authors and identifiers, alongside incomplete records.
 
-1. **Construct validity:** a consumer-sentiment residual is not a measure of psychiatric illness, job seeking, rejection, or exposure to a hiring system.
-2. **Scaling:** the HPS component used `(prevalence − 10.8) / 1.5` without establishing the denominator as a valid reference standard deviation. Reported extreme standardized values therefore lacked an interpretable psychiatric scale.
-3. **Changing composition:** averaging whatever components were available altered the meaning of the composite over time.
-4. **Incompatible baseline:** NHIS and HPS measures, collection modes, and reference periods were combined without a justified linking model. Their raw prevalences cannot establish a comparable threefold increase.
-5. **Source traceability:** the supplied HPS series included 2025 observations that could not be traced to the cited legacy CDC HPS release (which ends in September 2024). Those rows are unverified, not declared fabricated, and are excluded from the new analysis.
-6. **Time-series inference:** the regression did not adequately establish uncertainty for serial dependence, specification choice, or the constructed index. The effective baseline after growth-rate construction was 2011–2019 (36 quarters), not a full 2010–2019 sample. The last 2026 quarter was incomplete.
-7. **Interpretation:** the materials moved from an ecological sentiment pattern to claims about psychiatric harm without observing the proposed exposure or a defensible causal design.
-8. **Bibliography:** the audit found wrong or unresolved identifiers, inaccurate titles/authors, incomplete gray-literature citations, and claims exceeding what their sources support. See `reference_audit.md`.
+Those original materials are historical, not current evidence endorsed by the revision. Their full earlier methodological review and audit remain in the archived first revision.
 
-## New empirical state
+## Current empirical state
 
-The revised empirical illustration uses public 2022 and 2025 NHIS records with compatible employment recodes and PHQ-8/GAD-7 symptom measures. The 2019 file was reviewed but not pooled because its employment recode differs. Adults aged 18–64 are compared using the exact combined unemployment/layoff/search category and the employed recode. The analysis does not mislabel this as a direct measurement of active search.
+- Public CDC BRFSS respondent files, 2013–2025, were obtained with the original SAS layouts. Public BLS state JOLTS and LAUS files were downloaded, checked and frozen.
+- The primary sample contains 193,060 out-of-work adults in 607 state-years during 2013–2024. A separate contextual model contains 2,223,024 employed adults. No active-search status or diagnosis is inferred.
+- Weighted fixed-effect regressions link distress to actual state hiring, competition for openings, and opening rates. State-clustered uncertainty is explicit. The analysis uses original respondent counts in the finite-sample correction.
+- Lower same-year hiring has an uncertain inverse coefficient; the prior-year coefficient reverses sign. Competition per opening has a positive, imprecise coefficient. All prespecified checks and the labeled post hoc logistic check are reported. No significant-only selection, composite psychiatric index, or unsupported mediation analysis is used.
+- The 2025 extension is separated because BLS’s annual unemployment inputs have 11 months. The missing October competition observation is not interpolated.
+- Individual respondent records reproduce the main collapsed-profile coefficients and covariance with statsmodels. Source reconstruction, official extraction positions, sample flow and archive hashes are checked by the executable pipeline.
 
-Survey-weighted prevalence and modified Poisson regression provide transparent descriptive and adjusted associations. Masked strata/PSUs are retained, including zero domain contributions. Complete-case exclusions, item reconstruction, an interaction, and sensitivity analyses are explicit. The primary result is an adjusted prevalence ratio of approximately 1.92 (95% CI 1.58–2.33). It supports the relevance of the population, not a causal effect of hiring practices.
+The conclusions are bounded by selection into current out-of-work status, annual timing, geography, changing confounding, self-report, nonresponse and model-assisted market estimates. These findings do not rule out individual harm and do not establish that a particular recruitment feature causes it.
 
-The structural argument is supported by focused literature on unemployment, daily job seeking, resources and control, applicant reactions, discrimination, and intervention. Four industry practices are proposed as measurable intervention targets. A future longitudinal regression / structural equation framework and an organizational randomized trial are described without pretending the current public data can identify their mechanisms.
+## Evidence and presentation
 
-## Meaningful checks
+The paper has 24 references with recorded identity, claim support, review depth and limits. Ten are peer-reviewed papers; others include a working paper, preprint, Federal Reserve qualitative report, industry reports, media, official sources and repository. The audit differentiates abstract-level review from full-text review, traces duplicate media coverage to its source, and corrects misleading denominators. It is not advertised as a systematic literature review or an exhaustive retraction screen.
 
-- Exact source SHA-256 verification; raw official files included for offline reproduction.
-- Hand-calculated stratified cluster variance check.
-- Independent ratio-of-means and delta-method comparison with the crude regression coefficient and variance.
-- Weight-rescaling invariance, model convergence, score residuals, and fitted-probability checks.
-- All 15 complete symptom items reproduce the official severity recodes exactly for fully observed respondents.
-- Sample flow reconciles and all archived original checksums match.
-- Separate rendering and visual review cover the complete manuscript, including front matter, tables, declarations, and references. The rendering record reports the actual result, not an assumed page count.
+The manuscript contains one simple coefficient figure, a short primary-results table and a compact technical note with all main hiring checks. Its sources, model terms, population and noncausal interpretation are stated in ordinary public-health language. The PDF page count and visual review are recorded in `release_validation.json`; the 20-page ceiling includes every part of the paper, with no external supplement required to understand its essential methods and results.
 
-## Authorship handoff
+## Authorship and publication state
 
-The current byline is Jacob E. Thomas, PhD, using the affiliation and correspondence address in the supplied original. Funding and employment disclosure are carried forward from that source and should be confirmed by the author before journal submission. No future coauthor, ORCID, author contribution, approval, or institutional ethics determination has been invented. A journal-specific AI-assistance disclosure and final contributor statement should be completed by the authors under their chosen journal's requirements. No journal submission has been made.
+Jacob E. Thomas, PhD is the only named author. Affiliation, correspondence, employment disclosure and funding statement are carried forward from the original manuscript; a future job-board coauthor was omitted at the user’s explicit request. No coauthor agreement, journal submission, ethics-board determination, or external peer review has been invented. The author will need to confirm declarations and complete the chosen journal’s contributor and AI-assistance disclosures before submission.

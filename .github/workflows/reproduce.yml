@@ -1,34 +1,31 @@
-name: Reproduce public-data analysis
-
+name: Reproduce linked health and labor-market analysis
 on:
   push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   reproduce:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '2'
+      OMP_NUM_THREADS: '2'
+      MPLBACKEND: Agg
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: requirements-lock.txt
-      - name: Install pinned dependencies
-        run: python -m pip install -r requirements-lock.txt
-      - name: Reproduce and check
-        run: python reproduce.py
-      - name: Save rebuilt outputs
-        uses: actions/upload-artifact@v4
+      - run: python -m pip install -r requirements-lock.txt
+      - run: python reproduce.py
+      - uses: actions/upload-artifact@v4
         with:
           name: reproduced-manuscript-and-results
           path: |
-            manuscript/Job_seeking_as_a_psychiatric_exposure.docx
+            manuscript/*.docx
             manuscript/manuscript.md
             results/
-            audit/statistical_validation.json
+            audit/reference_audit.md

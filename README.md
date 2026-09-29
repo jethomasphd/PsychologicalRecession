@@ -1,59 +1,65 @@
 # Job seeking as a psychiatric exposure
 
-**A public health position from the hiring industry**
-Jacob E. Thomas, PhD · September 2026
+**Do mental-health burdens vary with the conditions of the labor market people must navigate?** This empirical editorial links public health records to state hiring, vacancies, and unemployment. It combines that analysis with research on labor-demand shocks, job-search experiences, industry surveys, grey literature, preprints, and reporting.
 
-The central question is whether the structural conditions people encounter while seeking work contribute to psychiatric symptoms. This paper argues that employers, recruitment intermediaries, and job platforms should measure those conditions and test ways to reduce avoidable harm.
+Read the [paper (PDF)](manuscript/Job_seeking_as_a_psychiatric_exposure.pdf), edit the [Word manuscript](manuscript/Job_seeking_as_a_psychiatric_exposure.docx), or read the [text version](manuscript/manuscript.md). The release PDF is **13 pages in total**, including title, abstract, technical note, tables, figure, declarations, and all 24 references. The byline currently contains Jacob E. Thomas only.
 
-[Read the paper in Word](manuscript/Job_seeking_as_a_psychiatric_exposure.docx) · [Read the PDF](manuscript/Job_seeking_as_a_psychiatric_exposure.pdf) · [Read the text](manuscript/manuscript.md) · [Review the evidence audit](audit/reference_audit.md)
+## What was actually estimated
 
-## What the public data show
+The primary analysis links **193,060 out-of-work adults aged 18–64** in **607 state-years, 2013–2024**, to BLS state JOLTS and LAUS measures. The outcome is frequent mental distress: at least 14 mentally unhealthy days in the past month. Out-of-work status does not verify active job seeking, and this surveillance outcome is not a diagnosis.
 
-Across 26,281 adults aged 18–64 in the 2022 and 2025 National Health Interview Survey, moderate or severe anxiety or depressive symptoms were present in **17.3%** of the combined unemployment/layoff/search category and **8.2%** of the employed category. The adjusted prevalence ratio was **1.92 (95% CI 1.58–2.33)**.
+Survey-weighted regressions include state and year fixed effects and demographic terms. Uncertainty is clustered by state. The main model relates lower hiring to distress conditional on unemployment; separate models examine competition per opening and the opening rate.
 
-![Survey-weighted symptom prevalence with 95% confidence intervals](results/figure1.png)
+| Market condition | Adjusted distress difference, percentage points (95% CI) |
+| --- | --- |
+| One-point lower hiring rate, conditional on unemployment | −0.80 (−2.05 to 0.45) |
+| Doubling unemployed people per opening, separate model | 1.71 (−0.01 to 3.44) |
 
-The NHIS category is broader than active job seeking. These cross-sectional data establish symptom burden and association. They do **not** identify an effect of job seeking, a particular platform, or a hiring practice. The manuscript describes a regression and longitudinal structural equation framework for testing those questions, and proposes organizational trials.
+The evidence is mixed. Lower hiring does not show a consistent positive association; the lagged estimate changes direction. Competition has a positive but uncertain association. These estimates cannot establish that a particular hiring practice causes illness. The paper explains selection into current out-of-work status, measurement limits, and what a direct longitudinal study would need.
 
-## Reproduce the paper
+## Reproduce without network access
 
-Use Python 3.12. The two official public-use CSV archives are included, so the analysis and manuscript build need no network after dependency installation. No API key, proprietary dataset, or manual spreadsheet step is required.
+Python 3.12 was used. Dependencies must be installed once; afterward the included inputs support an offline rebuild.
 
-```sh
+```bash
 python -m venv .venv
-# Activate .venv for your shell, then:
+# Activate .venv using your operating system's normal command.
 python -m pip install -r requirements-lock.txt
 python reproduce.py
 ```
 
-On Windows PowerShell, activate with `.venv\Scripts\Activate.ps1`; on macOS/Linux, use `source .venv/bin/activate`. Alternatively invoke the environment's Python executable directly.
+This verifies the data hashes, reconciles every extraction position with the official SAS layouts, checks both archives, fits all specified models, independently checks the main model using individual respondent records in statsmodels, makes the figure, builds the DOCX and Markdown, and rebuilds the reference audit. On a typical laptop it takes a few minutes. No API key or proprietary dataset is required. Exact floating-point tails and rendering can vary across platforms; substantive values and checks use explicit numerical tolerances.
 
-The command verifies source checksums, reconstructs the analytic sample, fits survey-weighted regressions, runs algebraic validation checks, creates the figure, and builds the Word manuscript and reference audit. A clean Python environment was used for the release check. `requirements-lock.txt` pins direct and transitive package versions; `requirements.txt` lists the direct dependencies. See [statistical validation](audit/statistical_validation.json) and [release validation](audit/release_validation.json).
+## Rebuild the inputs from public sources
 
-If source files are absent, `python reproduce.py --download` fetches them from NCHS and requires the frozen SHA-256 hashes to match. A changed upstream file stops the build for review. To also verify or fetch the four official documentation PDFs, use `python src/fetch_data.py --documents --download`. For results without document generation, use `python reproduce.py --analysis-only`.
+```bash
+python reproduce.py --from-source --download
+```
 
-The Word file is editable and generated from `manuscript/paper.md`, `manuscript/references.json`, and the calculated results. PDF export is a separate rendering step. The distributed PDF was rendered and every page inspected; the exact renderer and page count are in the release record. Word processors and font substitutions can change pagination, so recheck the **20-page total limit** after editing. The paper contains all its essential methods, tables, declarations, and references within that limit.
+This downloads missing CDC ASCII ZIPs, verifies their frozen SHA-256 hashes, streams the records, and rebuilds the linked inputs. Allow roughly **0.8 GB of source downloads/cache**, a few GB of RAM, and several minutes. It compares regenerated values with the distributed inputs before analysis. `--from-source` without `--download` uses an existing cache and fails if required files are absent.
 
-## Repository map
+The official BLS flat files change as estimates are revised. Their exact September 29, 2026 vintage is therefore included, losslessly compressed, in `data/source_snapshot/`; official SAS layouts are also included. The complete source URL, byte count, and SHA-256 manifest is [data/source_manifest.json](data/source_manifest.json). A changed upstream file fails verification rather than silently changing the study. The frozen derived inputs remain sufficient for the offline rebuild if an agency later replaces an annual release.
 
-| Location | Contents |
-| --- | --- |
-| `manuscript/` | Editable Word manuscript, inspected PDF, generated readable text, text source, and verified references |
-| `src/` | Acquisition, survey variance, regression, checks, figure, manuscript, and audit scripts |
-| `data/` | Frozen official public-use files, documentation, source URLs, and checksums |
-| `results/` | Complete coefficients and diagnostics, sample flow, descriptive tables, analytic derivative, and figure in PNG/SVG/PDF |
-| `audit/` | Reference and study review, original-file checksums, statistical and release validation |
-| `archive/` | All 14 original repository files, preserved byte for byte |
-| `analysis_plan.md` | Exploratory plan written before the revised models were fitted |
+The primary period ends in 2024 because BLS did not collect October 2025 unemployment data. A separately labeled extension uses the published 11-month 2025 unemployment average; no missing ratio is interpolated.
 
-## Evidence and interpretation
+## Render the paper
 
-The main illustration uses modified Poisson regression to estimate prevalence ratios, with NHIS weights and a stratified cluster sandwich variance. All sampled variance units are retained for domain estimation. Sensitivities examine complete symptom items, a narrower employed comparator, disability exclusion, and missing outcomes. The exploratory year interaction does not establish a worsening time trend.
+The DOCX is generated by `src/build_manuscript.py`. The distributed PDF was rendered with LibreOffice and every page visually reviewed. With LibreOffice installed, after rebuilding:
 
-The reference audit distinguishes bibliographic identity from support for a claim. It screens all 64 original entries and documents all 15 retained references. Unsupported industry survey percentages and inaccurate citations are removed from the current paper. The old consumer-sentiment composite is preserved in `archive/` and is not used as a psychiatric measure. [Study review and revision decisions](audit/study_review.md) explain why.
+```bash
+soffice --headless --convert-to pdf --outdir manuscript manuscript/Job_seeking_as_a_psychiatric_exposure.docx
+```
 
-## Authorship and data use
+Font substitution and Word/LibreOffice differences can change pagination. Check the rendered page count and layout before submission; the release validation records the checked files and renderer. Rendering is separate from the statistical build and requires no office application for analysis.
 
-The current version names Jacob E. Thomas only. His recruitment-industry affiliation is disclosed. No coauthor identity, contribution, or institutional approval is presumed. Author declarations should be confirmed before journal submission.
+## Where to inspect the work
 
-NHIS files are official NCHS public-use releases. Follow the agency's [data documentation and use conditions](https://www.cdc.gov/nchs/nhis/documentation/2025-nhis.html); do not attempt to identify respondents. This repository contains no proprietary job-board records. No new license is asserted over third-party literature or the archived materials.
+- [Analysis decision log](analysis_plan.md): specification, pre-fit data-completeness decision, and the labeled post hoc logistic check.
+- [Data dictionary and provenance](data/README.md): variable definitions, exclusions, aggregation, and linkage.
+- [Reference audit](audit/reference_audit.md): claim support, exact review depth, limits, and disposition of all 64 original citations.
+- [Data and literature guide](audit/data_and_literature.md): why these sources answer the linkage question and what the other evidence can contribute.
+- [Study review](audit/study_review.md): original project assessment, corrected scope, remaining scientific limits.
+- `results/models.csv`: every estimated exposure coefficient, interval, sample size, and model specification. `results/validation.json` contains the independent numerical check. `results/linked_state_year.csv` makes the descriptive linkage inspectable.
+- `archive/`: all 14 original files, plus the complete superseded employment-status revision. SHA-256 checks preserve their bytes; archived findings are historical and are not endorsed by the current analysis. Archived Git configuration files have an `.original` suffix so they cannot alter preservation rules; `SNAPSHOT.json` records the filename mapping.
+
+The GitHub workflow independently rebuilds the analysis and DOCX on Linux from the public derived inputs. It does not redownload 0.8 GB on every push or certify visual pagination. No journal submission or external peer review is implied.
