@@ -1,12 +1,17 @@
 {
-  "date": "2026-09-29",
-  "article_type": "Empirical editorial / position paper",
-  "pages_total": 13,
+  "date": "2026-09-30",
+  "article_type": "Empirical opinion editorial",
+  "pages_total": 6,
   "maximum_pages": 20,
-  "includes": "Title, abstract, all body text, declarations, technical note, three tables, one figure, and 24 references",
-  "word_count_including_tables_and_references": 5006,
-  "renderer": "LibreOffice 26.2.6.3 (X86_64), isolated headless runtime",
-  "render_path_note": "Canonical render_docx helper was unavailable without system LibreOffice; isolated official LibreOffice rendered the same final DOCX, then Poppler rendered every page to PNG.",
+  "includes": "Title, main argument, brief supporting-analysis note, author disclosures and all 22 references",
+  "counts": {
+    "main_argument_words": 1623,
+    "all_text_including_references_words": 2457,
+    "references": 22,
+    "figures": 0,
+    "tables": 0
+  },
+  "renderer": "LibreOffice 26.2.6.3 (X86_64), isolated official headless runtime; Poppler page images",
   "visual_review": {
     "pages_reviewed": [
       1,
@@ -14,52 +19,41 @@
       3,
       4,
       5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13
+      6
     ],
     "pass": true,
     "checked": [
-      "All text and tables within margins",
-      "No clipped labels, overlapping objects or missing glyphs",
-      "One common exposure scale and zero line in figure",
-      "Readable citations, complete reference entries and page numbering"
+      "Text and citations within margins",
+      "Legible typography and complete reference entries",
+      "No clipped or overlapping content",
+      "No tables or figures in the editorial"
     ]
   },
   "pdf_fonts_embedded": {
     "/BAAAAA+TimesNewRomanPSMT": true,
-    "/CAAAAA+TimesNewRomanPS-BoldMT": true,
-    "/DAAAAA+Cambria": true
+    "/CAAAAA+TimesNewRomanPS-BoldMT": true
   },
-  "reference_urls_in_pdf": 24,
+  "reference_urls_in_pdf": 22,
   "docx_has_tracked_changes_or_comments": false,
   "reproduction": {
-    "offline_pipeline": "passed",
-    "from_official_source_files": "passed, regenerated all 43 derived files and compared all values",
-    "official_source_files_checked": 32,
-    "frozen_input_checksums": 64,
-    "sas_layouts_reconciled": 13,
-    "archive_original_files": 14,
-    "archive_previous_revision_files": 45,
-    "additional_archived_extracts": 4,
-    "independent_regression": "statsmodels WLS on 193060 uncollapsed respondent records matches coefficients and state-clustered covariance"
+    "source_extraction": "Passed September 29; all source files, derived inputs and analysis code unchanged in this editorial revision",
+    "frozen_input_checksums_rechecked": 64,
+    "official_layouts_reconciled": 13,
+    "all_archived_file_checksums_rechecked": 170,
+    "reference_mapping": "22 current citations with source review depth and limitations recorded; 24-source background catalog preserved",
+    "numerical_validation": "Existing independent respondent-level WLS and covariance check retained without changing results"
   },
   "limitations": [
-    "Not a systematic review or formal retraction-database audit; source review depth is recorded",
-    "Observational linkage; does not identify effects of active search, individual platforms, or clinical disorder incidence",
-    "Office software/font changes can alter pagination when editing"
+    "This is an opinion editorial informed by a focused narrative review, not a systematic review",
+    "Observed associations do not identify causal effects of hiring practices",
+    "Full coding, model details and sensitivity results remain in the repository; the brief note gives the principal estimates and limits",
+    "Pagination can change with software or font substitution"
   ],
   "file_sha256": {
-    "manuscript/Job_seeking_as_a_psychiatric_exposure.docx": "393c78850c1245d63455078a02c72fba6de0197124d5d3caca04a9c265a47828",
-    "manuscript/Job_seeking_as_a_psychiatric_exposure.pdf": "bfe4f6a0eb581662c94ed9c2578a65175255843474377189bd28d2d8d9947d65",
-    "manuscript/paper.md": "262091e20556d6d520e22db72a19d1dbbfba34f9383e78aaaf6dfcca84916b69",
-    "manuscript/references.json": "61789a32c67a3f64f756541c8df61d92fd07bb67cbf4851b9c185983daa0c961",
-    "results/models.csv": "43b0be723cc358e2ddc7725cf64ca899490445382861c2859dd02f895eb21afc",
-    "results/figure1.png": "ce86a4279fb6bfde222b082ba170251fb28be090779bd51c9fc05ca3a91d05bb"
+    "manuscript/Job_seeking_as_a_psychiatric_exposure.docx": "b3380f545f400c2e9c9bb1d4409c628d9d117d91ed333693746d15c78dc94591",
+    "manuscript/Job_seeking_as_a_psychiatric_exposure.pdf": "7d0bfe52f9fba2cf829632e15a52e0fa52de01d132525cd698c3b725b781c2bb",
+    "manuscript/paper.md": "1e5c3adff7943973ff7422412ffb4098e7912287849592e5c1b17b3f137a131e",
+    "manuscript/references.json": "c3c79c90f15912044ab73209f26fe19accce86d4327b0702140aab04d32fbdb8",
+    "results/models.csv": "43b0be723cc358e2ddc7725cf64ca899490445382861c2859dd02f895eb21afc"
   }
 }

@@ -1,0 +1,255 @@
+{
+  "retrieved": "2026-09-29",
+  "files": [
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2013/files/LLCP2013ASC.ZIP",
+      "sha256": "9cc783627962b2ad7e711518d35f610d432d759fbb884a07822efc7e87730ba0",
+      "bytes": 85568457,
+      "year": 2013,
+      "kind": "data",
+      "filename": "2013_LLCP2013ASC.ZIP"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2013/files/SASOUT13_LLCP.SAS",
+      "sha256": "aaa6707265d11b158f2dfbf403994a855af1377063477ab0942fe47f079bf8a5",
+      "bytes": 32433,
+      "year": 2013,
+      "kind": "layout",
+      "filename": "2013_SASOUT13_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2014/files/LLCP2014ASC.ZIP",
+      "sha256": "d1ecbbb2e48b14ac16fdee48763d08b74a1eb0092d26ba16fc56661365405a1d",
+      "bytes": 53484169,
+      "year": 2014,
+      "kind": "data",
+      "filename": "2014_LLCP2014ASC.ZIP"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2014/files/SASOUT14_LLCP.SAS",
+      "sha256": "5450eb4b7c8b96f4d6014a8363a4dac68aaa5f04c2e1308b3f74972e4867eb82",
+      "bytes": 28655,
+      "year": 2014,
+      "kind": "layout",
+      "filename": "2014_SASOUT14_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2015/files/LLCP2015ASC.zip",
+      "sha256": "d8850a49e469517260ab2bc4619f270115ebdfb2a0945683fe430cfa297a54e4",
+      "bytes": 65857111,
+      "year": 2015,
+      "kind": "data",
+      "filename": "2015_LLCP2015ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2015/files/SASOUT15_LLCP.SAS",
+      "sha256": "dfdf7dffaebbbdd553a73511f867408888d665ad95507f786ae1acff060ae506",
+      "bytes": 32556,
+      "year": 2015,
+      "kind": "layout",
+      "filename": "2015_SASOUT15_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2016/files/LLCP2016ASC.zip",
+      "sha256": "343e6483de57213facc54f3a5dca506978e970082a3aef1d6b2828cc7fead2ae",
+      "bytes": 46118456,
+      "year": 2016,
+      "kind": "data",
+      "filename": "2016_LLCP2016ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2016/files/SASOUT16_LLCP.SAS",
+      "sha256": "48c88c826aa9c0f756c167db1f9a10a3220a60b38c975b2de73d01b348526b4d",
+      "bytes": 28986,
+      "year": 2016,
+      "kind": "layout",
+      "filename": "2016_SASOUT16_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2017/files/LLCP2017ASC.zip",
+      "sha256": "67b100671c2c8ad88396afb7f7d8fa8f54166422150b084f3f203962df34898a",
+      "bytes": 69350309,
+      "year": 2017,
+      "kind": "data",
+      "filename": "2017_LLCP2017ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2017/files/SASOUT17_LLCP.SAS",
+      "sha256": "ac5940495c36d52964df3606af7a976c220678575054df048781f59165e0a685",
+      "bytes": 35278,
+      "year": 2017,
+      "kind": "layout",
+      "filename": "2017_SASOUT17_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2018/files/LLCP2018ASC.zip",
+      "sha256": "2883bf7174b1b0f39c6bdc92c0c70c7e9ad24a2465dd70d5cb7adbec7f1a286d",
+      "bytes": 46966099,
+      "year": 2018,
+      "kind": "data",
+      "filename": "2018_LLCP2018ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2018/files/SASOUT18_LLCP.SAS",
+      "sha256": "8aac8bf04083fc497bca04b530ef7cf750bd02adbc939b3f43ad3337729b4fd9",
+      "bytes": 28355,
+      "year": 2018,
+      "kind": "layout",
+      "filename": "2018_SASOUT18_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2019/files/LLCP2019ASC.zip",
+      "sha256": "66388a57c8780fe0568a0186af2338ce644c197ef4e0c13eab4e368f8fb204ca",
+      "bytes": 63804421,
+      "year": 2019,
+      "kind": "data",
+      "filename": "2019_LLCP2019ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2019/files/SASOUT19_LLCP.SAS",
+      "sha256": "db36afc9bce3472c2c033842000b3e254f6be0b474d72a8363349e44b612fefc",
+      "bytes": 33566,
+      "year": 2019,
+      "kind": "layout",
+      "filename": "2019_SASOUT19_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2020/files/LLCP2020ASC.zip",
+      "sha256": "da383cf09366baba214f56cc3172f972c5afe0432d440e8a419d3f90b053214f",
+      "bytes": 43547533,
+      "year": 2020,
+      "kind": "data",
+      "filename": "2020_LLCP2020ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2020/files/SASOUT20_LLCP.SAS",
+      "sha256": "3a47b9a91e1a869eaaa444e915b6558cad52160dcfd88f30f9df541aee934bb4",
+      "bytes": 28748,
+      "year": 2020,
+      "kind": "layout",
+      "filename": "2020_SASOUT20_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2021/files/LLCP2021ASC.zip",
+      "sha256": "72e2f04c14841457612ca026159416e74ad68975796f0161c384b6da296bfa48",
+      "bytes": 53641943,
+      "year": 2021,
+      "kind": "data",
+      "filename": "2021_LLCP2021ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2021/files/SASOUT21_LLCP.SAS",
+      "sha256": "95d15169002e998a721c9697e69f52268e47e57198ed292fecf569dd325dae44",
+      "bytes": 29963,
+      "year": 2021,
+      "kind": "layout",
+      "filename": "2021_SASOUT21_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2022/files/LLCP2022ASC.zip",
+      "sha256": "ce4e8453afd8685977a13e56da85418eff83e628547604b00e3463eb60c2fc74",
+      "bytes": 52345542,
+      "year": 2022,
+      "kind": "data",
+      "filename": "2022_LLCP2022ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2022/files/SASOUT22_LLCP.SAS",
+      "sha256": "f5e1176524ebb8712939b22ee951777045b8e5ea5231c2bdb580edebde4c81c5",
+      "bytes": 33052,
+      "year": 2022,
+      "kind": "layout",
+      "filename": "2022_SASOUT22_LLCP.SAS"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2023/files/LLCP2023ASC.zip",
+      "sha256": "2de39782455d2c365cbfcb5e69a7935685fb1399b08ff1c2d99068a0358bfa46",
+      "bytes": 60057185,
+      "year": 2023,
+      "kind": "data",
+      "filename": "2023_LLCP2023ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2023/files/SASOUT23_LLCP.zip",
+      "sha256": "7cc0d015b0cbb58dd33cd882baea6d974b5111ee1e8ac3a2dce19b4fde302ccf",
+      "bytes": 11119,
+      "year": 2023,
+      "kind": "layout",
+      "filename": "2023_SASOUT23_LLCP.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2024/files/LLCP2024ASC.zip",
+      "sha256": "2f00750dfe3bdb53251eda0557476b119d24b8b502d3b6d8559fbcb5997562e3",
+      "bytes": 53411907,
+      "year": 2024,
+      "kind": "data",
+      "filename": "2024_LLCP2024ASC.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2024/files/SASOUT24_LLCP.zip",
+      "sha256": "7e3252e2ca756a6c95072f5fa641101ccc361dca7ff7ae57431926fc353f04f2",
+      "bytes": 10007,
+      "year": 2024,
+      "kind": "layout",
+      "filename": "2024_SASOUT24_LLCP.zip"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2025/files/LLCP2025ASC.ZIP",
+      "sha256": "be4a9f167480b1ad788640e21d8b265660c12c87d54c121839c746f29d8fb734",
+      "bytes": 43237365,
+      "year": 2025,
+      "kind": "data",
+      "filename": "2025_LLCP2025ASC.ZIP"
+    },
+    {
+      "url": "https://www.cdc.gov/brfss/annual_data/2025/files/SASOUT25_LLCP.zip",
+      "sha256": "77f742305ae7a54fd796f1504289d34f48496bd923f2b8dba1169297ed260e39",
+      "bytes": 9500,
+      "year": 2025,
+      "kind": "layout",
+      "filename": "2025_SASOUT25_LLCP.zip"
+    },
+    {
+      "url": "https://downloadt.bls.gov/pub/time.series/jt/jt.series",
+      "sha256": "a9cdf1bf8ec24c74b3f4c09a16f163da5fb6123b37acf0c6c3113ac9342b11ab",
+      "bytes": 158802,
+      "filename": "jt.series",
+      "kind": "market"
+    },
+    {
+      "url": "https://downloadt.bls.gov/pub/time.series/jt/jt.state",
+      "sha256": "9abe706a9638003324046af1525eaebc2bdda9c9da715b1a9dd9700beefabecb",
+      "bytes": 1228,
+      "filename": "jt.state",
+      "kind": "market"
+    },
+    {
+      "url": "https://downloadt.bls.gov/pub/time.series/jt/jt.dataelement",
+      "sha256": "32e1f1a79b1d207e70aff5988d574d40930d38f30dbab2b5a8e3f52d68890e59",
+      "bytes": 375,
+      "filename": "jt.dataelement",
+      "kind": "market"
+    },
+    {
+      "url": "https://downloadt.bls.gov/pub/time.series/jt/jt.ratelevel",
+      "sha256": "f2a945018a56d5e5b8940a076fbf50242e1d942d0faee93f9a6cf2e0092952e1",
+      "bytes": 114,
+      "filename": "jt.ratelevel",
+      "kind": "market"
+    },
+    {
+      "url": "https://downloadt.bls.gov/pub/time.series/jt/jt.data.1.AllItems",
+      "sha256": "140d40f5723daad80bb0b185aadc27f7ce796e2048861de737259c621b4ec64d",
+      "bytes": 34468604,
+      "filename": "jt.data.1.AllItems",
+      "kind": "market"
+    },
+    {
+      "url": "https://downloadt.bls.gov/pub/time.series/la/la.data.2.AllStatesU",
+      "sha256": "96cfbbfd2edb06d55af148efc91ad32a5474781d780636cdff16f560ad8674df",
+      "bytes": 12989736,
+      "filename": "la.data.2.AllStatesU",
+      "kind": "market"
+    }
+  ]
+}

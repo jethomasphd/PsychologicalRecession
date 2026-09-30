@@ -1,0 +1,10 @@
+* text=auto eol=lf
+archive/** -text -whitespace
+data/layouts/** -text -whitespace
+*.gz binary
+*.zip binary
+*.ZIP binary
+*.png binary
+*.pdf binary
+*.docx binary
+*.npz binary

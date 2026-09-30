@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-29",
+  "article_type": "Empirical editorial / position paper",
+  "pages_total": 13,
+  "maximum_pages": 20,
+  "includes": "Title, abstract, all body text, declarations, technical note, three tables, one figure, and 24 references",
+  "word_count_including_tables_and_references": 5006,
+  "renderer": "LibreOffice 26.2.6.3 (X86_64), isolated headless runtime",
+  "render_path_note": "Canonical render_docx helper was unavailable without system LibreOffice; isolated official LibreOffice rendered the same final DOCX, then Poppler rendered every page to PNG.",
+  "visual_review": {
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "pass": true,
+    "checked": [
+      "All text and tables within margins",
+      "No clipped labels, overlapping objects or missing glyphs",
+      "One common exposure scale and zero line in figure",
+      "Readable citations, complete reference entries and page numbering"
+    ]
+  },
+  "pdf_fonts_embedded": {
+    "/BAAAAA+TimesNewRomanPSMT": true,
+    "/CAAAAA+TimesNewRomanPS-BoldMT": true,
+    "/DAAAAA+Cambria": true
+  },
+  "reference_urls_in_pdf": 24,
+  "docx_has_tracked_changes_or_comments": false,
+  "reproduction": {
+    "offline_pipeline": "passed",
+    "from_official_source_files": "passed, regenerated all 43 derived files and compared all values",
+    "official_source_files_checked": 32,
+    "frozen_input_checksums": 64,
+    "sas_layouts_reconciled": 13,
+    "archive_original_files": 14,
+    "archive_previous_revision_files": 45,
+    "additional_archived_extracts": 4,
+    "independent_regression": "statsmodels WLS on 193060 uncollapsed respondent records matches coefficients and state-clustered covariance"
+  },
+  "limitations": [
+    "Not a systematic review or formal retraction-database audit; source review depth is recorded",
+    "Observational linkage; does not identify effects of active search, individual platforms, or clinical disorder incidence",
+    "Office software/font changes can alter pagination when editing"
+  ],
+  "file_sha256": {
+    "manuscript/Job_seeking_as_a_psychiatric_exposure.docx": "393c78850c1245d63455078a02c72fba6de0197124d5d3caca04a9c265a47828",
+    "manuscript/Job_seeking_as_a_psychiatric_exposure.pdf": "bfe4f6a0eb581662c94ed9c2578a65175255843474377189bd28d2d8d9947d65",
+    "manuscript/paper.md": "262091e20556d6d520e22db72a19d1dbbfba34f9383e78aaaf6dfcca84916b69",
+    "manuscript/references.json": "61789a32c67a3f64f756541c8df61d92fd07bb67cbf4851b9c185983daa0c961",
+    "results/models.csv": "43b0be723cc358e2ddc7725cf64ca899490445382861c2859dd02f895eb21afc",
+    "results/figure1.png": "ce86a4279fb6bfde222b082ba170251fb28be090779bd51c9fc05ca3a91d05bb"
+  }
+}

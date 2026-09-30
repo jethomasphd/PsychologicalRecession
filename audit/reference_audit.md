@@ -1,10 +1,10 @@
 # Reference and claim audit
 
-Verification date: September 29, 2026.
+Sources verified September 29, 2026; editorial claim mapping updated September 30, 2026.
 
-The current manuscript has 24 references. 1 grey literature, 1 industry report, 2 industry survey, 1 official data, 3 official methods, 1 official release, 10 peer-reviewed, 1 popular commentary, 1 popular reporting, 1 preprint, 1 repository, 1 working paper.
+The current manuscript has 22 references. 1 grey literature, 1 industry report, 2 industry survey, 1 official data, 3 official methods, 1 official release, 9 peer-reviewed, 1 popular commentary, 1 popular reporting, 1 preprint, 1 repository.
 
-Every retained reference has an identity, a reviewed source, a stated claim, and a limit. Twelve DOI records were checked against Crossref. Non-DOI records were checked against the issuing organization, arXiv, or original reporting. Review depth is recorded below; several journal claims are supported at abstract level. This is a focused narrative evidence review, not a systematic review or a formal retraction-database audit. No exhaustive literature search or absence of all corrections is asserted.
+Every retained reference has an identity, a reviewed source, a stated claim, and a limit. The 10 current DOI references were checked against Crossref. Non-DOI records were checked against the issuing organization, arXiv, or original reporting. Review depth is recorded below; several journal claims are supported at abstract level. This is a focused narrative evidence review, not a systematic review or a formal retraction-database audit. No exhaustive literature search or absence of all corrections is asserted. The earlier 24-source catalog is retained in evidence_catalog.json; two background papers are no longer cited in the shorter editorial.
 
 Saved metadata are in retained_registry_metadata.json. Two repeat Crossref requests were rate-limited; the successful earlier same-day Paul and Price records were reused and labeled. A DOI match establishes bibliographic identity; substantive support comes from the separately reviewed text. Offline rebuilding validates the saved record and citation completeness, not current website availability.
 
@@ -64,27 +64,7 @@ Supports: Spanish construction collapse, shift-share instrument, low reemploymen
 
 Limit: Instrumental-variable assumptions and sector/country context; not an experiment on job boards. Do not change percentage points into percentages.
 
-### 5. Clark AE. Unemployment as a social norm: Psychological evidence from panel data. Journal of Labor Economics. 2003;21(2):323–351.
-
-Type: Peer-reviewed. Identifier: https://doi.org/10.1086/345560
-
-Reviewed: [Publisher abstract and DOI metadata](https://www.journals.uchicago.edu/doi/10.1086/345560).
-
-Supports: Seven-wave panel: unemployed people’s well-being was positively associated with reference-group unemployment, especially among men.
-
-Limit: Competing mechanism; not proof that unemployment improves mental health or that a current US effect is causal.
-
-### 6. Gagné T, Schoon I, Sacker A. Trends in young adults’ mental distress and its association with employment: Evidence from the Behavioral Risk Factor Surveillance System, 1993–2019. Preventive Medicine. 2021;150:106691.
-
-Type: Peer-reviewed. Identifier: https://doi.org/10.1016/j.ypmed.2021.106691
-
-Reviewed: [Author accepted manuscript: measures, analyses, results and discussion; DOI metadata](https://discovery.ucl.ac.uk/id/eprint/10131375/3/Sacker_TGISAS_PM_FMD_forUCLrepository_15July21.pdf).
-
-Supports: BRFSS distress and short-/long-duration out-of-work categories have existing precedent; associations varied across contexts.
-
-Limit: Ages 18–34 and employment-status analysis; does not establish the new state hiring-rate association.
-
-### 7. Song Z, Uy MA, Zhang S, Shi K. Daily job search and psychological distress: Evidence from China. Human Relations. 2009;62(8):1171–1197.
+### 5. Song Z, Uy MA, Zhang S, Shi K. Daily job search and psychological distress: Evidence from China. Human Relations. 2009;62(8):1171–1197.
 
 Type: Peer-reviewed. Identifier: https://doi.org/10.1177/0018726709334883
 
@@ -94,7 +74,7 @@ Supports: Daily diary study of 100 unemployed searchers supported associations i
 
 Limit: Observational, China; not a causal estimate for US platforms or an estimate of disorder incidence.
 
-### 8. Price RH, Choi JN, Vinokur AD. Links in the chain of adversity following job loss: How financial strain and loss of personal control lead to depression, impaired functioning, and poor health. Journal of Occupational Health Psychology. 2002;7(4):302–312.
+### 6. Price RH, Choi JN, Vinokur AD. Links in the chain of adversity following job loss: How financial strain and loss of personal control lead to depression, impaired functioning, and poor health. Journal of Occupational Health Psychology. 2002;7(4):302–312.
 
 Type: Peer-reviewed. Identifier: https://doi.org/10.1037/1076-8998.7.4.302
 
@@ -104,7 +84,7 @@ Supports: Longitudinal links involving financial strain, personal control, and h
 
 Limit: Not an experiment on hiring-system features; does not eliminate mediation confounding.
 
-### 9. Wanberg CR, van Hooft EAJ, Dossinger K, van Vianen AEM, Klehe UC. How strong is my safety net? Perceived unemployment insurance generosity and implications for job search, mental health, and reemployment. Journal of Applied Psychology. 2020;105(3):209–229.
+### 7. Wanberg CR, van Hooft EAJ, Dossinger K, van Vianen AEM, Klehe UC. How strong is my safety net? Perceived unemployment insurance generosity and implications for job search, mental health, and reemployment. Journal of Applied Psychology. 2020;105(3):209–229.
 
 Type: Peer-reviewed. Identifier: https://doi.org/10.1037/apl0000435
 
@@ -114,7 +94,7 @@ Supports: Four-wave study in three countries associated perceived generosity wit
 
 Limit: Perceived generosity, not a randomized benefit policy; article issue year 2020, online year 2019.
 
-### 10. Bjørnshagen V. The mark of mental health problems. A field experiment on hiring discrimination before and during COVID-19. Social Science & Medicine. 2021;283:114181.
+### 8. Bjørnshagen V. The mark of mental health problems. A field experiment on hiring discrimination before and during COVID-19. Social Science & Medicine. 2021;283:114181.
 
 Type: Peer-reviewed. Identifier: https://doi.org/10.1016/j.socscimed.2021.114181
 
@@ -124,17 +104,7 @@ Supports: Norwegian correspondence experiment found reduced positive responses f
 
 Limit: Norway and a particular disclosure manipulation; not US psychiatric incidence.
 
-### 11. Hershbein BJ, Lim K, Webber D, Zabek M. Local labor market tightness and job quality: Evidence from job changers. Upjohn Institute Working Paper 26-433 [working paper]. July 2026.
-
-Type: Working paper. Identifier: https://doi.org/10.17848/wp26-433
-
-Reviewed: [Institutional abstract and metadata](https://research.upjohn.org/up_workingpapers/433/).
-
-Supports: SHED-based analysis links vacancies to job changes and improvements in reported job quality.
-
-Limit: Not a psychiatric-outcome study; working paper status is retained. Abstract-level substantive review.
-
-### 12. Chan E. 2024 Job Seeker Insights Report: 1,000 candidates weigh in on the job search. Resume Genius. 2024.
+### 9. Chan E. 2024 Job Seeker Insights Report: 1,000 candidates weigh in on the job search. Resume Genius. 2024.
 
 Type: Industry survey. Identifier: https://resumegenius.com/blog/job-hunting/job-seeker-insights-survey
 
@@ -144,7 +114,7 @@ Supports: Pollfish survey launched August 2, 2024; 1,000 active US seekers, quot
 
 Limit: Lifetime self-attribution, not current psychiatric prevalence. Online sample and fixed employment quotas; original microdata were not publicly linked. Do not adopt the report’s sampling-error claim as evidence of representativeness.
 
-### 13. Robinson B. 72% of applicants say the job search has harmed their mental health. Forbes. September 20, 2024.
+### 10. Robinson B. 72% of applicants say the job search has harmed their mental health. Forbes. September 20, 2024.
 
 Type: Popular commentary. Identifier: https://www.forbes.com/sites/bryanrobinson/2024/09/20/72-of-applicants-say-the-job-search-has-harmed-their-mental-health/
 
@@ -154,7 +124,7 @@ Supports: Public circulation of the Resume Genius finding; useful source trail.
 
 Limit: Same 1,000-person survey, not replication. The article’s description of the 31% response differs from the current source report; manuscript follows original response wording and avoids that ambiguous subcategory.
 
-### 14. Alobeid D. Ghosting, ghost jobs and bots: Candidates reveal their top challenges in the Greenhouse 2024 State of Job Hunting report. Greenhouse. December 10, 2024.
+### 11. Alobeid D. Ghosting, ghost jobs and bots: Candidates reveal their top challenges in the Greenhouse 2024 State of Job Hunting report. Greenhouse. December 10, 2024.
 
 Type: Industry survey. Identifier: https://www.greenhouse.com/blog/greenhouse-2024-state-of-job-hunting-report
 
@@ -164,7 +134,7 @@ Supports: Survey of 2,500 workers across US, UK and Germany reports anxiety and 
 
 Limit: Do not use multinational total as US anxiety denominator. Nonclinical anxiety item; microdata, complete sampling frame and item denominator not disclosed in reviewed summary. Not independent verification of whether jobs were genuine.
 
-### 15. Wright S. The Q1 2026 Job Search Trends Report. Huntr. 2026.
+### 12. Wright S. The Q1 2026 Job Search Trends Report. Huntr. 2026.
 
 Type: Industry report. Identifier: https://huntr.co/research/job-search-trends-q1-2026
 
@@ -174,7 +144,7 @@ Supports: Tracked-user applications and survey responses provide candidate-proce
 
 Limit: Selected platform users, self-reported events, incomplete searches and small groups. “Review the data” links lead to report sections, not public respondent-level files. Cannot independently reproduce claimed search-duration trend.
 
-### 16. Miller S, Piazza M, Bogue Simpson E, Broady K. Worker perspectives: When every dollar counts—inside the economic struggles of workers who earn low to moderate incomes. Federal Reserve; Fed Communities. June 24, 2026.
+### 13. Miller S, Piazza M, Bogue Simpson E, Broady K. Worker perspectives: When every dollar counts—inside the economic struggles of workers who earn low to moderate incomes. Federal Reserve; Fed Communities. June 24, 2026.
 
 Type: Grey literature. Identifier: https://doi.org/10.59695/20260624
 
@@ -184,7 +154,7 @@ Supports: 63 participants, 11 late-2025 focus groups; financial strain, unstable
 
 Limit: Qualitative, selected low/moderate-income participants; no prevalence or causal effect. No participant quotations reproduced in manuscript.
 
-### 17. Ng H. Why is it so hard to find a job now? Enter Ghost Jobs. arXiv:2410.21771v1 [preprint]. October 29, 2024.
+### 14. Ng H. Why is it so hard to find a job now? Enter Ghost Jobs. arXiv:2410.21771v1 [preprint]. October 29, 2024.
 
 Type: Preprint. Identifier: https://arxiv.org/abs/2410.21771v1
 
@@ -194,7 +164,7 @@ Supports: Exploratory classification of 269,347 English Glassdoor interview revi
 
 Limit: Unit is selected interview reviews, not a representative sample of ads; text classification cannot independently verify employer intent. Does not measure clinical psychiatric outcomes. Do not describe 21% of all vacancies as fake.
 
-### 18. Centers for Disease Control and Prevention. Behavioral Risk Factor Surveillance System: Annual survey data and documentation, 2013–2025. Accessed September 29, 2026.
+### 15. Centers for Disease Control and Prevention. Behavioral Risk Factor Surveillance System: Annual survey data and documentation, 2013–2025. Accessed September 29, 2026.
 
 Type: Official data. Identifier: https://www.cdc.gov/brfss/annual_data/annual_data.htm
 
@@ -204,7 +174,7 @@ Supports: State, survey year, MENTHLTH, EMPLOY1, demographic codes and final sur
 
 Limit: Out of work is not verified active job seeking. Telephone survey, self-report and variable nonresponse; five missing state-years in main analysis.
 
-### 19. Centers for Disease Control and Prevention. FAQs about health-related quality-of-life measures: Frequent mental distress. Archived resource. Accessed September 29, 2026.
+### 16. Centers for Disease Control and Prevention. FAQs about health-related quality-of-life measures: Frequent mental distress. Archived resource. Accessed September 29, 2026.
 
 Type: Official methods. Identifier: https://archive.cdc.gov/www_cdc_gov/hrqol/faqs.htm
 
@@ -214,7 +184,27 @@ Supports: Frequent mental distress is 14 or more mentally unhealthy days in the 
 
 Limit: Surveillance indicator, not diagnosis.
 
-### 20. Bureau of Labor Statistics. JOLTS state estimates: Methodology. Accessed September 29, 2026.
+### 17. Clark AE. Unemployment as a social norm: Psychological evidence from panel data. Journal of Labor Economics. 2003;21(2):323–351.
+
+Type: Peer-reviewed. Identifier: https://doi.org/10.1086/345560
+
+Reviewed: [Publisher abstract and DOI metadata](https://www.journals.uchicago.edu/doi/10.1086/345560).
+
+Supports: Seven-wave panel: unemployed people’s well-being was positively associated with reference-group unemployment, especially among men.
+
+Limit: Competing mechanism; not proof that unemployment improves mental health or that a current US effect is causal.
+
+### 18. Vinokur AD, Schul Y, Vuori J, Price RH. Two years after a job loss: Long-term impact of the JOBS program on reemployment and mental health. Journal of Occupational Health Psychology. 2000;5(1):32–47.
+
+Type: Peer-reviewed. Identifier: https://doi.org/10.1037/1076-8998.5.1.32
+
+Reviewed: [Indexed abstract, author-hosted article, DOI metadata](https://pubmed.ncbi.nlm.nih.gov/10658883/).
+
+Supports: Randomized workshop study of 1,801 participants with employment and mental health benefits at two years.
+
+Limit: Workshop intervention, not a trial of job-board design. PubMed also gives an equivalent double-slash DOI alias.
+
+### 19. Bureau of Labor Statistics. JOLTS state estimates: Methodology. Accessed September 29, 2026.
 
 Type: Official methods. Identifier: https://www.bls.gov/jlt/jlt_statedata_methodology.htm
 
@@ -224,7 +214,7 @@ Supports: State hires and openings rates; composite synthetic estimation using s
 
 Limit: State estimates are model-assisted; no direct individual job-finding probability, industry-specific search exposure or measure of ghost jobs. State production changed to annual release in July 2026.
 
-### 21. Bureau of Labor Statistics. Local Area Unemployment Statistics: Overview. Accessed September 29, 2026.
+### 20. Bureau of Labor Statistics. Local Area Unemployment Statistics: Overview. Accessed September 29, 2026.
 
 Type: Official methods. Identifier: https://www.bls.gov/lau/lauov.htm
 
@@ -233,6 +223,16 @@ Reviewed: [Official overview and public all-states unadjusted flat file](https:/
 Supports: State unemployment concepts and model-based estimation; published M13 annual averages used.
 
 Limit: Unemployment stock differs from hiring flows; not every out-of-work BRFSS respondent satisfies CPS unemployment definition.
+
+### 21. Thomas JE. PsychologicalRecession. Public data, analysis code, manuscript, and audit records. GitHub repository. Revision dated September 30, 2026.
+
+Type: Repository. Identifier: https://github.com/jethomasphd/PsychologicalRecession
+
+Reviewed: [Repository inspected; revised files and results generated and checked locally](https://github.com/jethomasphd/PsychologicalRecession).
+
+Supports: Reproducible implementation and complete audit trail.
+
+Limit: Repository availability is checked after publication of the revision; no external peer review is implied.
 
 ### 22. Bureau of Labor Statistics. State employment and unemployment—January 2026. April 8, 2026.
 
@@ -243,26 +243,6 @@ Reviewed: [Annual processing note and 2025 flat-file missingness](https://www.bl
 Supports: 2025 statewide averages use the 11 months with CPS data collection and are not strictly comparable to prior annual averages.
 
 Limit: Justifies complete-year primary endpoint 2024 and separate 2025 extension, not imputation of October.
-
-### 23. Vinokur AD, Schul Y, Vuori J, Price RH. Two years after a job loss: Long-term impact of the JOBS program on reemployment and mental health. Journal of Occupational Health Psychology. 2000;5(1):32–47.
-
-Type: Peer-reviewed. Identifier: https://doi.org/10.1037/1076-8998.5.1.32
-
-Reviewed: [Indexed abstract, author-hosted article, DOI metadata](https://pubmed.ncbi.nlm.nih.gov/10658883/).
-
-Supports: Randomized workshop study of 1,801 participants with employment and mental health benefits at two years.
-
-Limit: Workshop intervention, not a trial of job-board design. PubMed also gives an equivalent double-slash DOI alias.
-
-### 24. Thomas JE. PsychologicalRecession. Public data, analysis code, manuscript, and audit records. GitHub repository. Revision dated September 29, 2026.
-
-Type: Repository. Identifier: https://github.com/jethomasphd/PsychologicalRecession
-
-Reviewed: [Repository inspected; revised files and results generated and checked locally](https://github.com/jethomasphd/PsychologicalRecession).
-
-Supports: Reproducible implementation and complete audit trail.
-
-Limit: Repository availability is checked after publication of the revision; no external peer review is implied.
 
 ## Disposition of all 64 references in the original manuscript
 
@@ -295,7 +275,7 @@ The original record and the 35 attempted DOI checks are preserved in original_re
 | 23 | Gallup. (2026). State of the global workplace: 2026 report. https://www.gallup.com/workplace/349484/state-of-the-global-workplace.aspx | No complete verification established from the supplied record; not used in the current paper. |
 | 24 | Galtung, J. (1969). Violence, peace, and peace research. Journal of Peace Research, 6(3), 167–191. https://doi.org/10.1177/002234336900600301 | DOI metadata retrieved. Not needed for the current claims; no full claim verification asserted. |
 | 25 | Goldman Sachs Research. (2026, April). Forty years of U.S. data on job-displacement scarring [Research report]. | No complete verification established from the supplied record; not used in the current paper. |
-| 26 | Greenhouse. (2024). 2024 state of job hunting report. https://www.greenhouse.com/blog/greenhouse-2024-state-of-job-hunting-report | Retained after source and claim review; see current reference 14. Bibliographic details follow the verified current record. |
+| 26 | Greenhouse. (2024). 2024 state of job hunting report. https://www.greenhouse.com/blog/greenhouse-2024-state-of-job-hunting-report | Retained after source and claim review; see current reference 11. Bibliographic details follow the verified current record. |
 | 27 | Hellgren, J., Sverke, M., & Isaksson, K. (1999). A two-dimensional approach to job insecurity: Consequences for employee attitudes and well-being. European Journal of Work and Organizational Psychology, 8(2), 179–195. https://doi.org/10.1080/135943299398311 | DOI metadata retrieved. Not needed for the current claims; no full claim verification asserted. |
 | 28 | Irvine, A., & Rose, N. (2024). How does precarious employment affect mental health? A scoping review and thematic synthesis. Work, Employment and Society, 38(2), 418–441. https://doi.org/10.1177/09500170221128698 | DOI metadata retrieved. Not needed for the current claims; no full claim verification asserted. |
 | 29 | Kessler, R. C., Andrews, G., Colpe, L. J., Hiripi, E., Mroczek, D. K., Normand, S.-L. T., Walters, E. E., & Zaslavsky, A. M. (2002). Short screening scales to monitor population prevalences and trends in non-specific psychological distress. Psychological Medicine, 32(6), 959–976. https://doi.org/10.1017/S0033291702006074 | DOI metadata retrieved. Not needed for the current claims; no full claim verification asserted. |
@@ -332,5 +312,5 @@ The original record and the 35 attempted DOI checks are preserved in original_re
 | 60 | Tsai, A. C., Mendenhall, E., Trostle, J. A., & Kawachi, I. (2017). Co-occurring epidemics, syndemics, and population health. The Lancet, 389(10072), 978–982. https://doi.org/10.1016/S0140-6736(17)30403-8 | DOI metadata retrieved. Not needed for the current claims; no full claim verification asserted. |
 | 61 | Vahratian, A., Blumberg, S. J., Terlizzi, E. P., & Schiller, J. S. (2021). Symptoms of anxiety or depressive disorder and use of mental health care among adults during the COVID-19 pandemic — United States, August 2020–February 2021. Morbidity and Mortality Weekly Report, 70(13), 490–494. https://doi.org/10.15585/mmwr.mm7013e2 | DOI metadata retrieved. Not needed for the current claims; no full claim verification asserted. |
 | 62 | Verho, J., Hämäläinen, K., & Kanninen, O. (2025). Health effects of cash transfers: Evidence from the Finnish basic income experiment. Journal of Public Economics, 239, Article 105170. https://doi.org/10.1016/j.jpubeco.2024.105170 | Supplied DOI 10.1016/j.jpubeco.2024.105170 resolves to “Spillover effects of specialized high schools,” not a Finnish basic-income study. The associated policy claim was removed. |
-| 63 | Vinokur, A. D., Schul, Y., Vuori, J., & Price, R. H. (2000). Two years after a job loss: Long-term impact of the JOBS program on reemployment and mental health. Journal of Occupational Health Psychology, 5(1), 32–47. https://doi.org/10.1037/1076-8998.5.1.32 | Retained after source and claim review; see current reference 23. Bibliographic details follow the verified current record. |
+| 63 | Vinokur, A. D., Schul, Y., Vuori, J., & Price, R. H. (2000). Two years after a job loss: Long-term impact of the JOBS program on reemployment and mental health. Journal of Occupational Health Psychology, 5(1), 32–47. https://doi.org/10.1037/1076-8998.5.1.32 | Retained after source and claim review; see current reference 18. Bibliographic details follow the verified current record. |
 | 64 | Wilson, N., & McDaid, S. (2021). The mental health effects of a Universal Basic Income: A synthesis of the evidence. Social Science & Medicine, 287, Article 114374. https://doi.org/10.1016/j.socscimed.2021.114374 | DOI metadata retrieved. Not needed for the current claims; no full claim verification asserted. |

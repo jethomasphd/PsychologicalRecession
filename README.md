@@ -1,10 +1,10 @@
-# Job seeking as a psychiatric exposure
+# Job seeking is a public health issue
 
-**Do mental-health burdens vary with the conditions of the labor market people must navigate?** This empirical editorial links public health records to state hiring, vacancies, and unemployment. It combines that analysis with research on labor-demand shocks, job-search experiences, industry surveys, grey literature, preprints, and reporting.
+**An empirical opinion editorial about the hiring environment as a potential psychiatric exposure.** The central argument is that employers and job platforms should account for the burdens their systems impose on people seeking work. Evidence about labor-market conditions, financial strain, control, discrimination and search experiences informs that position. The proposed response is to make recruitment conditions observable, reduce avoidable burdens, and evaluate the consequences for health and access to work.
 
-Read the [paper (PDF)](manuscript/Job_seeking_as_a_psychiatric_exposure.pdf), edit the [Word manuscript](manuscript/Job_seeking_as_a_psychiatric_exposure.docx), or read the [text version](manuscript/manuscript.md). The release PDF is **13 pages in total**, including title, abstract, technical note, tables, figure, declarations, and all 24 references. The byline currently contains Jacob E. Thomas only.
+Read the [editorial (PDF)](manuscript/Job_seeking_as_a_psychiatric_exposure.pdf), edit the [Word manuscript](manuscript/Job_seeking_as_a_psychiatric_exposure.docx), or read the [text version](manuscript/manuscript.md). The release PDF is **6 pages in total**, including a brief analysis note, disclosures and all 22 references. The main argument is approximately **1,600 words**. It begins with the position, weaves the evidence into that argument, and closes with responsibilities for the hiring industry. It has no abstract, statistical tables or figures. Jacob E. Thomas is the only named author.
 
-## What was actually estimated
+## The supporting analysis
 
 The primary analysis links **193,060 out-of-work adults aged 18–64** in **607 state-years, 2013–2024**, to BLS state JOLTS and LAUS measures. The outcome is frequent mental distress: at least 14 mentally unhealthy days in the past month. Out-of-work status does not verify active job seeking, and this surveillance outcome is not a diagnosis.
 
@@ -28,7 +28,7 @@ python -m pip install -r requirements-lock.txt
 python reproduce.py
 ```
 
-This verifies the data hashes, reconciles every extraction position with the official SAS layouts, checks both archives, fits all specified models, independently checks the main model using individual respondent records in statsmodels, makes the figure, builds the DOCX and Markdown, and rebuilds the reference audit. On a typical laptop it takes a few minutes. No API key or proprietary dataset is required. Exact floating-point tails and rendering can vary across platforms; substantive values and checks use explicit numerical tolerances.
+This verifies the data hashes, reconciles every extraction position with the official SAS layouts, checks all archived versions, fits all specified models, independently checks the main model using individual respondent records in statsmodels, makes the technical figure in `results/`, builds the editorial DOCX and Markdown, and rebuilds the reference audit. The figure remains part of the analysis record and is not embedded in the editorial. On a typical laptop it takes a few minutes. No API key or proprietary dataset is required. Exact floating-point tails and rendering can vary across platforms; substantive values and checks use explicit numerical tolerances.
 
 ## Rebuild the inputs from public sources
 
@@ -60,6 +60,6 @@ Font substitution and Word/LibreOffice differences can change pagination. Check 
 - [Data and literature guide](audit/data_and_literature.md): why these sources answer the linkage question and what the other evidence can contribute.
 - [Study review](audit/study_review.md): original project assessment, corrected scope, remaining scientific limits.
 - `results/models.csv`: every estimated exposure coefficient, interval, sample size, and model specification. `results/validation.json` contains the independent numerical check. `results/linked_state_year.csv` makes the descriptive linkage inspectable.
-- `archive/`: all 14 original files, plus the complete superseded employment-status revision. SHA-256 checks preserve their bytes; archived findings are historical and are not endorsed by the current analysis. Archived Git configuration files have an `.original` suffix so they cannot alter preservation rules; `SNAPSHOT.json` records the filename mapping.
+- `archive/`: all 14 original files, the superseded employment-status revision, and the complete September 29 analysis-led revision preserved before the editorial rewrite. SHA-256 checks preserve their bytes. Archived Git configuration files have an `.original` suffix so they cannot alter preservation rules; each `SNAPSHOT.json` records the filename mapping. The earlier 24-source evidence catalog also remains in `audit/evidence_catalog.json`; 22 sources are cited in the shorter editorial.
 
 The GitHub workflow independently rebuilds the analysis and DOCX on Linux from the public derived inputs. It does not redownload 0.8 GB on every push or certify visual pagination. No journal submission or external peer review is implied.

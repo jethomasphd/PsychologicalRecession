@@ -13,9 +13,10 @@ def main():
     metadata={r['key']:r.get('metadata',r) for r in json.loads((ROOT/'audit/retained_registry_metadata.json').read_text(encoding='utf8'))}
     assert set(order)==set(refs) and len(order)==len(refs)
     counts=collections.Counter(r['kind'] for r in refs.values())
-    lines=['# Reference and claim audit','Verification date: September 29, 2026.',
+    doi_count=sum(r['url'].startswith('https://doi.org/') for r in refs.values())
+    lines=['# Reference and claim audit','Sources verified September 29, 2026; editorial claim mapping updated September 30, 2026.',
       f'The current manuscript has {len(refs)} references. '+', '.join(f'{n} {kind.lower()}' for kind,n in sorted(counts.items()))+'.',
-      'Every retained reference has an identity, a reviewed source, a stated claim, and a limit. Twelve DOI records were checked against Crossref. Non-DOI records were checked against the issuing organization, arXiv, or original reporting. Review depth is recorded below; several journal claims are supported at abstract level. This is a focused narrative evidence review, not a systematic review or a formal retraction-database audit. No exhaustive literature search or absence of all corrections is asserted.',
+      f'Every retained reference has an identity, a reviewed source, a stated claim, and a limit. The {doi_count} current DOI references were checked against Crossref. Non-DOI records were checked against the issuing organization, arXiv, or original reporting. Review depth is recorded below; several journal claims are supported at abstract level. This is a focused narrative evidence review, not a systematic review or a formal retraction-database audit. No exhaustive literature search or absence of all corrections is asserted. The earlier 24-source catalog is retained in evidence_catalog.json; two background papers are no longer cited in the shorter editorial.',
       'Saved metadata are in retained_registry_metadata.json. Two repeat Crossref requests were rate-limited; the successful earlier same-day Paul and Price records were reused and labeled. A DOI match establishes bibliographic identity; substantive support comes from the separately reviewed text. Offline rebuilding validates the saved record and citation completeness, not current website availability.',
       '## Claims corrected or restricted',
       '- The Resume Genius and Forbes publications describe the same participants. The 72% item is lifetime self-attribution, not current prevalence of a disorder. The current original report and the Forbes paraphrase differ on the 31% subcategory; that subcategory is not used.',
@@ -53,6 +54,6 @@ def main():
         else:status='No complete verification established from the supplied record; not used in the current paper.'
         lines.append(f'| {number} | {record["original_reference"].replace("|","/")} | {status} |')
     (ROOT/'audit/reference_audit.md').write_text('\n\n'.join(lines[:lines.index('| Original no. | Original citation | Current disposition |')])+'\n\n'+'\n'.join(lines[lines.index('| Original no. | Original citation | Current disposition |'):])+'\n',encoding='utf8',newline='\n')
-    print(f'PASS: {len(order)} current citations, 12 saved DOI identities, 64 original dispositions')
+    print(f'PASS: {len(order)} current citations, {doi_count} saved DOI identities, 64 original dispositions')
 
 if __name__=='__main__':main()

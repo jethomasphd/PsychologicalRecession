@@ -1,0 +1,242 @@
+[
+  {
+    "key": "paul",
+    "text": "Paul KI, Moser K. Unemployment impairs mental health: Meta-analyses. Journal of Vocational Behavior. 2009;74(3):264–282.",
+    "url": "https://doi.org/10.1016/j.jvb.2009.01.001",
+    "evidence_url": "https://www.sciencedirect.com/science/article/pii/S0001879109000037",
+    "review_scope": "Publisher abstract and DOI metadata",
+    "supports": "Unemployment–mental health association and longitudinal evidence, with health selection also relevant.",
+    "limits": "Does not isolate the effects of modern hiring processes.",
+    "kind": "Peer-reviewed"
+  },
+  {
+    "key": "song",
+    "text": "Song Z, Uy MA, Zhang S, Shi K. Daily job search and psychological distress: Evidence from China. Human Relations. 2009;62(8):1171–1197.",
+    "url": "https://doi.org/10.1177/0018726709334883",
+    "evidence_url": "https://journals.sagepub.com/doi/pdf/10.1177/0018726709334883",
+    "review_scope": "Publisher abstract and DOI metadata",
+    "supports": "Daily diary study of 100 unemployed searchers supported associations in both directions and a role for negative search experiences.",
+    "limits": "Observational, China; not a causal estimate for US platforms or an estimate of disorder incidence.",
+    "kind": "Peer-reviewed"
+  },
+  {
+    "key": "price",
+    "text": "Price RH, Choi JN, Vinokur AD. Links in the chain of adversity following job loss: How financial strain and loss of personal control lead to depression, impaired functioning, and poor health. Journal of Occupational Health Psychology. 2002;7(4):302–312.",
+    "url": "https://doi.org/10.1037/1076-8998.7.4.302",
+    "evidence_url": "https://mprc.isr.umich.edu/wp-content/uploads/2022/09/Price_JOHP02.pdf",
+    "review_scope": "Indexed abstract, author-hosted article, DOI metadata",
+    "supports": "Longitudinal links involving financial strain, personal control, and health after job loss.",
+    "limits": "Not an experiment on hiring-system features; does not eliminate mediation confounding.",
+    "kind": "Peer-reviewed"
+  },
+  {
+    "key": "wanberg",
+    "text": "Wanberg CR, van Hooft EAJ, Dossinger K, van Vianen AEM, Klehe UC. How strong is my safety net? Perceived unemployment insurance generosity and implications for job search, mental health, and reemployment. Journal of Applied Psychology. 2020;105(3):209–229.",
+    "url": "https://doi.org/10.1037/apl0000435",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/31328926/",
+    "review_scope": "Indexed abstract and DOI metadata",
+    "supports": "Four-wave study in three countries associated perceived generosity with mental health through financial strain and time pressure.",
+    "limits": "Perceived generosity, not a randomized benefit policy; article issue year 2020, online year 2019.",
+    "kind": "Peer-reviewed"
+  },
+  {
+    "key": "bjorn",
+    "text": "Bjørnshagen V. The mark of mental health problems. A field experiment on hiring discrimination before and during COVID-19. Social Science & Medicine. 2021;283:114181.",
+    "url": "https://doi.org/10.1016/j.socscimed.2021.114181",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/34216884/",
+    "review_scope": "Indexed abstract, open article, DOI metadata",
+    "supports": "Norwegian correspondence experiment found reduced positive responses following disclosure of mental health history.",
+    "limits": "Norway and a particular disclosure manipulation; not US psychiatric incidence.",
+    "kind": "Peer-reviewed"
+  },
+  {
+    "key": "vinokur",
+    "text": "Vinokur AD, Schul Y, Vuori J, Price RH. Two years after a job loss: Long-term impact of the JOBS program on reemployment and mental health. Journal of Occupational Health Psychology. 2000;5(1):32–47.",
+    "url": "https://doi.org/10.1037/1076-8998.5.1.32",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/10658883/",
+    "review_scope": "Indexed abstract, author-hosted article, DOI metadata",
+    "supports": "Randomized workshop study of 1,801 participants with employment and mental health benefits at two years.",
+    "limits": "Workshop intervention, not a trial of job-board design. PubMed also gives an equivalent double-slash DOI alias.",
+    "kind": "Peer-reviewed"
+  },
+  {
+    "key": "repo",
+    "text": "Thomas JE. PsychologicalRecession. Public data, analysis code, manuscript, and audit records. GitHub repository. Revision dated September 29, 2026.",
+    "url": "https://github.com/jethomasphd/PsychologicalRecession",
+    "evidence_url": "https://github.com/jethomasphd/PsychologicalRecession",
+    "review_scope": "Repository inspected; revised files and results generated and checked locally",
+    "supports": "Reproducible implementation and complete audit trail.",
+    "limits": "Repository availability is checked after publication of the revision; no external peer review is implied.",
+    "kind": "Repository"
+  },
+  {
+    "key": "charles",
+    "text": "Charles KK, DeCicca P. Local labor market fluctuations and health: Is there a connection and for whom? Journal of Health Economics. 2008;27(6):1532–1550.",
+    "url": "https://doi.org/10.1016/j.jhealeco.2008.06.004",
+    "kind": "Peer-reviewed",
+    "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/18653256/",
+    "review_scope": "Indexed abstract and DOI metadata",
+    "supports": "Local labor-market changes linked to mental health in working-age men in 58 US metropolitan areas, with differences by employment prospects, race and education.",
+    "limits": "Abstract-level review; does not isolate contemporary platform practices."
+  },
+  {
+    "key": "clark",
+    "text": "Clark AE. Unemployment as a social norm: Psychological evidence from panel data. Journal of Labor Economics. 2003;21(2):323–351.",
+    "url": "https://doi.org/10.1086/345560",
+    "kind": "Peer-reviewed",
+    "evidence_url": "https://www.journals.uchicago.edu/doi/10.1086/345560",
+    "review_scope": "Publisher abstract and DOI metadata",
+    "supports": "Seven-wave panel: unemployed people’s well-being was positively associated with reference-group unemployment, especially among men.",
+    "limits": "Competing mechanism; not proof that unemployment improves mental health or that a current US effect is causal."
+  },
+  {
+    "key": "farre",
+    "text": "Farré L, Fasani F, Mueller H. Feeling useless: The effect of unemployment on mental health in the Great Recession. IZA Journal of Labor Economics. 2018;7:8.",
+    "url": "https://doi.org/10.1186/s40172-018-0068-5",
+    "kind": "Peer-reviewed",
+    "evidence_url": "https://link.springer.com/article/10.1186/s40172-018-0068-5",
+    "review_scope": "Full article: abstract, identification, results and limitations; DOI metadata",
+    "supports": "Spanish construction collapse, shift-share instrument, low reemployment prospects and adverse mental-health outcomes.",
+    "limits": "Instrumental-variable assumptions and sector/country context; not an experiment on job boards. Do not change percentage points into percentages."
+  },
+  {
+    "key": "gagne",
+    "text": "Gagné T, Schoon I, Sacker A. Trends in young adults’ mental distress and its association with employment: Evidence from the Behavioral Risk Factor Surveillance System, 1993–2019. Preventive Medicine. 2021;150:106691.",
+    "url": "https://doi.org/10.1016/j.ypmed.2021.106691",
+    "kind": "Peer-reviewed",
+    "evidence_url": "https://discovery.ucl.ac.uk/id/eprint/10131375/3/Sacker_TGISAS_PM_FMD_forUCLrepository_15July21.pdf",
+    "review_scope": "Author accepted manuscript: measures, analyses, results and discussion; DOI metadata",
+    "supports": "BRFSS distress and short-/long-duration out-of-work categories have existing precedent; associations varied across contexts.",
+    "limits": "Ages 18–34 and employment-status analysis; does not establish the new state hiring-rate association."
+  },
+  {
+    "key": "resume",
+    "text": "Chan E. 2024 Job Seeker Insights Report: 1,000 candidates weigh in on the job search. Resume Genius. 2024.",
+    "url": "https://resumegenius.com/blog/job-hunting/job-seeker-insights-survey",
+    "kind": "Industry survey",
+    "evidence_url": "https://resumegenius.com/blog/job-hunting/job-seeker-insights-survey",
+    "review_scope": "Original report, response options, and methodology; accessed September 29, 2026",
+    "supports": "Pollfish survey launched August 2, 2024; 1,000 active US seekers, quotas 500 employed/500 unemployed. 72% reported a negative mental-health effect at some point in life.",
+    "limits": "Lifetime self-attribution, not current psychiatric prevalence. Online sample and fixed employment quotas; original microdata were not publicly linked. Do not adopt the report’s sampling-error claim as evidence of representativeness."
+  },
+  {
+    "key": "greenhouse",
+    "text": "Alobeid D. Ghosting, ghost jobs and bots: Candidates reveal their top challenges in the Greenhouse 2024 State of Job Hunting report. Greenhouse. December 10, 2024.",
+    "url": "https://www.greenhouse.com/blog/greenhouse-2024-state-of-job-hunting-report",
+    "kind": "Industry survey",
+    "evidence_url": "https://www.greenhouse.com/blog/greenhouse-2024-state-of-job-hunting-report",
+    "review_scope": "Original public report summary; accessed September 29, 2026",
+    "supports": "Survey of 2,500 workers across US, UK and Germany reports anxiety and post-interview nonresponse; public summary says 79% of US workers felt heightened anxiety.",
+    "limits": "Do not use multinational total as US anxiety denominator. Nonclinical anxiety item; microdata, complete sampling frame and item denominator not disclosed in reviewed summary. Not independent verification of whether jobs were genuine."
+  },
+  {
+    "key": "fed",
+    "text": "Miller S, Piazza M, Bogue Simpson E, Broady K. Worker perspectives: When every dollar counts—inside the economic struggles of workers who earn low to moderate incomes. Federal Reserve; Fed Communities. June 24, 2026.",
+    "url": "https://doi.org/10.59695/20260624",
+    "kind": "Grey literature",
+    "evidence_url": "https://fedcommunities.org/research/2026-report-when-every-dollar-counts/",
+    "review_scope": "Full public report: sample, focus-group methods, employment/search sections and limitations",
+    "supports": "63 participants, 11 late-2025 focus groups; financial strain, unstable employment and barriers in modern searching.",
+    "limits": "Qualitative, selected low/moderate-income participants; no prevalence or causal effect. No participant quotations reproduced in manuscript."
+  },
+  {
+    "key": "huntr",
+    "text": "Wright S. The Q1 2026 Job Search Trends Report. Huntr. 2026.",
+    "url": "https://huntr.co/research/job-search-trends-q1-2026",
+    "kind": "Industry report",
+    "evidence_url": "https://huntr.co/research/job-search-trends-q1-2026",
+    "review_scope": "Original report, methods, reported denominators and caveats; accessed September 29, 2026",
+    "supports": "Tracked-user applications and survey responses provide candidate-process context; report distinguishes perceived AI rejection from verified employer automation.",
+    "limits": "Selected platform users, self-reported events, incomplete searches and small groups. “Review the data” links lead to report sections, not public respondent-level files. Cannot independently reproduce claimed search-duration trend."
+  },
+  {
+    "key": "ng",
+    "text": "Ng H. Why is it so hard to find a job now? Enter Ghost Jobs. arXiv:2410.21771v1 [preprint]. October 29, 2024.",
+    "url": "https://arxiv.org/abs/2410.21771v1",
+    "kind": "Preprint",
+    "evidence_url": "https://arxiv.org/pdf/2410.21771",
+    "review_scope": "Version 1 full text: sample, classifier, Tables 2–3 and limitations",
+    "supports": "Exploratory classification of 269,347 English Glassdoor interview reviews; 21% classifier-positive reviews in Table 3D.",
+    "limits": "Unit is selected interview reviews, not a representative sample of ads; text classification cannot independently verify employer intent. Does not measure clinical psychiatric outcomes. Do not describe 21% of all vacancies as fake."
+  },
+  {
+    "key": "upjohn",
+    "text": "Hershbein BJ, Lim K, Webber D, Zabek M. Local labor market tightness and job quality: Evidence from job changers. Upjohn Institute Working Paper 26-433 [working paper]. July 2026.",
+    "url": "https://doi.org/10.17848/wp26-433",
+    "kind": "Working paper",
+    "evidence_url": "https://research.upjohn.org/up_workingpapers/433/",
+    "review_scope": "Institutional abstract and metadata",
+    "supports": "SHED-based analysis links vacancies to job changes and improvements in reported job quality.",
+    "limits": "Not a psychiatric-outcome study; working paper status is retained. Abstract-level substantive review."
+  },
+  {
+    "key": "ap",
+    "text": "Rugaber C. “No hire” job market leaves unemployed in limbo as threats to economy multiply. Associated Press. November 7, 2025.",
+    "url": "https://apnews.com/article/c48fd84dfaa71eee962feb3a88fd8575",
+    "kind": "Popular reporting",
+    "evidence_url": "https://www.inquirer.com/business/jobs-unemployment-no-hiring-tariffs-economy-ai-interest-20251110.html",
+    "review_scope": "AP text and author/date corroboration in syndicated copies; original feed timestamp November 6, general release November 7",
+    "supports": "Reporting illustrates slow hiring despite low unemployment and applicant experience of canceled recruitment.",
+    "limits": "Journalism is used for the public problem, not mental-health prevalence or causal estimates. Syndicated publication dates vary; no participant quote reproduced."
+  },
+  {
+    "key": "forbes",
+    "text": "Robinson B. 72% of applicants say the job search has harmed their mental health. Forbes. September 20, 2024.",
+    "url": "https://www.forbes.com/sites/bryanrobinson/2024/09/20/72-of-applicants-say-the-job-search-has-harmed-their-mental-health/",
+    "kind": "Popular commentary",
+    "evidence_url": "https://www.forbes.com/sites/bryanrobinson/2024/09/20/72-of-applicants-say-the-job-search-has-harmed-their-mental-health/",
+    "review_scope": "Full article and outbound link to original Resume Genius report",
+    "supports": "Public circulation of the Resume Genius finding; useful source trail.",
+    "limits": "Same 1,000-person survey, not replication. The article’s description of the 31% response differs from the current source report; manuscript follows original response wording and avoids that ambiguous subcategory."
+  },
+  {
+    "key": "brfss",
+    "text": "Centers for Disease Control and Prevention. Behavioral Risk Factor Surveillance System: Annual survey data and documentation, 2013–2025. Accessed September 29, 2026.",
+    "url": "https://www.cdc.gov/brfss/annual_data/annual_data.htm",
+    "kind": "Official data",
+    "evidence_url": "https://www.cdc.gov/brfss/annual_data/annual_data.htm",
+    "review_scope": "All 13 public ASCII files, accompanying SAS layouts, relevant codebook entries and coverage notices",
+    "supports": "State, survey year, MENTHLTH, EMPLOY1, demographic codes and final survey weights; exact source hashes recorded.",
+    "limits": "Out of work is not verified active job seeking. Telephone survey, self-report and variable nonresponse; five missing state-years in main analysis."
+  },
+  {
+    "key": "healthy",
+    "text": "Centers for Disease Control and Prevention. FAQs about health-related quality-of-life measures: Frequent mental distress. Archived resource. Accessed September 29, 2026.",
+    "url": "https://archive.cdc.gov/www_cdc_gov/hrqol/faqs.htm",
+    "kind": "Official methods",
+    "evidence_url": "https://archive.cdc.gov/www_cdc_gov/hrqol/faqs.htm",
+    "review_scope": "Official outcome definition",
+    "supports": "Frequent mental distress is 14 or more mentally unhealthy days in the past 30 days.",
+    "limits": "Surveillance indicator, not diagnosis."
+  },
+  {
+    "key": "jolts",
+    "text": "Bureau of Labor Statistics. JOLTS state estimates: Methodology. Accessed September 29, 2026.",
+    "url": "https://www.bls.gov/jlt/jlt_statedata_methodology.htm",
+    "kind": "Official methods",
+    "evidence_url": "https://www.bls.gov/jlt/jlt_statedata_methodology.htm",
+    "review_scope": "Official methodology, state background and public jt flat files",
+    "supports": "State hires and openings rates; composite synthetic estimation using survey and administrative inputs.",
+    "limits": "State estimates are model-assisted; no direct individual job-finding probability, industry-specific search exposure or measure of ghost jobs. State production changed to annual release in July 2026."
+  },
+  {
+    "key": "laus",
+    "text": "Bureau of Labor Statistics. Local Area Unemployment Statistics: Overview. Accessed September 29, 2026.",
+    "url": "https://www.bls.gov/lau/lauov.htm",
+    "kind": "Official methods",
+    "evidence_url": "https://www.bls.gov/lau/lauov.htm",
+    "review_scope": "Official overview and public all-states unadjusted flat file",
+    "supports": "State unemployment concepts and model-based estimation; published M13 annual averages used.",
+    "limits": "Unemployment stock differs from hiring flows; not every out-of-work BRFSS respondent satisfies CPS unemployment definition."
+  },
+  {
+    "key": "shutdown",
+    "text": "Bureau of Labor Statistics. State employment and unemployment—January 2026. April 8, 2026.",
+    "url": "https://www.bls.gov/news.release/archives/laus_04082026.htm",
+    "kind": "Official release",
+    "evidence_url": "https://www.bls.gov/news.release/archives/laus_04082026.htm",
+    "review_scope": "Annual processing note and 2025 flat-file missingness",
+    "supports": "2025 statewide averages use the 11 months with CPS data collection and are not strictly comparable to prior annual averages.",
+    "limits": "Justifies complete-year primary endpoint 2024 and separate 2025 extension, not imputation of October."
+  }
+]

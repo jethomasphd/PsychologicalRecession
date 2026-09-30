@@ -2,6 +2,8 @@
 
 Review date: September 29, 2026. The question is whether mental-health burden relates to the environment in which people try to obtain work. The empirical requirement is therefore a measured health outcome that can be linked, in time and place, to measured labor-market conditions. A comparison of employment groups alone does not meet that requirement.
 
+Editorial update, September 30: the main manuscript is now an empirical opinion editorial with 22 cited sources. This broader guide and the 24-source evidence catalog preserve the research behind it; Gagné and the Upjohn working paper remain background sources but are not cited in the shortened article. The analysis, estimates and source data have not changed.
+
 ## Public data selected and alternatives assessed
 
 | Source | Contribution | Decision and limitation |

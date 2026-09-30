@@ -1,0 +1,13 @@
+{
+  "year": 2015,
+  "raw": 441456,
+  "states_dc": 434382,
+  "age18_64": 278420,
+  "employed_or_out_of_work": 203622,
+  "valid_mental_health": 201529,
+  "complete": 198698,
+  "out_of_work": 15455,
+  "employed": 183243,
+  "interview_outside_year": 6020,
+  "missing_states": []
+}

@@ -61,7 +61,7 @@
   },
   {
     "key": "repo",
-    "text": "Thomas JE. PsychologicalRecession. Public data, analysis code, manuscript, and audit records. GitHub repository. Revision dated September 29, 2026.",
+    "text": "Thomas JE. PsychologicalRecession. Public data, analysis code, manuscript, and audit records. GitHub repository. Revision dated September 30, 2026.",
     "url": "https://github.com/jethomasphd/PsychologicalRecession",
     "evidence_url": "https://github.com/jethomasphd/PsychologicalRecession",
     "review_scope": "Repository inspected; revised files and results generated and checked locally",
@@ -98,16 +98,6 @@
     "review_scope": "Full article: abstract, identification, results and limitations; DOI metadata",
     "supports": "Spanish construction collapse, shift-share instrument, low reemployment prospects and adverse mental-health outcomes.",
     "limits": "Instrumental-variable assumptions and sector/country context; not an experiment on job boards. Do not change percentage points into percentages."
-  },
-  {
-    "key": "gagne",
-    "text": "Gagné T, Schoon I, Sacker A. Trends in young adults’ mental distress and its association with employment: Evidence from the Behavioral Risk Factor Surveillance System, 1993–2019. Preventive Medicine. 2021;150:106691.",
-    "url": "https://doi.org/10.1016/j.ypmed.2021.106691",
-    "kind": "Peer-reviewed",
-    "evidence_url": "https://discovery.ucl.ac.uk/id/eprint/10131375/3/Sacker_TGISAS_PM_FMD_forUCLrepository_15July21.pdf",
-    "review_scope": "Author accepted manuscript: measures, analyses, results and discussion; DOI metadata",
-    "supports": "BRFSS distress and short-/long-duration out-of-work categories have existing precedent; associations varied across contexts.",
-    "limits": "Ages 18–34 and employment-status analysis; does not establish the new state hiring-rate association."
   },
   {
     "key": "resume",
@@ -158,16 +148,6 @@
     "review_scope": "Version 1 full text: sample, classifier, Tables 2–3 and limitations",
     "supports": "Exploratory classification of 269,347 English Glassdoor interview reviews; 21% classifier-positive reviews in Table 3D.",
     "limits": "Unit is selected interview reviews, not a representative sample of ads; text classification cannot independently verify employer intent. Does not measure clinical psychiatric outcomes. Do not describe 21% of all vacancies as fake."
-  },
-  {
-    "key": "upjohn",
-    "text": "Hershbein BJ, Lim K, Webber D, Zabek M. Local labor market tightness and job quality: Evidence from job changers. Upjohn Institute Working Paper 26-433 [working paper]. July 2026.",
-    "url": "https://doi.org/10.17848/wp26-433",
-    "kind": "Working paper",
-    "evidence_url": "https://research.upjohn.org/up_workingpapers/433/",
-    "review_scope": "Institutional abstract and metadata",
-    "supports": "SHED-based analysis links vacancies to job changes and improvements in reported job quality.",
-    "limits": "Not a psychiatric-outcome study; working paper status is retained. Abstract-level substantive review."
   },
   {
     "key": "ap",

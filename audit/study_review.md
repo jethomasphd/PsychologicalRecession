@@ -1,6 +1,6 @@
 # Study review and current state
 
-Repository: `jethomasphd/PsychologicalRecession`. Review and linked-data revision: September 29, 2026.
+Repository: `jethomasphd/PsychologicalRecession`. Linked-data revision: September 29, 2026. Empirical opinion editorial rewrite: September 30, 2026.
 
 ## The question and the corrected scope
 
@@ -14,7 +14,7 @@ The original main commit was `b6ceb3fe006a99774dda29196cd79fcaaf1cac8d`. All 14 
 
 The project combined a conceptual paper with an index based on a consumer-sentiment regression residual and selected anxiety/depression values. It was not an analysis directly linking individual mental-health outcomes to measured job-market conditions. Machine-specific paths prevented a portable rebuild. The HPS component used `(prevalence − 10.8) / 1.5` without establishing an appropriate reference standard deviation; components changed with data availability. NHIS and HPS measures, modes and recall periods were treated as comparable without a linking model. Some supplied 2025 HPS observations could not be traced to the cited legacy release, which ended in September 2024. Those observations remain unverified; no fabrication finding is asserted. Time-series dependence and index construction were not adequately reflected in inference. The 64-reference bibliography also contained incorrect titles, authors and identifiers, alongside incomplete records.
 
-Those original materials are historical, not current evidence endorsed by the revision. Their full earlier methodological review and audit remain in the archived first revision.
+Those original materials are historical, not current evidence endorsed by the revision. Their full earlier methodological review and audit remain in the archived first revision. The complete September 29 analysis-led version (107 files outside earlier archives, commit `7b1770207018940fe697058918ed16c2aa4139e3`) is now preserved at `archive/2026-09-30-research-paper-format/`. Its full data, analysis and publication files retain their bytes.
 
 ## Current empirical state
 
@@ -29,9 +29,9 @@ The conclusions are bounded by selection into current out-of-work status, annual
 
 ## Evidence and presentation
 
-The paper has 24 references with recorded identity, claim support, review depth and limits. Ten are peer-reviewed papers; others include a working paper, preprint, Federal Reserve qualitative report, industry reports, media, official sources and repository. The audit differentiates abstract-level review from full-text review, traces duplicate media coverage to its source, and corrects misleading denominators. It is not advertised as a systematic literature review or an exhaustive retraction screen.
+The editorial cites 22 references with recorded identity, claim support, review depth and limits. Nine are peer-reviewed papers; others include a preprint, Federal Reserve qualitative report, industry reports, media, official sources and repository. The broader 24-source catalog remains available, including the background working paper. The audit differentiates abstract-level review from full-text review, traces duplicate media coverage to its source, and corrects misleading denominators. It is not advertised as a systematic literature review or an exhaustive retraction screen.
 
-The manuscript contains one simple coefficient figure, a short primary-results table and a compact technical note with all main hiring checks. Its sources, model terms, population and noncausal interpretation are stated in ordinary public-health language. The PDF page count and visual review are recorded in `release_validation.json`; the 20-page ceiling includes every part of the paper, with no external supplement required to understand its essential methods and results.
+The manuscript now leads with an explicit position: hiring conditions deserve public-health scrutiny, and the industry should reduce avoidable burdens and evaluate their effects. About 1,600 words of main argument weave together the evidence and the proposed responsibilities. A brief supporting-analysis note preserves the principal estimates, intervals and limitations. Full model details and every sensitivity result remain in the reproducibility files and archived analysis-led manuscript. The six-page editorial includes disclosures and all references, with no abstract, tables or figures. The revision changes the genre and emphasis, not the data or findings. The actual PDF page count and complete visual review are recorded in `release_validation.json`.
 
 ## Authorship and publication state
 

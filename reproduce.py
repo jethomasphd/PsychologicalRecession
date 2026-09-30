@@ -11,16 +11,19 @@ def run(name):
 
 def verify_archives():
     original=json.loads((ROOT/'audit/archive_sha256.json').read_text())
-    snapshot=ROOT/'archive/2026-09-29-employment-status-revision'
-    record=json.loads((snapshot/'SNAPSHOT.json').read_text());previous=record['files'];stored=record.get('stored_paths',{})
-    for folder,records in [(ROOT/'archive',original),(snapshot,previous)]:
+    records_to_check=[(ROOT/'archive',original,{})]
+    for manifest in sorted((ROOT/'archive').glob('*/SNAPSHOT.json')):
+        record=json.loads(manifest.read_text());records_to_check.append((manifest.parent,record['files'],record.get('stored_paths',{})))
+        extra=manifest.parent/'EXTRA_EXTRACTS.json'
+        if extra.exists():records_to_check.append((manifest.parent,json.loads(extra.read_text()),{}))
+    total=0
+    for folder,records,stored in records_to_check:
         for name,expected in records.items():
-            path=folder/(stored.get(name,name) if folder==snapshot else name)
+            path=folder/stored.get(name,name)
             with path.open('rb') as f:actual=hashlib.file_digest(f,'sha256').hexdigest()
             assert actual==expected,f'Archive changed: {folder/name}'
-    extra=json.loads((snapshot/'EXTRA_EXTRACTS.json').read_text())
-    for name,expected in extra.items():assert hashlib.sha256((snapshot/name).read_bytes()).hexdigest()==expected,name
-    print(f'PASS: {len(original)} original and {len(previous)} previous-revision files, plus {len(extra)} auxiliary extracts, preserved byte for byte')
+            total+=1
+    print(f'PASS: {total} original, previous-revision and auxiliary files preserved byte for byte')
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)

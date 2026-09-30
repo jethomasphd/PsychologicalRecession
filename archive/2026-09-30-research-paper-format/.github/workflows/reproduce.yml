@@ -1,0 +1,31 @@
+name: Reproduce linked health and labor-market analysis
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '2'
+      OMP_NUM_THREADS: '2'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-lock.txt
+      - run: python reproduce.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reproduced-manuscript-and-results
+          path: |
+            manuscript/*.docx
+            manuscript/manuscript.md
+            results/
+            audit/reference_audit.md
